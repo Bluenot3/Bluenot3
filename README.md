@@ -51,22 +51,57 @@ Across enterprise environments and the ZEN ecosystem, he develops agentic system
 
 ---
 
+---
 ## ⟡ SYSTEM INTELLIGENCE
+---
 
-![](https://github-readme-stats.vercel.app/api?username=Bluenot3&theme=prussian&hide_border=false&include_all_commits=true&count_private=true)
+**Active Build Surface**
+- Architecting agentic AI systems for real-world deployment across education and enterprise environments  
+- Developing multimodal AI dashboards integrating frontier models and operational workflows  
+- Expanding ZEN AI Arena as a unified interface for model comparison, execution, and deployment  
+- Designing scalable AI literacy infrastructure with hands-on, deployment-first learning systems  
 
-![](https://nirzak-streak-stats.vercel.app/?user=Bluenot3&theme=prussian&hide_border=false)
-
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Bluenot3&theme=prussian&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+**Core System Capabilities**
+- Agent orchestration and autonomous workflow design  
+- Multimodal AI integration (text, image, reasoning systems)  
+- End-to-end automation pipelines across enterprise tooling  
+- AI deployment infrastructure (cloud-hosted applications and interfaces)  
 
 ---
 
 ## ⟡ EXECUTION FOOTPRINT
+---
 
-![](https://github-profile-trophy.vercel.app/?username=Bluenot3&theme=radical&no-frame=false&no-bg=false&margin-w=10&row=1&column=6)
+**Build & Output Scale**
+- 370+ repositories across AI systems, applications, and infrastructure  
+- 96+ GitHub stars across deployed and experimental projects  
+- Dozens of production-grade automations and operational systems  
+
+**Program & Ecosystem Impact**
+- First youth AI literacy program in United States history with real deployment outcomes  
+- Students successfully launched live AI agents hosted in the cloud  
+- Systems deployed within one of the largest youth nonprofit networks globally  
+- Early development of token-gated, on-chain AI community model architecture  
+
+**Systems & Platforms**
+- ZEN AI Arena → https://us.zenai.world  
+- ZEN AI Ecosystem → https://www.zenai.world  
+- Portfolio → https://alexleschik.com  
 
 ---
 
 ## ⟡ LIVE SIGNAL
+---
 
-![](https://visitcount.itsvg.in/api?id=Bluenot3&icon=6&color=12)
+**Current Focus**
+- Scaling agentic AI systems for enterprise and institutional use  
+- Expanding AI literacy into globally accessible, deployment-first frameworks  
+- Advancing AI × Web3 convergence through programmable, on-chain intelligence systems  
+
+**Operating Principle**
+- Build systems that reduce friction between idea → execution  
+- Prioritize real deployment over theoretical capability  
+- Design infrastructure that enables others to build, not just consume  
+
+**Status**
+- Actively building, deploying, and scaling systems in real time  
