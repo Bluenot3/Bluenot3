@@ -1,0 +1,260 @@
+<svg width="1200" height="430" viewBox="0 0 1200 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="35%" stop-color="#0B1120"/>
+      <stop offset="68%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <linearGradient id="nameGrad" x1="120" y1="150" x2="1080" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="18%" stop-color="#FDBA74"/>
+      <stop offset="42%" stop-color="#F97316"/>
+      <stop offset="68%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <linearGradient id="lineGrad" x1="130" y1="0" x2="1070" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#F97316"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="80%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#7C3AED" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="
+        1 0 0 0 0.95
+        0 1 0 0 0.38
+        0 0 1 0 0.05
+        0 0 0 0.85 0" result="orangeGlow"/>
+      <feMerge>
+        <feMergeNode in="orangeGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softBlue" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="
+        0 0 0 0 0.15
+        0 0 0 0 0.35
+        0 0 0 0 1
+        0 0 0 0.75 0" result="blueGlow"/>
+      <feMerge>
+        <feMergeNode in="blueGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 L 0 0 0 46" fill="none" stroke="#334155" stroke-width="1" opacity="0.18"/>
+    </pattern>
+
+    <style>
+      .grid {
+        animation: drift 18s linear infinite;
+      }
+
+      .scan {
+        animation: scan 4.2s ease-in-out infinite;
+      }
+
+      .orbit {
+        transform-origin: 600px 214px;
+        animation: rotate 16s linear infinite;
+      }
+
+      .orbitReverse {
+        transform-origin: 600px 214px;
+        animation: rotateReverse 22s linear infinite;
+      }
+
+      .pulse {
+        animation: pulse 3.4s ease-in-out infinite;
+      }
+
+      .name {
+        stroke-dasharray: 1600;
+        stroke-dashoffset: 1600;
+        animation: draw 4.8s ease forwards, namePulse 5.5s ease-in-out infinite 4.8s;
+      }
+
+      .subline {
+        animation: rise 1.3s ease-out forwards;
+      }
+
+      .tag {
+        animation: fadeSlide 1.5s ease-out forwards;
+      }
+
+      .cta {
+        animation: ctaPulse 2.6s ease-in-out infinite;
+      }
+
+      .spark {
+        animation: spark 3.5s ease-in-out infinite;
+      }
+
+      .spark2 {
+        animation: spark 4.8s ease-in-out infinite 0.6s;
+      }
+
+      .spark3 {
+        animation: spark 5.7s ease-in-out infinite 1.1s;
+      }
+
+      @keyframes drift {
+        from { transform: translate(0px, 0px); }
+        to { transform: translate(46px, 46px); }
+      }
+
+      @keyframes scan {
+        0%, 100% { transform: translateX(-900px); opacity: 0; }
+        18% { opacity: 0.9; }
+        50% { transform: translateX(900px); opacity: 0.55; }
+        80% { opacity: 0; }
+      }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes rotateReverse {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 0.35; transform: scale(0.98); }
+        50% { opacity: 0.85; transform: scale(1.04); }
+      }
+
+      @keyframes draw {
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes namePulse {
+        0%, 100% { filter: drop-shadow(0 0 8px rgba(249,115,22,0.35)); }
+        50% { filter: drop-shadow(0 0 20px rgba(56,189,248,0.55)); }
+      }
+
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(22px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes ctaPulse {
+        0%, 100% { opacity: 0.82; }
+        50% { opacity: 1; }
+      }
+
+      @keyframes spark {
+        0%, 100% { opacity: 0.15; transform: scale(0.7); }
+        50% { opacity: 1; transform: scale(1.25); }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="430" rx="34" fill="url(#bg)"/>
+  <rect class="grid" width="1300" height="530" x="-50" y="-50" fill="url(#grid)"/>
+
+  <circle class="pulse" cx="600" cy="214" r="285" fill="url(#coreGlow)"/>
+
+  <g opacity="0.85">
+    <path class="orbit" d="M170 214C290 70 492 45 600 45C808 45 990 105 1070 214C955 350 760 385 600 385C392 385 245 330 170 214Z" stroke="url(#lineGrad)" stroke-width="1.4"/>
+    <path class="orbitReverse" d="M230 214C338 115 460 88 600 88C740 88 862 115 970 214C862 313 740 340 600 340C460 340 338 313 230 214Z" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="1"/>
+    <path class="orbit" d="M600 42C676 118 714 176 714 214C714 252 676 310 600 386C524 310 486 252 486 214C486 176 524 118 600 42Z" stroke="#F97316" stroke-opacity="0.38" stroke-width="1"/>
+  </g>
+
+  <g class="scan">
+    <rect x="230" y="0" width="90" height="430" fill="url(#lineGrad)" opacity="0.25" transform="skewX(-18)"/>
+  </g>
+
+  <g filter="url(#softBlue)">
+    <circle class="spark" cx="190" cy="120" r="4" fill="#38BDF8"/>
+    <circle class="spark2" cx="1002" cy="96" r="4" fill="#F97316"/>
+    <circle class="spark3" cx="1045" cy="318" r="5" fill="#A855F7"/>
+    <circle class="spark" cx="155" cy="310" r="3.5" fill="#F97316"/>
+    <circle class="spark2" cx="930" cy="360" r="3" fill="#38BDF8"/>
+  </g>
+
+  <text x="600" y="155"
+        text-anchor="middle"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+        font-size="74"
+        font-weight="900"
+        letter-spacing="7"
+        fill="url(#nameGrad)"
+        stroke="#FFFFFF"
+        stroke-opacity="0.22"
+        stroke-width="1.3"
+        class="name">
+    ALEX LESCHIK
+  </text>
+
+  <text x="600" y="205"
+        text-anchor="middle"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+        font-size="18"
+        font-weight="800"
+        letter-spacing="4"
+        fill="#FDBA74"
+        class="subline">
+    FOUNDER OF ZEN AI CO. · CREATOR OF ARSENAL
+  </text>
+
+  <rect x="224" y="232" width="752" height="44" rx="22" fill="#020617" fill-opacity="0.64" stroke="url(#lineGrad)" stroke-width="1.2"/>
+
+  <text x="600" y="260"
+        text-anchor="middle"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+        font-size="16"
+        font-weight="800"
+        letter-spacing="1.6"
+        fill="#FFFFFF"
+        class="tag">
+    FOUNDER OF THE 1ST YOUTH AI LITERACY PROGRAM IN UNITED STATES HISTORY
+  </text>
+
+  <g filter="url(#glow)">
+    <path d="M455 313H745" stroke="url(#lineGrad)" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M435 313L455 300V326L435 313Z" fill="#F97316"/>
+    <path d="M765 313L745 300V326L765 313Z" fill="#38BDF8"/>
+  </g>
+
+  <text x="600" y="352"
+        text-anchor="middle"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+        font-size="15"
+        font-weight="800"
+        letter-spacing="3.2"
+        fill="#CBD5E1"
+        class="cta">
+    CLICK THE HERO TO ENTER ARSENAL.WORLD
+  </text>
+
+  <text x="600" y="385"
+        text-anchor="middle"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+        font-size="13"
+        font-weight="700"
+        letter-spacing="2.2"
+        fill="#64748B">
+    AGENTS → AUTOMATIONS → DASHBOARDS → CREDENTIALS → ECOSYSTEM
+  </text>
+</svg>
