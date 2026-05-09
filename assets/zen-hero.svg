@@ -1,140 +1,223 @@
-<svg width="1200" height="500" viewBox="0 0 1200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="500" gradientUnits="userSpaceOnUse">
+    <!-- Background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="560" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#020617"/>
-      <stop offset="30%" stop-color="#07111F"/>
-      <stop offset="62%" stop-color="#111827"/>
+      <stop offset="28%" stop-color="#06101F"/>
+      <stop offset="52%" stop-color="#0B1120"/>
+      <stop offset="78%" stop-color="#111827"/>
       <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
 
-    <linearGradient id="nameGrad" x1="170" y1="150" x2="1030" y2="150" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="13%" stop-color="#FDBA74"/>
-      <stop offset="31%" stop-color="#F97316"/>
-      <stop offset="56%" stop-color="#F43F5E"/>
-      <stop offset="76%" stop-color="#A855F7"/>
-      <stop offset="100%" stop-color="#38BDF8"/>
-    </linearGradient>
-
-    <linearGradient id="silver" x1="0" y1="0" x2="1200" y2="0">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#FFFFFF" stop-opacity="0.86"/>
-      <stop offset="50%" stop-color="#FDBA74" stop-opacity="1"/>
-      <stop offset="75%" stop-color="#38BDF8" stop-opacity="0.92"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-    </linearGradient>
-
-    <linearGradient id="orangeBlue" x1="180" y1="0" x2="1020" y2="0">
-      <stop offset="0%" stop-color="#F97316" stop-opacity="0"/>
-      <stop offset="20%" stop-color="#F97316"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="80%" stop-color="#2563EB"/>
-      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-    </linearGradient>
-
-    <radialGradient id="coreGlow" cx="50%" cy="45%" r="56%">
-      <stop offset="0%" stop-color="#F97316" stop-opacity="0.70"/>
-      <stop offset="42%" stop-color="#7C3AED" stop-opacity="0.32"/>
-      <stop offset="75%" stop-color="#2563EB" stop-opacity="0.18"/>
+    <radialGradient id="core" cx="50%" cy="48%" r="54%">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0.52"/>
+      <stop offset="34%" stop-color="#7C3AED" stop-opacity="0.24"/>
+      <stop offset="62%" stop-color="#2563EB" stop-opacity="0.18"/>
       <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
     </radialGradient>
 
-    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
-      <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#334155" stroke-width="1" opacity="0.18"/>
+    <linearGradient id="nameGradient" x1="150" y1="170" x2="1050" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="13%" stop-color="#FDBA74"/>
+      <stop offset="28%" stop-color="#F97316"/>
+      <stop offset="47%" stop-color="#FB7185"/>
+      <stop offset="67%" stop-color="#A855F7"/>
+      <stop offset="84%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <linearGradient id="whiteHot" x1="250" y1="0" x2="950" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="24%" stop-color="#FFFFFF" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#FDBA74" stop-opacity="1"/>
+      <stop offset="76%" stop-color="#38BDF8" stop-opacity="0.76"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="orangeBlue" x1="140" y1="0" x2="1060" y2="0">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0"/>
+      <stop offset="18%" stop-color="#F97316"/>
+      <stop offset="48%" stop-color="#FFFFFF"/>
+      <stop offset="76%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="flagRed" x1="0" y1="0" x2="1200" y2="0">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0"/>
+      <stop offset="18%" stop-color="#EF4444" stop-opacity="0.28"/>
+      <stop offset="52%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="84%" stop-color="#2563EB" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </linearGradient>
+
+    <pattern id="microgrid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" fill="none" stroke="#334155" stroke-width="1" opacity="0.14"/>
+      <circle cx="0" cy="0" r="1.1" fill="#475569" opacity="0.18"/>
     </pattern>
 
-    <filter id="nameGlow" x="-30%" y="-50%" width="160%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+    <filter id="nameGlow" x="-30%" y="-60%" width="160%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feColorMatrix in="blur" type="matrix" values="
         1 0 0 0 1
-        0 1 0 0 0.42
-        0 0 1 0 0.05
-        0 0 0 0.95 0" result="orangeGlow"/>
-      <feMerge>
-        <feMergeNode in="orangeGlow"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <filter id="blueGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feColorMatrix in="blur" type="matrix" values="
-        0 0 0 0 0.18
-        0 0 0 0 0.45
-        0 0 0 0 1
-        0 0 0 0.78 0" result="glow"/>
+        0 1 0 0 0.38
+        0 0 1 0 0.08
+        0 0 0 0.92 0" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
+    <filter id="blueGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="
+        0 0 0 0 0.12
+        0 0 0 0 0.38
+        0 0 0 0 1
+        0 0 0 0.78 0" result="blue"/>
+      <feMerge>
+        <feMergeNode in="blue"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <clipPath id="rounded">
+      <rect width="1200" height="560" rx="38"/>
+    </clipPath>
+
     <style>
-      .grid { animation: drift 20s linear infinite; }
-      .flag { animation: flagWave 8s ease-in-out infinite; transform-origin: 600px 250px; }
-      .flag2 { animation: flagWave2 11s ease-in-out infinite; transform-origin: 600px 250px; }
-      .scan { animation: scan 5s ease-in-out infinite; }
-      .orbit { transform-origin: 600px 244px; animation: rotate 18s linear infinite; }
-      .orbitReverse { transform-origin: 600px 244px; animation: rotateReverse 26s linear infinite; }
-      .pulse { animation: pulse 3.7s ease-in-out infinite; transform-origin: 600px 245px; }
+      .grid {
+        animation: gridDrift 22s linear infinite;
+      }
+
+      .flagA {
+        transform-origin: 600px 280px;
+        animation: flagWaveA 8s ease-in-out infinite;
+      }
+
+      .flagB {
+        transform-origin: 600px 280px;
+        animation: flagWaveB 11s ease-in-out infinite;
+      }
+
+      .orbitA {
+        transform-origin: 600px 278px;
+        animation: rotateA 24s linear infinite;
+      }
+
+      .orbitB {
+        transform-origin: 600px 278px;
+        animation: rotateB 31s linear infinite;
+      }
+
+      .orbitC {
+        transform-origin: 600px 278px;
+        animation: rotateC 19s linear infinite;
+      }
+
+      .pulseCore {
+        transform-origin: 600px 278px;
+        animation: pulseCore 4.2s ease-in-out infinite;
+      }
+
       .name {
-        stroke-dasharray: 1800;
-        stroke-dashoffset: 1800;
-        animation: draw 4.2s ease forwards, namePulse 5.2s ease-in-out infinite 4.2s;
-      }
-      .subline { animation: rise 1.1s ease-out forwards; }
-      .plaque { animation: plaqueIn 1.25s ease-out forwards; }
-      .star { animation: starPulse 3.2s ease-in-out infinite; }
-      .star2 { animation: starPulse 4.5s ease-in-out infinite 0.65s; }
-      .star3 { animation: starPulse 5.1s ease-in-out infinite 1.2s; }
-      .spark { animation: spark 3.5s ease-in-out infinite; transform-origin: center; }
-      .spark2 { animation: spark 4.7s ease-in-out infinite .5s; transform-origin: center; }
-      .cta { animation: ctaPulse 2.4s ease-in-out infinite; }
-
-      @keyframes drift {
-        from { transform: translate(0px, 0px); }
-        to { transform: translate(42px, 42px); }
+        stroke-dasharray: 1900;
+        stroke-dashoffset: 1900;
+        animation: drawName 3.8s cubic-bezier(.2,.8,.2,1) forwards, nameBreath 5.4s ease-in-out infinite 3.8s;
       }
 
-      @keyframes flagWave {
-        0%,100% { transform: translateY(0px) skewX(-7deg); opacity: .20; }
-        50% { transform: translateY(-8px) skewX(-11deg); opacity: .36; }
+      .ghost {
+        animation: ghostFloat 7.5s ease-in-out infinite;
       }
 
-      @keyframes flagWave2 {
-        0%,100% { transform: translateY(4px) skewX(6deg); opacity: .16; }
-        50% { transform: translateY(-5px) skewX(10deg); opacity: .30; }
+      .subtitle {
+        animation: rise 1.1s ease-out forwards;
       }
 
-      @keyframes scan {
-        0%, 100% { transform: translateX(-820px); opacity: 0; }
-        20% { opacity: .85; }
-        55% { transform: translateX(860px); opacity: .45; }
-        80% { opacity: 0; }
+      .plaque {
+        animation: plaqueIn 1.2s ease-out forwards;
       }
 
-      @keyframes rotate {
+      .beam {
+        animation: beamSweep 5.5s ease-in-out infinite;
+      }
+
+      .node {
+        animation: nodePulse 3.2s ease-in-out infinite;
+      }
+
+      .node2 {
+        animation: nodePulse 4.4s ease-in-out infinite .5s;
+      }
+
+      .node3 {
+        animation: nodePulse 5.1s ease-in-out infinite 1.1s;
+      }
+
+      .flow {
+        stroke-dasharray: 8 18;
+        animation: flowLine 2.8s linear infinite;
+      }
+
+      .cta {
+        animation: ctaPulse 2.4s ease-in-out infinite;
+      }
+
+      .terminal {
+        animation: terminalIn 1.25s ease-out forwards;
+      }
+
+      @keyframes gridDrift {
+        from { transform: translate(0px,0px); }
+        to { transform: translate(38px,38px); }
+      }
+
+      @keyframes flagWaveA {
+        0%,100% { transform: translateY(0) skewX(-6deg); opacity: .22; }
+        50% { transform: translateY(-10px) skewX(-10deg); opacity: .38; }
+      }
+
+      @keyframes flagWaveB {
+        0%,100% { transform: translateY(5px) skewX(6deg); opacity: .16; }
+        50% { transform: translateY(-6px) skewX(10deg); opacity: .31; }
+      }
+
+      @keyframes rotateA {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
 
-      @keyframes rotateReverse {
+      @keyframes rotateB {
         from { transform: rotate(360deg); }
         to { transform: rotate(0deg); }
       }
 
-      @keyframes pulse {
-        0%,100% { transform: scale(.98); opacity: .42; }
-        50% { transform: scale(1.04); opacity: .84; }
+      @keyframes rotateC {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
       }
 
-      @keyframes draw {
+      @keyframes pulseCore {
+        0%,100% { transform: scale(.98); opacity: .46; }
+        50% { transform: scale(1.035); opacity: .86; }
+      }
+
+      @keyframes drawName {
         to { stroke-dashoffset: 0; }
       }
 
-      @keyframes namePulse {
-        0%,100% { filter: drop-shadow(0 0 7px rgba(249,115,22,.38)); }
-        50% { filter: drop-shadow(0 0 24px rgba(56,189,248,.60)); }
+      @keyframes nameBreath {
+        0%,100% { filter: drop-shadow(0 0 8px rgba(249,115,22,.40)); }
+        50% { filter: drop-shadow(0 0 25px rgba(56,189,248,.62)); }
+      }
+
+      @keyframes ghostFloat {
+        0%,100% { transform: translateY(0px); opacity: .055; }
+        50% { transform: translateY(-8px); opacity: .105; }
       }
 
       @keyframes rise {
@@ -143,164 +226,204 @@
       }
 
       @keyframes plaqueIn {
-        from { opacity: 0; transform: translateY(18px) scale(.98); }
+        from { opacity: 0; transform: translateY(18px) scale(.985); }
         to { opacity: 1; transform: translateY(0) scale(1); }
       }
 
-      @keyframes starPulse {
-        0%,100% { opacity: .18; transform: scale(.78); }
-        50% { opacity: .92; transform: scale(1.18); }
+      @keyframes beamSweep {
+        0%,100% { transform: translateX(-760px) skewX(-18deg); opacity: 0; }
+        18% { opacity: .65; }
+        54% { transform: translateX(780px) skewX(-18deg); opacity: .28; }
+        80% { opacity: 0; }
       }
 
-      @keyframes spark {
-        0%,100% { opacity: .18; transform: scale(.75); }
-        50% { opacity: 1; transform: scale(1.26); }
+      @keyframes nodePulse {
+        0%,100% { transform: scale(.78); opacity: .22; }
+        50% { transform: scale(1.18); opacity: 1; }
+      }
+
+      @keyframes flowLine {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -52; }
       }
 
       @keyframes ctaPulse {
-        0%,100% { opacity: .75; }
+        0%,100% { opacity: .72; }
         50% { opacity: 1; }
+      }
+
+      @keyframes terminalIn {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
       }
     </style>
   </defs>
 
-  <rect width="1200" height="500" rx="36" fill="url(#bg)"/>
-  <rect class="grid" width="1320" height="620" x="-60" y="-60" fill="url(#grid)"/>
+  <g clip-path="url(#rounded)">
+    <rect width="1200" height="560" fill="url(#bg)"/>
+    <rect class="grid" x="-50" y="-50" width="1300" height="660" fill="url(#microgrid)"/>
+    <circle class="pulseCore" cx="600" cy="278" r="360" fill="url(#core)"/>
 
-  <circle class="pulse" cx="600" cy="245" r="330" fill="url(#coreGlow)"/>
+    <!-- Subtle abstract United States / flag infrastructure layer -->
+    <g opacity="0.9">
+      <g class="flagA">
+        <path d="M-20 105C145 63 292 147 450 108C640 61 779 143 955 99C1080 68 1158 82 1240 106" stroke="#EF4444" stroke-width="18" stroke-linecap="round" opacity=".32"/>
+        <path d="M-35 150C142 107 302 190 466 151C650 107 795 188 972 146C1096 116 1168 132 1246 154" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" opacity=".24"/>
+        <path d="M-42 197C142 158 314 235 482 198C664 158 820 232 988 195C1108 168 1184 179 1245 198" stroke="#EF4444" stroke-width="14" stroke-linecap="round" opacity=".28"/>
+      </g>
 
-  <!-- Abstract American flag layer -->
-  <g opacity="0.85">
-    <g class="flag">
-      <path d="M95 118C250 80 355 152 506 113C660 73 773 133 925 97C1025 73 1089 83 1150 103" stroke="#EF4444" stroke-width="18" stroke-linecap="round" opacity=".36"/>
-      <path d="M78 158C238 120 366 190 520 151C680 111 803 174 955 135C1048 111 1102 126 1164 145" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity=".26"/>
-      <path d="M55 201C226 165 370 229 532 194C690 160 825 223 980 184C1073 161 1124 178 1168 194" stroke="#EF4444" stroke-width="14" stroke-linecap="round" opacity=".30"/>
+      <g class="flagB">
+        <path d="M-10 355C190 309 348 387 540 347C725 308 874 376 1048 338C1150 316 1204 328 1250 348" stroke="#2563EB" stroke-width="17" stroke-linecap="round" opacity=".25"/>
+        <path d="M50 403C226 363 392 430 578 394C762 358 910 418 1072 386C1168 367 1212 379 1250 397" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" opacity=".18"/>
+        <path d="M92 448C286 412 450 468 620 435C800 400 940 452 1096 421C1177 405 1220 414 1254 429" stroke="#EF4444" stroke-width="13" stroke-linecap="round" opacity=".23"/>
+      </g>
+
+      <rect x="72" y="72" width="182" height="126" rx="24" fill="#0B1E4A" opacity=".38"/>
+      <g fill="#FFFFFF" filter="url(#blueGlow)">
+        <circle class="node" cx="104" cy="102" r="2.9"/>
+        <circle class="node2" cx="142" cy="102" r="2.6"/>
+        <circle class="node3" cx="180" cy="102" r="2.9"/>
+        <circle class="node" cx="218" cy="102" r="2.6"/>
+        <circle class="node2" cx="123" cy="134" r="2.7"/>
+        <circle class="node3" cx="161" cy="134" r="2.5"/>
+        <circle class="node" cx="199" cy="134" r="2.7"/>
+        <circle class="node2" cx="237" cy="134" r="2.5"/>
+        <circle class="node3" cx="104" cy="166" r="2.6"/>
+        <circle class="node" cx="142" cy="166" r="2.9"/>
+        <circle class="node2" cx="180" cy="166" r="2.6"/>
+        <circle class="node3" cx="218" cy="166" r="2.9"/>
+      </g>
     </g>
 
-    <g class="flag2">
-      <path d="M40 292C238 246 396 322 580 281C745 244 870 306 1030 266C1110 246 1150 254 1186 269" stroke="#2563EB" stroke-width="16" stroke-linecap="round" opacity=".26"/>
-      <path d="M84 337C255 300 407 363 588 328C766 294 891 354 1042 318C1115 301 1160 313 1195 330" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" opacity=".20"/>
-      <path d="M130 378C300 347 438 405 606 371C780 336 910 390 1065 356C1120 344 1165 351 1194 366" stroke="#EF4444" stroke-width="13" stroke-linecap="round" opacity=".24"/>
+    <!-- Technical topology / orbital architecture -->
+    <g opacity=".92">
+      <path class="orbitA" d="M132 278C274 98 492 62 600 62C820 62 1014 134 1092 278C964 446 762 490 600 490C380 490 220 410 132 278Z" stroke="url(#orangeBlue)" stroke-width="1.35"/>
+      <path class="orbitB" d="M224 278C336 154 466 118 600 118C734 118 864 154 976 278C864 402 734 438 600 438C466 438 336 402 224 278Z" stroke="#38BDF8" stroke-opacity=".38" stroke-width="1"/>
+      <path class="orbitC" d="M600 66C694 154 736 230 736 278C736 326 694 402 600 490C506 402 464 326 464 278C464 230 506 154 600 66Z" stroke="#F97316" stroke-opacity=".40" stroke-width="1"/>
     </g>
 
-    <rect x="70" y="74" width="174" height="120" rx="20" fill="#0B1E4A" opacity=".42"/>
-    <g fill="#FFFFFF" filter="url(#blueGlow)">
-      <circle class="star" cx="101" cy="101" r="3"/>
-      <circle class="star2" cx="136" cy="101" r="2.5"/>
-      <circle class="star3" cx="171" cy="101" r="3"/>
-      <circle class="star" cx="206" cy="101" r="2.5"/>
-      <circle class="star2" cx="118" cy="130" r="2.8"/>
-      <circle class="star3" cx="153" cy="130" r="2.4"/>
-      <circle class="star" cx="188" cy="130" r="2.8"/>
-      <circle class="star2" cx="223" cy="130" r="2.4"/>
-      <circle class="star3" cx="101" cy="159" r="2.6"/>
-      <circle class="star" cx="136" cy="159" r="3"/>
-      <circle class="star2" cx="171" cy="159" r="2.6"/>
-      <circle class="star3" cx="206" cy="159" r="3"/>
+    <!-- Animated flow paths -->
+    <g opacity=".68">
+      <path class="flow" d="M186 304C310 258 378 306 492 270C606 234 720 284 824 248C930 212 998 246 1080 224" stroke="#F97316" stroke-width="1.6" stroke-linecap="round"/>
+      <path class="flow" d="M158 238C292 300 384 218 506 250C628 282 738 214 856 242C972 270 1046 224 1120 250" stroke="#38BDF8" stroke-width="1.35" stroke-linecap="round" opacity=".75"/>
     </g>
-  </g>
 
-  <!-- Orbital infrastructure lines -->
-  <g opacity="0.92">
-    <path class="orbit" d="M152 244C286 84 493 56 600 56C814 56 1000 122 1082 244C960 398 760 430 600 430C386 430 234 370 152 244Z" stroke="url(#orangeBlue)" stroke-width="1.35"/>
-    <path class="orbitReverse" d="M230 244C342 137 464 105 600 105C736 105 858 137 970 244C858 351 736 383 600 383C464 383 342 351 230 244Z" stroke="#38BDF8" stroke-opacity=".38" stroke-width="1"/>
-    <path class="orbit" d="M600 54C684 134 724 201 724 244C724 287 684 354 600 434C516 354 476 287 476 244C476 201 516 134 600 54Z" stroke="#F97316" stroke-opacity=".42" stroke-width="1"/>
-  </g>
+    <!-- Beam sweep -->
+    <g class="beam">
+      <rect x="250" y="-60" width="105" height="700" fill="url(#whiteHot)" opacity=".20"/>
+    </g>
 
-  <!-- Light sweep -->
-  <g class="scan">
-    <rect x="235" y="-20" width="92" height="560" fill="url(#silver)" opacity=".23" transform="skewX(-18)"/>
-  </g>
+    <!-- Ghost typography -->
+    <text x="600" y="128"
+      text-anchor="middle"
+      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+      font-size="124"
+      font-weight="950"
+      letter-spacing="13"
+      fill="#FFFFFF"
+      class="ghost">
+      ZEN
+    </text>
 
-  <!-- Sparks -->
-  <g filter="url(#blueGlow)">
-    <circle class="spark" cx="322" cy="92" r="4" fill="#38BDF8"/>
-    <circle class="spark2" cx="890" cy="88" r="4" fill="#F97316"/>
-    <circle class="spark" cx="1020" cy="190" r="3.7" fill="#A855F7"/>
-    <circle class="spark2" cx="286" cy="371" r="3.6" fill="#F97316"/>
-    <circle class="spark" cx="964" cy="392" r="3.5" fill="#38BDF8"/>
-  </g>
+    <!-- Name block -->
+    <text x="600" y="180"
+      text-anchor="middle"
+      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+      font-size="88"
+      font-weight="950"
+      letter-spacing="8.5"
+      fill="url(#nameGradient)"
+      stroke="#FFFFFF"
+      stroke-opacity=".22"
+      stroke-width="1.25"
+      filter="url(#nameGlow)"
+      class="name">
+      ALEX LESCHIK
+    </text>
 
-  <!-- Name -->
-  <text x="600" y="156"
+    <path d="M252 206H948" stroke="url(#whiteHot)" stroke-width="2.2" stroke-linecap="round" opacity=".74"/>
+
+    <text x="600" y="238"
+      text-anchor="middle"
+      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+      font-size="17"
+      font-weight="900"
+      letter-spacing="4.6"
+      fill="#FDBA74"
+      class="subtitle">
+      FOUNDER OF ZEN AI CO. · CREATOR OF ARSENAL
+    </text>
+
+    <!-- Historic claim plaque -->
+    <g class="plaque" filter="url(#softShadow)">
+      <rect x="205" y="264" width="790" height="104" rx="30" fill="#020617" fill-opacity=".76" stroke="url(#orangeBlue)" stroke-width="2.4"/>
+      <rect x="220" y="278" width="760" height="76" rx="23" fill="#0F172A" fill-opacity=".44" stroke="#FFFFFF" stroke-opacity=".10"/>
+
+      <text x="600" y="309"
         text-anchor="middle"
         font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-        font-size="82"
+        font-size="21"
         font-weight="950"
-        letter-spacing="8"
-        fill="url(#nameGrad)"
-        stroke="#FFFFFF"
-        stroke-opacity=".24"
-        stroke-width="1.25"
-        filter="url(#nameGlow)"
-        class="name">
-    ALEX LESCHIK
-  </text>
+        letter-spacing="2.6"
+        fill="#FFFFFF">
+        FOUNDER OF THE 1ST YOUTH AI LITERACY PROGRAM
+      </text>
 
-  <path d="M292 178H908" stroke="url(#silver)" stroke-width="2" stroke-linecap="round" opacity=".72"/>
-
-  <text x="600" y="213"
+      <text x="600" y="340"
         text-anchor="middle"
         font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-        font-size="17"
-        font-weight="900"
-        letter-spacing="4.2"
-        fill="#FDBA74"
-        class="subline">
-    FOUNDER OF ZEN AI CO. · CREATOR OF ARSENAL
-  </text>
+        font-size="19"
+        font-weight="950"
+        letter-spacing="5.2"
+        fill="#CBD5E1">
+        IN UNITED STATES HISTORY
+      </text>
+    </g>
 
-  <!-- Fixed two-line historical plaque -->
-  <g class="plaque">
-    <rect x="232" y="238" width="736" height="92" rx="26" fill="#020617" fill-opacity=".70" stroke="url(#orangeBlue)" stroke-width="2.2"/>
-    <rect x="246" y="252" width="708" height="64" rx="20" fill="#0F172A" fill-opacity=".42" stroke="#FFFFFF" stroke-opacity=".10"/>
+    <!-- System command strip -->
+    <g class="terminal">
+      <rect x="250" y="396" width="700" height="58" rx="19" fill="#020617" fill-opacity=".62" stroke="#334155" stroke-opacity=".55"/>
+      <circle cx="282" cy="425" r="5" fill="#EF4444" opacity=".86"/>
+      <circle cx="302" cy="425" r="5" fill="#F97316" opacity=".86"/>
+      <circle cx="322" cy="425" r="5" fill="#22C55E" opacity=".86"/>
 
-    <text x="600" y="280"
-          text-anchor="middle"
-          font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-          font-size="20"
-          font-weight="950"
-          letter-spacing="2.2"
-          fill="#FFFFFF">
-      FOUNDER OF THE 1ST YOUTH AI LITERACY PROGRAM
-    </text>
-
-    <text x="600" y="306"
-          text-anchor="middle"
-          font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-          font-size="18"
-          font-weight="900"
-          letter-spacing="4.6"
-          fill="#CBD5E1">
-      IN UNITED STATES HISTORY
-    </text>
-  </g>
-
-  <!-- Direction line -->
-  <g filter="url(#nameGlow)">
-    <path d="M410 364H790" stroke="url(#orangeBlue)" stroke-width="2.4" stroke-linecap="round"/>
-    <path d="M382 364L410 347V381L382 364Z" fill="#F97316"/>
-    <path d="M818 364L790 347V381L818 364Z" fill="#38BDF8"/>
-  </g>
-
-  <text x="600" y="403"
-        text-anchor="middle"
-        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+      <text x="350" y="430"
+        font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
         font-size="15"
-        font-weight="900"
-        letter-spacing="3.1"
-        fill="#E2E8F0"
-        class="cta">
-    CLICK THE HERO TO ENTER ARSENAL.WORLD
-  </text>
-
-  <text x="600" y="436"
-        text-anchor="middle"
-        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-        font-size="13"
         font-weight="800"
-        letter-spacing="2.3"
-        fill="#94A3B8">
-    AGENTS → AUTOMATIONS → DASHBOARDS → CREDENTIALS → ECOSYSTEM
-  </text>
+        fill="#E2E8F0">
+        ./launch_arsenal --agents --automations --dashboards --credentials
+      </text>
+    </g>
+
+    <!-- Click CTA -->
+    <text x="600" y="490"
+      text-anchor="middle"
+      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+      font-size="15"
+      font-weight="950"
+      letter-spacing="3.4"
+      fill="#E2E8F0"
+      class="cta">
+      CLICK THE HERO TO ENTER ARSENAL.WORLD
+    </text>
+
+    <text x="600" y="520"
+      text-anchor="middle"
+      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+      font-size="12.5"
+      font-weight="850"
+      letter-spacing="2.6"
+      fill="#94A3B8">
+      AGENTS → AUTOMATIONS → DASHBOARDS → AI LITERACY → VERIFIED SKILLS → ECOSYSTEM
+    </text>
+
+    <!-- Corner accents -->
+    <path d="M42 88V42H92" stroke="#F97316" stroke-width="2.2" stroke-linecap="round" opacity=".75"/>
+    <path d="M1158 88V42H1108" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" opacity=".75"/>
+    <path d="M42 472V518H92" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" opacity=".65"/>
+    <path d="M1158 472V518H1108" stroke="#F97316" stroke-width="2.2" stroke-linecap="round" opacity=".65"/>
+  </g>
+
+  <rect x="1.5" y="1.5" width="1197" height="557" rx="36.5" stroke="url(#orangeBlue)" stroke-opacity=".34" stroke-width="3"/>
 </svg>
