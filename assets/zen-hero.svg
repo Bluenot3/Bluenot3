@@ -61,6 +61,7 @@
 
     <style>
       .mesh { animation: meshDrift 28s linear infinite; }
+      .flagWave { animation: flagWave 10s ease-in-out infinite; transform-origin:600px 280px; }
       .scan { animation: scan 6.4s ease-in-out infinite; }
       .brand { stroke-dasharray: 1100; stroke-dashoffset: 1100; animation: draw 2.4s cubic-bezier(.2,.8,.2,1) forwards, glow 6s ease-in-out infinite 2.4s; }
       .flow { stroke-dasharray: 8 18; animation: flow 4.8s linear infinite; }
@@ -84,11 +85,14 @@
       .s3 { animation-delay:.8s; }
       .s4 { animation-delay:1.2s; }
       .s5 { animation-delay:1.6s; }
-      .ticker { animation: ticker 25s linear infinite; }
       .cursor { animation: blink 1s steps(1,end) infinite; }
       .typebar { animation: typebar 4s steps(24,end) infinite; transform-origin:left center; }
 
       @keyframes meshDrift { to { transform: translate(22px,22px); } }
+      @keyframes flagWave {
+        0%,100% { transform: translateY(0) skewX(-2deg); opacity:.38; }
+        50% { transform: translateY(-8px) skewX(2deg); opacity:.54; }
+      }
       @keyframes scan {
         0%,100% { transform: translateX(-990px) skewX(-12deg); opacity:0; }
         18% { opacity:.36; }
@@ -103,8 +107,8 @@
       @keyframes flow { to { stroke-dashoffset:-80; } }
       @keyframes flowSlow { to { stroke-dashoffset:-52; } }
       @keyframes panelIn {
-        from { opacity:0; transform:translateY(12px); }
-        to { opacity:1; transform:translateY(0); }
+        from { opacity:0; }
+        to { opacity:1; }
       }
       @keyframes rotate {
         0%,7.9% { opacity:1; }
@@ -114,10 +118,6 @@
         0%,100% { opacity:.68; transform:translateY(0); }
         42% { opacity:1; transform:translateY(-3px); }
       }
-      @keyframes ticker {
-        from { transform:translateX(1120px); }
-        to { transform:translateX(-1500px); }
-      }
       @keyframes blink { 0%,48% { opacity:1; } 49%,100% { opacity:0; } }
       @keyframes typebar {
         0% { transform:scaleX(.12); opacity:.65; }
@@ -125,7 +125,7 @@
         100% { transform:scaleX(1); opacity:.72; }
       }
       @media (prefers-reduced-motion: reduce) {
-        .mesh,.scan,.brand,.flow,.flowSlow,.panelIn,.step,.ticker,.cursor,.typebar {
+        .mesh,.flagWave,.scan,.brand,.flow,.flowSlow,.panelIn,.step,.cursor,.typebar {
           animation:none !important;
         }
         .slide { animation:none !important; opacity:0; }
@@ -137,6 +137,23 @@
   <g clip-path="url(#frame)">
     <rect width="1200" height="560" fill="url(#bg)"/>
     <rect class="mesh" x="-44" y="-44" width="1288" height="648" fill="url(#fineMesh)"/>
+    <g class="flagWave" opacity=".42">
+      <path d="M-70 126C112 84 262 154 444 118C642 78 800 136 990 104C1100 86 1190 98 1280 126" stroke="#EF4444" stroke-width="13" stroke-linecap="round" opacity=".11"/>
+      <path d="M-70 164C118 126 286 188 468 156C664 122 826 178 1012 148C1128 130 1208 142 1280 164" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" opacity=".08"/>
+      <path d="M-70 204C132 168 310 220 500 192C704 162 852 210 1034 184C1142 168 1216 178 1280 202" stroke="#2563EB" stroke-width="12" stroke-linecap="round" opacity=".10"/>
+      <path d="M-70 396C150 342 330 418 536 374C746 330 900 394 1098 356C1188 340 1244 352 1280 372" stroke="#EF4444" stroke-width="11" stroke-linecap="round" opacity=".08"/>
+      <path d="M-70 434C164 386 350 446 564 408C766 372 924 424 1110 392C1198 378 1250 388 1280 406" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" opacity=".07"/>
+      <g opacity=".12">
+        <circle cx="88" cy="96" r="1.4" fill="#FFFFFF"/>
+        <circle cx="126" cy="118" r="1.2" fill="#FFFFFF"/>
+        <circle cx="168" cy="92" r="1.1" fill="#FFFFFF"/>
+        <circle cx="212" cy="126" r="1.3" fill="#FFFFFF"/>
+        <circle cx="250" cy="102" r="1.1" fill="#FFFFFF"/>
+        <circle cx="296" cy="132" r="1.2" fill="#FFFFFF"/>
+        <circle cx="340" cy="108" r="1.1" fill="#FFFFFF"/>
+        <circle cx="378" cy="138" r="1.3" fill="#FFFFFF"/>
+      </g>
+    </g>
     <ellipse cx="250" cy="276" rx="260" ry="244" fill="url(#logoHalo)" opacity=".84"/>
 
     <g opacity=".54">
@@ -161,21 +178,18 @@
     </g>
 
     <g transform="translate(394 78)">
-      <text x="0" y="0" fill="#BFDBFE" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="11.4" font-weight="850">
-        AI LITERACY INFRASTRUCTURE / STUDENTS BUILD REAL SYSTEMS
-      </text>
-      <text x="0" y="68" fill="url(#brandGradient)" stroke="#FFFFFF" stroke-opacity=".16" stroke-width="1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="58" font-weight="950" class="brand">
+      <text x="0" y="58" fill="url(#brandGradient)" stroke="#FFFFFF" stroke-opacity=".16" stroke-width="1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="58" font-weight="950" class="brand">
         ZEN AI CO.
       </text>
-      <text x="3" y="105" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18.5" font-weight="850">
+      <text x="3" y="95" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18.5" font-weight="850">
         Founded by Alex Leschik | Creator of Arsenal
       </text>
-      <text x="3" y="132" fill="#BFDBFE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13.4" font-weight="850">
+      <text x="3" y="122" fill="#BFDBFE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13.4" font-weight="850">
         AI literacy that becomes deployed capability.
       </text>
     </g>
 
-    <g class="panelIn" transform="translate(394 226)" filter="url(#softGlow)">
+    <g class="panelIn" transform="translate(394 216)" filter="url(#softGlow)">
       <rect x="0" y="0" width="402" height="126" rx="21" fill="#020617" fill-opacity=".86" stroke="url(#lineGradient)" stroke-width="2"/>
       <text x="201" y="34" text-anchor="middle" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="950">
         FIRST YOUTH AI LITERACY PROGRAM
@@ -298,7 +312,7 @@
           SMART BUSINESS SOLUTIONS
         </text>
         <text x="124" y="33" text-anchor="middle" fill="#BFDBFE" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="9.4" font-weight="760">
-          12-COUNTRY GLOBAL LITERACY LENS
+          12-COUNTRY / 12-LANGUAGE GLOBAL LENS
         </text>
       </g>
     </g>
@@ -333,8 +347,8 @@
 
     <g opacity=".84">
       <rect x="0" y="522" width="1200" height="28" fill="#020617" fill-opacity=".62"/>
-      <text class="ticker" y="541" fill="#BFDBFE" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="12" font-weight="850">
-        ZEN AI CO. | VISIT ARSENAL.WORLD | STUDENTS BUILD CLOUD-HOSTED AGENTS | APPS | TOOLS | GAMES | DASHBOARDS | AI LITERACY -> DEPLOYED CAPABILITY |
+      <text x="600" y="541" text-anchor="middle" fill="#BFDBFE" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="11.2" font-weight="850">
+        ZEN AI CO. | VISIT ARSENAL.WORLD | CLOUD-HOSTED AGENTS | APPS | TOOLS | GAMES | DASHBOARDS | AI LITERACY -> DEPLOYED CAPABILITY
       </text>
     </g>
 
