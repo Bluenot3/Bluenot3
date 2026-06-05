@@ -1,399 +1,251 @@
-<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Alex Leschik - ZEN AI Co. and Arsenal</title>
+  <desc id="desc">Animated command-center hero for Alex Leschik, founder of ZEN AI Co. and creator of Arsenal.</desc>
+
   <defs>
-    <clipPath id="frameClip">
-      <rect width="1200" height="620" rx="44"/>
+    <clipPath id="frame">
+      <rect width="1200" height="560" rx="36"/>
     </clipPath>
 
-    <linearGradient id="void" x1="0" y1="0" x2="1200" y2="620">
-      <stop offset="0%" stop-color="#01030A"/>
-      <stop offset="23%" stop-color="#030A18"/>
-      <stop offset="50%" stop-color="#07111F"/>
-      <stop offset="78%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#020617"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="560">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="34%" stop-color="#07111F"/>
+      <stop offset="68%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#031B2B"/>
     </linearGradient>
 
-    <radialGradient id="sunCore" cx="50%" cy="48%" r="50%">
-      <stop offset="0%" stop-color="#FDBA74" stop-opacity=".90"/>
-      <stop offset="18%" stop-color="#F97316" stop-opacity=".55"/>
-      <stop offset="40%" stop-color="#7C3AED" stop-opacity=".30"/>
-      <stop offset="68%" stop-color="#2563EB" stop-opacity=".18"/>
-      <stop offset="100%" stop-color="#01030A" stop-opacity="0"/>
-    </radialGradient>
-
-    <radialGradient id="blueCore" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity=".72"/>
-      <stop offset="48%" stop-color="#2563EB" stop-opacity=".24"/>
-      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
-    </radialGradient>
-
-    <linearGradient id="nameFire" x1="130" y1="170" x2="1070" y2="170">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="10%" stop-color="#FFE7C2"/>
-      <stop offset="24%" stop-color="#FDBA74"/>
-      <stop offset="38%" stop-color="#F97316"/>
-      <stop offset="54%" stop-color="#FB7185"/>
-      <stop offset="70%" stop-color="#A855F7"/>
-      <stop offset="86%" stop-color="#60A5FA"/>
-      <stop offset="100%" stop-color="#38BDF8"/>
-    </linearGradient>
-
-    <linearGradient id="neonLine" x1="100" y1="0" x2="1100" y2="0">
+    <linearGradient id="signal" x1="70" y1="0" x2="1130" y2="0">
       <stop offset="0%" stop-color="#F97316" stop-opacity="0"/>
       <stop offset="18%" stop-color="#F97316"/>
-      <stop offset="39%" stop-color="#FDBA74"/>
-      <stop offset="55%" stop-color="#FFFFFF"/>
-      <stop offset="76%" stop-color="#38BDF8"/>
-      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-    </linearGradient>
-
-    <linearGradient id="flagFlow" x1="0" y1="0" x2="1200" y2="0">
-      <stop offset="0%" stop-color="#EF4444" stop-opacity="0"/>
-      <stop offset="16%" stop-color="#EF4444" stop-opacity=".34"/>
-      <stop offset="42%" stop-color="#FFFFFF" stop-opacity=".16"/>
-      <stop offset="66%" stop-color="#EF4444" stop-opacity=".26"/>
-      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-    </linearGradient>
-
-    <linearGradient id="flagBlue" x1="0" y1="0" x2="1200" y2="0">
-      <stop offset="0%" stop-color="#2563EB" stop-opacity="0"/>
-      <stop offset="22%" stop-color="#2563EB" stop-opacity=".24"/>
-      <stop offset="50%" stop-color="#FFFFFF" stop-opacity=".13"/>
-      <stop offset="82%" stop-color="#38BDF8" stop-opacity=".28"/>
+      <stop offset="43%" stop-color="#FDE68A"/>
+      <stop offset="62%" stop-color="#22C55E"/>
+      <stop offset="82%" stop-color="#38BDF8"/>
       <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
     </linearGradient>
 
-    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
-      <path d="M34 0H0V34" stroke="#334155" stroke-width="1" opacity=".14"/>
-      <circle cx="0" cy="0" r="1.1" fill="#64748B" opacity=".18"/>
+    <linearGradient id="name" x1="78" y1="0" x2="720" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="20%" stop-color="#FDE68A"/>
+      <stop offset="45%" stop-color="#F97316"/>
+      <stop offset="70%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity=".38"/>
+      <stop offset="35%" stop-color="#F97316" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#64748B" stroke-width="1" opacity=".14"/>
+      <circle cx="0" cy="0" r="1.1" fill="#94A3B8" opacity=".20"/>
     </pattern>
 
-    <filter id="heavyGlow" x="-40%" y="-60%" width="180%" height="240%">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feColorMatrix in="blur" type="matrix" values="
-        1 0 0 0 1
-        0 1 0 0 .42
-        0 0 1 0 .05
-        0 0 0 .92 0" result="orange"/>
+        0 0 0 0 .98
+        0 0 0 0 .45
+        0 0 0 0 .09
+        0 0 0 .82 0" result="orange"/>
       <feMerge>
         <feMergeNode in="orange"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <filter id="blueGlow" x="-45%" y="-45%" width="190%" height="190%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
+    <filter id="cyanGlow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
       <feColorMatrix in="blur" type="matrix" values="
-        0 0 0 0 .12
-        0 0 0 0 .42
-        0 0 0 0 1
-        0 0 0 .82 0" result="blue"/>
+        0 0 0 0 .10
+        0 0 0 0 .74
+        0 0 0 0 .95
+        0 0 0 .78 0" result="cyan"/>
       <feMerge>
-        <feMergeNode in="blue"/>
+        <feMergeNode in="cyan"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
     <filter id="shadow">
-      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity=".55"/>
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000000" flood-opacity=".50"/>
     </filter>
 
     <style>
-      .grid { animation: gridMove 20s linear infinite; }
-      .flagA { animation: flagA 8s ease-in-out infinite; transform-origin:600px 310px; }
-      .flagB { animation: flagB 11s ease-in-out infinite; transform-origin:600px 310px; }
-      .flagC { animation: flagC 14s ease-in-out infinite; transform-origin:600px 310px; }
-      .ringA { animation: spinA 25s linear infinite; transform-origin:600px 300px; }
-      .ringB { animation: spinB 34s linear infinite; transform-origin:600px 300px; }
-      .ringC { animation: spinC 19s linear infinite; transform-origin:600px 300px; }
-      .ringD { animation: spinD 42s linear infinite; transform-origin:600px 300px; }
-      .core { animation: corePulse 4.5s ease-in-out infinite; transform-origin:600px 300px; }
-      .beam { animation: beam 5.6s ease-in-out infinite; }
-      .nameMain {
-        stroke-dasharray: 2100;
-        stroke-dashoffset: 2100;
-        animation: draw 3.6s cubic-bezier(.2,.8,.2,1) forwards, breathe 5.4s ease-in-out infinite 3.6s;
-      }
-      .nameGhost { animation: ghost 6s ease-in-out infinite; }
-      .glitch1 { animation: glitch1 4.8s steps(1,end) infinite; }
-      .glitch2 { animation: glitch2 5.4s steps(1,end) infinite; }
-      .plaque { animation: plaqueIn 1.25s ease-out forwards; }
-      .terminal { animation: terminalIn 1.5s ease-out forwards; }
-      .dashFlow { stroke-dasharray: 12 24; animation: dash 2.5s linear infinite; }
-      .node { animation: node 3.2s ease-in-out infinite; transform-origin:center; }
-      .node2 { animation: node 4.2s ease-in-out infinite .6s; transform-origin:center; }
-      .node3 { animation: node 5.1s ease-in-out infinite 1.2s; transform-origin:center; }
-      .cta { animation: cta 2.3s ease-in-out infinite; }
-      .ticker { animation: ticker 18s linear infinite; }
+      .grid { animation: gridMove 22s linear infinite; }
+      .scan { animation: scan 5.2s ease-in-out infinite; }
+      .rail { stroke-dasharray: 20 26; animation: rail 2.8s linear infinite; }
+      .railSlow { stroke-dasharray: 8 18; animation: railSlow 4.8s linear infinite; }
+      .orbitA { animation: spin 24s linear infinite; transform-origin: 842px 278px; }
+      .orbitB { animation: spinReverse 33s linear infinite; transform-origin: 842px 278px; }
+      .orbitC { animation: spin 18s linear infinite; transform-origin: 842px 278px; }
+      .nodeA { animation: pulse 3.4s ease-in-out infinite; transform-origin: center; }
+      .nodeB { animation: pulse 4.1s ease-in-out infinite .45s; transform-origin: center; }
+      .nodeC { animation: pulse 4.8s ease-in-out infinite .9s; transform-origin: center; }
+      .draw { stroke-dasharray: 1120; stroke-dashoffset: 1120; animation: draw 2.9s cubic-bezier(.2,.8,.2,1) forwards, breathe 5.4s ease-in-out infinite 2.9s; }
+      .chip { animation: chipIn .9s ease-out forwards; opacity: 0; transform: translateY(12px); }
+      .chip2 { animation-delay: .18s; }
+      .chip3 { animation-delay: .36s; }
+      .chip4 { animation-delay: .54s; }
+      .cursor { animation: blink 1.05s steps(1,end) infinite; }
+      .ticker { animation: ticker 19s linear infinite; }
 
-      @keyframes gridMove { to { transform: translate(34px,34px); } }
-      @keyframes flagA {
-        0%,100% { transform: translateY(0) skewX(-7deg); opacity:.25; }
-        50% { transform: translateY(-15px) skewX(-12deg); opacity:.42; }
+      @keyframes gridMove { to { transform: translate(40px, 40px); } }
+      @keyframes scan {
+        0%,100% { transform: translateX(-920px) skewX(-14deg); opacity: 0; }
+        18% { opacity: .68; }
+        55% { transform: translateX(920px) skewX(-14deg); opacity: .26; }
+        82% { opacity: 0; }
       }
-      @keyframes flagB {
-        0%,100% { transform: translateY(8px) skewX(6deg); opacity:.18; }
-        50% { transform: translateY(-7px) skewX(10deg); opacity:.34; }
+      @keyframes rail { to { stroke-dashoffset: -92; } }
+      @keyframes railSlow { to { stroke-dashoffset: -64; } }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes spinReverse { to { transform: rotate(-360deg); } }
+      @keyframes pulse {
+        0%,100% { transform: scale(.72); opacity: .44; }
+        50% { transform: scale(1.18); opacity: 1; }
       }
-      @keyframes flagC {
-        0%,100% { transform: translateY(-2px) skewX(-3deg); opacity:.12; }
-        50% { transform: translateY(10px) skewX(-8deg); opacity:.27; }
-      }
-      @keyframes spinA { to { transform: rotate(360deg); } }
-      @keyframes spinB { to { transform: rotate(-360deg); } }
-      @keyframes spinC { to { transform: rotate(360deg); } }
-      @keyframes spinD { to { transform: rotate(-360deg); } }
-      @keyframes corePulse {
-        0%,100% { transform: scale(.96); opacity:.50; }
-        50% { transform: scale(1.045); opacity:.93; }
-      }
-      @keyframes beam {
-        0%,100% { transform: translateX(-820px) skewX(-18deg); opacity:0; }
-        18% { opacity:.72; }
-        56% { transform: translateX(850px) skewX(-18deg); opacity:.28; }
-        80% { opacity:0; }
-      }
-      @keyframes draw { to { stroke-dashoffset:0; } }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
       @keyframes breathe {
-        0%,100% { filter: drop-shadow(0 0 9px rgba(249,115,22,.42)); }
-        50% { filter: drop-shadow(0 0 28px rgba(56,189,248,.70)); }
+        0%,100% { filter: drop-shadow(0 0 10px rgba(249,115,22,.35)); }
+        50% { filter: drop-shadow(0 0 24px rgba(56,189,248,.58)); }
       }
-      @keyframes ghost {
-        0%,100% { transform: translateY(0); opacity:.045; }
-        50% { transform: translateY(-10px); opacity:.105; }
-      }
-      @keyframes glitch1 {
-        0%,91%,100% { transform: translate(0,0); opacity:0; }
-        92% { transform: translate(8px,-2px); opacity:.42; }
-        93% { transform: translate(-5px,2px); opacity:.18; }
-        94% { transform: translate(0,0); opacity:0; }
-      }
-      @keyframes glitch2 {
-        0%,86%,100% { transform: translate(0,0); opacity:0; }
-        87% { transform: translate(-9px,2px); opacity:.30; }
-        88% { transform: translate(6px,-1px); opacity:.20; }
-        89% { transform: translate(0,0); opacity:0; }
-      }
-      @keyframes plaqueIn {
-        from { opacity:0; transform:translateY(18px) scale(.98); }
-        to { opacity:1; transform:translateY(0) scale(1); }
-      }
-      @keyframes terminalIn {
-        from { opacity:0; transform:translateY(18px); }
-        to { opacity:1; transform:translateY(0); }
-      }
-      @keyframes dash { to { stroke-dashoffset:-72; } }
-      @keyframes node {
-        0%,100% { transform: scale(.76); opacity:.22; }
-        50% { transform: scale(1.22); opacity:1; }
-      }
-      @keyframes cta {
-        0%,100% { opacity:.68; }
-        50% { opacity:1; }
-      }
+      @keyframes chipIn { to { opacity: 1; transform: translateY(0); } }
+      @keyframes blink { 0%,48% { opacity: 1; } 49%,100% { opacity: 0; } }
       @keyframes ticker {
-        from { transform: translateX(1040px); }
-        to { transform: translateX(-1040px); }
+        from { transform: translateX(1090px); }
+        to { transform: translateX(-1120px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .grid, .scan, .rail, .railSlow, .orbitA, .orbitB, .orbitC, .nodeA, .nodeB, .nodeC, .draw, .chip, .cursor, .ticker {
+          animation: none !important;
+        }
       }
     </style>
   </defs>
 
-  <g clip-path="url(#frameClip)">
-    <rect width="1200" height="620" fill="url(#void)"/>
-    <rect class="grid" x="-70" y="-70" width="1340" height="760" fill="url(#grid)"/>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="560" fill="url(#bg)"/>
+    <rect class="grid" x="-80" y="-80" width="1360" height="720" fill="url(#grid)"/>
+    <ellipse cx="842" cy="278" rx="322" ry="250" fill="url(#halo)" opacity=".86"/>
 
-    <!-- Deep luminous field -->
-    <circle class="core" cx="600" cy="300" r="390" fill="url(#sunCore)"/>
-    <circle class="core" cx="600" cy="300" r="280" fill="url(#blueCore)" opacity=".55"/>
-
-    <!-- Abstract American flag as neural wavefront -->
-    <g opacity=".95">
-      <g class="flagA">
-        <path d="M-80 90C112 36 262 138 438 94C642 43 786 135 970 88C1100 55 1190 72 1300 104" stroke="#EF4444" stroke-width="20" stroke-linecap="round" opacity=".34"/>
-        <path d="M-92 142C112 88 278 183 456 140C658 91 812 183 992 140C1118 110 1200 123 1306 154" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" opacity=".24"/>
-        <path d="M-108 195C116 145 294 232 480 193C678 151 832 229 1014 192C1140 167 1216 181 1308 205" stroke="#EF4444" stroke-width="15" stroke-linecap="round" opacity=".29"/>
-      </g>
-
-      <g class="flagB">
-        <path d="M-60 390C170 328 350 426 548 382C748 338 902 416 1080 380C1190 358 1254 366 1310 390" stroke="#2563EB" stroke-width="18" stroke-linecap="round" opacity=".26"/>
-        <path d="M-18 445C210 388 390 466 594 430C792 395 950 450 1118 420C1210 404 1260 414 1310 435" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" opacity=".20"/>
-        <path d="M30 498C260 448 438 514 632 480C832 445 980 494 1140 468C1220 455 1270 466 1320 486" stroke="#EF4444" stroke-width="14" stroke-linecap="round" opacity=".25"/>
-      </g>
-
-      <g class="flagC">
-        <path d="M-40 305C160 250 330 342 530 300C730 258 892 330 1080 292C1180 272 1240 286 1300 306" stroke="url(#flagFlow)" stroke-width="10" stroke-linecap="round"/>
-        <path d="M-20 256C210 310 360 232 552 270C748 308 922 232 1110 274C1210 296 1270 280 1320 262" stroke="url(#flagBlue)" stroke-width="8" stroke-linecap="round"/>
-      </g>
-
-      <!-- Star field as network nodes -->
-      <rect x="68" y="68" width="205" height="143" rx="28" fill="#0B1E4A" opacity=".40"/>
-      <g filter="url(#blueGlow)">
-        <path d="M104 104L145 136L188 104L232 166L164 170L104 104Z" stroke="#93C5FD" stroke-opacity=".36"/>
-        <path d="M112 168L154 106L222 128L192 174L112 168Z" stroke="#FFFFFF" stroke-opacity=".22"/>
-        <circle class="node" cx="104" cy="104" r="3.2" fill="#FFFFFF"/>
-        <circle class="node2" cx="145" cy="136" r="2.8" fill="#FFFFFF"/>
-        <circle class="node3" cx="188" cy="104" r="3.1" fill="#FFFFFF"/>
-        <circle class="node" cx="232" cy="166" r="2.9" fill="#FFFFFF"/>
-        <circle class="node2" cx="164" cy="170" r="3.0" fill="#FFFFFF"/>
-        <circle class="node3" cx="112" cy="168" r="2.7" fill="#FFFFFF"/>
-        <circle class="node" cx="154" cy="106" r="2.6" fill="#FFFFFF"/>
-        <circle class="node2" cx="222" cy="128" r="2.8" fill="#FFFFFF"/>
-        <circle class="node3" cx="192" cy="174" r="2.7" fill="#FFFFFF"/>
-      </g>
+    <g opacity=".70">
+      <path class="rail" d="M64 128C214 84 334 168 480 126C624 84 756 140 892 110C1022 82 1110 116 1160 142" stroke="#F97316" stroke-width="2" stroke-linecap="round"/>
+      <path class="railSlow" d="M40 402C210 338 338 432 496 382C654 334 760 420 914 370C1042 328 1122 358 1180 386" stroke="#38BDF8" stroke-width="1.6" stroke-linecap="round"/>
+      <path class="rail" d="M130 286C276 230 396 316 542 270C704 220 820 310 970 258C1060 226 1128 238 1170 260" stroke="#22C55E" stroke-width="1.35" stroke-linecap="round" opacity=".66"/>
     </g>
 
-    <!-- Arsenal neural architecture rings -->
-    <g opacity=".95">
-      <path class="ringA" d="M106 300C255 96 478 58 600 58C838 58 1044 140 1094 300C1008 500 770 562 600 562C352 562 194 468 106 300Z" stroke="url(#neonLine)" stroke-width="1.35"/>
-      <path class="ringB" d="M202 300C326 162 462 120 600 120C738 120 874 162 998 300C874 438 738 480 600 480C462 480 326 438 202 300Z" stroke="#38BDF8" stroke-opacity=".42" stroke-width="1"/>
-      <path class="ringC" d="M600 64C702 158 750 244 750 300C750 356 702 442 600 536C498 442 450 356 450 300C450 244 498 158 600 64Z" stroke="#F97316" stroke-opacity=".43" stroke-width="1"/>
-      <path class="ringD" d="M298 178C438 84 760 84 902 178C1038 268 1038 360 902 452C760 546 438 546 298 452C162 360 162 268 298 178Z" stroke="#A855F7" stroke-opacity=".24" stroke-width="1"/>
+    <g class="scan">
+      <rect x="252" y="-80" width="96" height="740" fill="url(#signal)" opacity=".20"/>
     </g>
 
-    <!-- Data currents -->
-    <g opacity=".75">
-      <path class="dashFlow" d="M120 332C266 270 394 338 528 290C666 240 786 326 922 278C1030 240 1105 260 1160 288" stroke="#F97316" stroke-width="1.7" stroke-linecap="round"/>
-      <path class="dashFlow" d="M92 254C250 324 386 226 536 274C682 320 812 228 960 268C1050 292 1110 276 1166 246" stroke="#38BDF8" stroke-width="1.35" stroke-linecap="round"/>
-      <path class="dashFlow" d="M220 400C356 344 482 410 604 370C738 326 870 388 990 342" stroke="#A855F7" stroke-width="1.2" stroke-linecap="round" opacity=".65"/>
-    </g>
+    <path d="M48 70H1152" stroke="url(#signal)" stroke-width="2.4" stroke-linecap="round" opacity=".78"/>
+    <path d="M48 490H1152" stroke="url(#signal)" stroke-width="2.4" stroke-linecap="round" opacity=".58"/>
 
-    <!-- Sweep -->
-    <g class="beam">
-      <rect x="245" y="-80" width="115" height="800" fill="url(#neonLine)" opacity=".17"/>
-    </g>
-
-    <!-- Ghost mark -->
-    <text x="600" y="132"
-      text-anchor="middle"
-      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-      font-size="142"
-      font-weight="950"
-      letter-spacing="18"
-      fill="#FFFFFF"
-      class="nameGhost">
-      ZEN
-    </text>
-
-    <!-- Glitch shadow layers -->
-    <text x="600" y="204"
-      text-anchor="middle"
-      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-      font-size="94"
-      font-weight="950"
-      letter-spacing="9"
-      fill="#38BDF8"
-      class="glitch1">
-      ALEX LESCHIK
-    </text>
-
-    <text x="600" y="204"
-      text-anchor="middle"
-      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-      font-size="94"
-      font-weight="950"
-      letter-spacing="9"
-      fill="#F97316"
-      class="glitch2">
-      ALEX LESCHIK
-    </text>
-
-    <!-- Main name -->
-    <text x="600" y="204"
-      text-anchor="middle"
-      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-      font-size="94"
-      font-weight="950"
-      letter-spacing="9"
-      fill="url(#nameFire)"
-      stroke="#FFFFFF"
-      stroke-opacity=".22"
-      stroke-width="1.25"
-      filter="url(#heavyGlow)"
-      class="nameMain">
-      ALEX LESCHIK
-    </text>
-
-    <path d="M216 235H984" stroke="url(#neonLine)" stroke-width="2.3" stroke-linecap="round" opacity=".78"/>
-
-    <text x="600" y="270"
-      text-anchor="middle"
-      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-      font-size="17"
-      font-weight="950"
-      letter-spacing="4.8"
-      fill="#FDBA74">
-      ZEN AI CO. · ARSENAL · AGENTIC SYSTEMS ARCHITECTURE
-    </text>
-
-    <!-- Historic plaque -->
-    <g class="plaque" filter="url(#shadow)">
-      <rect x="178" y="296" width="844" height="112" rx="34" fill="#020617" fill-opacity=".78" stroke="url(#neonLine)" stroke-width="2.6"/>
-      <rect x="194" y="312" width="812" height="80" rx="25" fill="#0F172A" fill-opacity=".48" stroke="#FFFFFF" stroke-opacity=".10"/>
-
-      <text x="600" y="345"
-        text-anchor="middle"
-        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-        font-size="22"
-        font-weight="950"
-        letter-spacing="2.8"
-        fill="#FFFFFF">
-        FOUNDER OF THE 1ST YOUTH AI LITERACY PROGRAM
+    <g transform="translate(74 78)">
+      <text x="0" y="0" fill="#94A3B8" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="14" font-weight="800">
+        LIVE AI SYSTEMS PROFILE
       </text>
 
-      <text x="600" y="377"
-        text-anchor="middle"
-        font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-        font-size="19"
-        font-weight="950"
-        letter-spacing="5.7"
-        fill="#CBD5E1">
-        IN UNITED STATES HISTORY
+      <text x="0" y="92" fill="url(#name)" stroke="#FFFFFF" stroke-opacity=".18" stroke-width="1.2" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="76" font-weight="950" class="draw">
+        ALEX LESCHIK
+      </text>
+
+      <text x="2" y="136" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="24" font-weight="850">
+        Founder, ZEN AI Co. | Creator, Arsenal
+      </text>
+
+      <text x="2" y="170" fill="#FDBA74" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="17" font-weight="850">
+        Agentic infrastructure for deployment-first AI systems
+      </text>
+
+      <g transform="translate(0 220)">
+        <g class="chip">
+          <rect x="0" y="0" width="172" height="42" rx="13" fill="#020617" fill-opacity=".74" stroke="#F97316" stroke-opacity=".62"/>
+          <text x="86" y="27" text-anchor="middle" fill="#FFEDD5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="850">AGENTS</text>
+        </g>
+        <g class="chip chip2">
+          <rect x="188" y="0" width="186" height="42" rx="13" fill="#020617" fill-opacity=".74" stroke="#22C55E" stroke-opacity=".56"/>
+          <text x="281" y="27" text-anchor="middle" fill="#DCFCE7" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="850">AUTOMATIONS</text>
+        </g>
+        <g class="chip chip3">
+          <rect x="390" y="0" width="178" height="42" rx="13" fill="#020617" fill-opacity=".74" stroke="#38BDF8" stroke-opacity=".56"/>
+          <text x="479" y="27" text-anchor="middle" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="850">DASHBOARDS</text>
+        </g>
+        <g class="chip chip4">
+          <rect x="584" y="0" width="182" height="42" rx="13" fill="#020617" fill-opacity=".74" stroke="#A855F7" stroke-opacity=".52"/>
+          <text x="675" y="27" text-anchor="middle" fill="#F5F3FF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="850">CREDENTIALS</text>
+        </g>
+      </g>
+    </g>
+
+    <g filter="url(#shadow)" transform="translate(72 370)">
+      <rect width="716" height="82" rx="22" fill="#020617" fill-opacity=".84" stroke="#334155" stroke-opacity=".72"/>
+      <circle cx="34" cy="31" r="5.5" fill="#EF4444"/>
+      <circle cx="56" cy="31" r="5.5" fill="#F97316"/>
+      <circle cx="78" cy="31" r="5.5" fill="#22C55E"/>
+      <text x="108" y="37" fill="#E2E8F0" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="15" font-weight="800">
+        ./arsenal deploy --agents --workflows --students --cloud
+      </text>
+      <text x="108" y="62" fill="#94A3B8" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="13" font-weight="700">
+        status: idea -&gt; system -&gt; dashboard -&gt; credential
+      </text>
+      <rect class="cursor" x="650" y="26" width="10" height="18" rx="2" fill="#38BDF8"/>
+    </g>
+
+    <g transform="translate(842 278)">
+      <g opacity=".96">
+        <ellipse class="orbitA" cx="0" cy="0" rx="246" ry="122" stroke="url(#signal)" stroke-width="1.5"/>
+        <ellipse class="orbitB" cx="0" cy="0" rx="190" ry="190" stroke="#38BDF8" stroke-opacity=".42" stroke-width="1.2"/>
+        <ellipse class="orbitC" cx="0" cy="0" rx="118" ry="232" stroke="#F97316" stroke-opacity=".44" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="66" fill="#020617" fill-opacity=".80" stroke="#E2E8F0" stroke-opacity=".18"/>
+        <circle cx="0" cy="0" r="44" fill="#0F172A" stroke="url(#signal)" stroke-width="2"/>
+        <text x="0" y="-7" text-anchor="middle" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="950">ARSENAL</text>
+        <text x="0" y="16" text-anchor="middle" fill="#FDBA74" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="850">SYSTEM CORE</text>
+      </g>
+
+      <g filter="url(#cyanGlow)">
+        <line x1="-178" y1="-92" x2="-44" y2="-24" stroke="#38BDF8" stroke-opacity=".42"/>
+        <line x1="178" y1="-92" x2="44" y2="-24" stroke="#22C55E" stroke-opacity=".42"/>
+        <line x1="-196" y1="96" x2="-46" y2="28" stroke="#F97316" stroke-opacity=".42"/>
+        <line x1="188" y1="96" x2="46" y2="28" stroke="#A855F7" stroke-opacity=".38"/>
+
+        <circle class="nodeA" cx="-178" cy="-92" r="8" fill="#38BDF8"/>
+        <circle class="nodeB" cx="178" cy="-92" r="8" fill="#22C55E"/>
+        <circle class="nodeC" cx="-196" cy="96" r="8" fill="#F97316"/>
+        <circle class="nodeB" cx="188" cy="96" r="8" fill="#A855F7"/>
+      </g>
+
+      <g font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="850" fill="#E2E8F0">
+        <text x="-252" y="-110">Agent Builder</text>
+        <text x="118" y="-110">Model Routing</text>
+        <text x="-258" y="126">ZENGINE</text>
+        <text x="122" y="126">Vault + Credentials</text>
+      </g>
+    </g>
+
+    <g opacity=".84">
+      <rect x="0" y="512" width="1200" height="32" fill="#020617" fill-opacity=".58"/>
+      <text class="ticker" y="534" fill="#CBD5E1" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="13" font-weight="800">
+        BUILD SYSTEMS | LAUNCH AGENTS | VERIFY SKILLS | EXPAND CAPABILITY | ARSENAL.WORLD | ZEN AI CO. | YOUTH AI LITERACY INFRASTRUCTURE |
       </text>
     </g>
 
-    <!-- Terminal module -->
-    <g class="terminal">
-      <rect x="190" y="435" width="820" height="64" rx="22" fill="#01030A" fill-opacity=".70" stroke="#334155" stroke-opacity=".68"/>
-      <circle cx="226" cy="467" r="5.5" fill="#EF4444"/>
-      <circle cx="248" cy="467" r="5.5" fill="#F97316"/>
-      <circle cx="270" cy="467" r="5.5" fill="#22C55E"/>
-
-      <text x="304" y="472"
-        font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
-        font-size="15"
-        font-weight="800"
-        fill="#E2E8F0">
-        ./arsenal deploy --agents --automations --dashboards --credentials --youth-ai-literacy
+    <g filter="url(#glow)">
+      <text x="600" y="472" text-anchor="middle" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="950">
+        FOUNDER OF WHAT I POSITION AS THE 1ST SUCCESSFUL YOUTH AI LITERACY PROGRAM IN US HISTORY
       </text>
     </g>
 
-    <!-- Moving ticker inside frame -->
-    <g opacity=".72">
-      <rect x="0" y="524" width="1200" height="34" fill="#020617" fill-opacity=".48"/>
-      <text class="ticker" y="546"
-        font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
-        font-size="13"
-        font-weight="800"
-        fill="#94A3B8">
-        BUILD SYSTEMS · LAUNCH AGENTS · VERIFY SKILLS · EXPAND CAPABILITY · ARSENAL.WORLD · ZEN AI CO. · AI LITERACY INFRASTRUCTURE · 
-      </text>
-    </g>
-
-    <text x="600" y="590"
-      text-anchor="middle"
-      font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-      font-size="15"
-      font-weight="950"
-      letter-spacing="3.6"
-      fill="#E2E8F0"
-      class="cta">
+    <text x="600" y="508" text-anchor="middle" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="850">
       CLICK THE HERO TO ENTER ARSENAL.WORLD
     </text>
 
-    <!-- Frame and brutalist accents -->
-    <rect x="1.5" y="1.5" width="1197" height="617" rx="42.5" stroke="url(#neonLine)" stroke-opacity=".38" stroke-width="3"/>
-    <path d="M42 102V42H104" stroke="#F97316" stroke-width="2.4" stroke-linecap="round" opacity=".86"/>
-    <path d="M1158 102V42H1096" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round" opacity=".86"/>
-    <path d="M42 518V578H104" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round" opacity=".72"/>
-    <path d="M1158 518V578H1096" stroke="#F97316" stroke-width="2.4" stroke-linecap="round" opacity=".72"/>
+    <rect x="1.5" y="1.5" width="1197" height="557" rx="34.5" stroke="url(#signal)" stroke-opacity=".44" stroke-width="3"/>
+    <path d="M42 96V42H98" stroke="#F97316" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M1158 96V42H1102" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M42 464V518H98" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M1158 464V518H1102" stroke="#F97316" stroke-width="2.4" stroke-linecap="round"/>
   </g>
 </svg>
