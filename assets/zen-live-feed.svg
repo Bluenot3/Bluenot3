@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="title desc">
+  <title id="title">ZEN live build feed</title>
+  <desc id="desc">Animated ticker of ZEN and Arsenal systems, programs, and public experiments.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#02040A"/><stop offset="1" stop-color="#071326"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#EF4444"/><stop offset="0.5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
+    <clipPath id="row1"><rect x="36" y="76" width="1128" height="42" rx="10"/></clipPath>
+    <clipPath id="row2"><rect x="36" y="132" width="1128" height="42" rx="10"/></clipPath>
+    <style>
+      .sans { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+      .pulse { animation:pulse 2.4s ease-in-out infinite; }
+      @keyframes pulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
+      @media (prefers-reduced-motion:reduce) { .pulse { animation:none !important; } animateTransform { display:none; } }
+    </style>
+  </defs>
+  <rect x="2" y="2" width="1196" height="216" rx="25" fill="url(#bg)" stroke="#26334C" stroke-width="3"/>
+  <g class="sans">
+    <circle cx="42" cy="39" r="5" fill="#22C55E" class="pulse"/>
+    <text x="58" y="45" fill="#FFFFFF" font-size="20" font-weight="950" letter-spacing="2">LIVE BUILD FEED</text>
+    <text x="1148" y="44" text-anchor="end" fill="#64748B" font-size="12" font-weight="800" letter-spacing="1.5">THE ECOSYSTEM NEVER SITS STILL</text>
+  </g>
+  <path d="M36 61 H1164" stroke="url(#brand)" stroke-width="2" opacity="0.6"/>
+  <rect x="36" y="76" width="1128" height="42" rx="10" fill="#070A11" stroke="#334155"/>
+  <rect x="36" y="132" width="1128" height="42" rx="10" fill="#070A11" stroke="#334155"/>
+
+  <g clip-path="url(#row1)" class="mono" fill="#F8FAFC" font-size="14" font-weight="800" letter-spacing="1.1">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;-1200 0" dur="24s" repeatCount="indefinite"/>
+      <text x="52" y="103">ARSENAL  ◆  AGENTS  ◆  Z-ENGINE  ◆  TUNE  ◆  ZEN MODE  ◆  AI ARENA  ◆  FILES / VAULT  ◆  ROAM  ◆  ARSENAL  ◆  AGENTS  ◆  Z-ENGINE  ◆  TUNE  ◆  ZEN MODE  ◆  AI ARENA  ◆  FILES / VAULT  ◆  ROAM</text>
+    </g>
+  </g>
+  <g clip-path="url(#row2)" class="mono" fill="#BFDBFE" font-size="14" font-weight="800" letter-spacing="1.1">
+    <g transform="translate(-1200 0)">
+      <animateTransform attributeName="transform" type="translate" values="-1200 0;0 0" dur="28s" repeatCount="indefinite"/>
+      <text x="52" y="159">AI PIONEER  ◇  VANGUARD  ◇  BUSINESS SPACES  ◇  ZEN CREDENTIALS  ◇  AGENT VISUALIZER  ◇  SEMANTIC GALAXY  ◇  ZEN WORLD SIM  ◇  AI PIONEER  ◇  VANGUARD  ◇  BUSINESS SPACES  ◇  ZEN CREDENTIALS  ◇  AGENT VISUALIZER  ◇  SEMANTIC GALAXY</text>
+    </g>
+  </g>
+  <g class="sans"><text x="42" y="202" fill="#64748B" font-size="11" font-weight="800" letter-spacing="1.3">AGENTS → APPS → AUTOMATIONS → DASHBOARDS → DEPLOYMENTS → CREDENTIALS</text><text x="1158" y="202" text-anchor="end" fill="#94A3B8" font-size="11" font-weight="850">BUILDING IN PUBLIC</text></g>
+</svg>

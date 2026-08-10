@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img" aria-labelledby="title desc">
+  <title id="title">Three doors into the ZEN and Arsenal ecosystem</title>
+  <desc id="desc">Animated portals for Arsenal builders, AI Pioneer learners, and Business Spaces operators.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#02040A"/><stop offset="0.52" stop-color="#080B13"/><stop offset="1" stop-color="#020617"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#EF4444"/><stop offset="0.5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
+    <radialGradient id="redCore"><stop stop-color="#EF4444"/><stop offset="0.18" stop-color="#7F1D1D"/><stop offset="1" stop-color="#090B12"/></radialGradient>
+    <radialGradient id="blueCore"><stop stop-color="#60A5FA"/><stop offset="0.18" stop-color="#1E3A8A"/><stop offset="1" stop-color="#090B12"/></radialGradient>
+    <pattern id="stars" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#94A3B8" opacity="0.16"/></pattern>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .sans { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+      .spin { animation:spin 14s linear infinite; transform-origin:207px 306px; }
+      .spin2 { animation:spin2 18s linear infinite; transform-origin:207px 306px; }
+      .dash { stroke-dasharray:8 12; animation:dash 3s linear infinite; }
+      .dash2 { stroke-dasharray:6 11; animation:dash2 3.7s linear infinite; }
+      .pulse { animation:pulse 2.4s ease-in-out infinite; }
+      .pulse2 { animation:pulse 2.4s 1.2s ease-in-out infinite; }
+      .rise { animation:rise 4.5s ease-in-out infinite; }
+      .loop { animation:loop 12s linear infinite; transform-origin:983px 306px; }
+      .sweep { animation:sweep 6s ease-in-out infinite; }
+      @keyframes spin { to { transform:rotate(360deg); } }
+      @keyframes spin2 { to { transform:rotate(-360deg); } }
+      @keyframes dash { to { stroke-dashoffset:-80; } }
+      @keyframes dash2 { to { stroke-dashoffset:80; } }
+      @keyframes pulse { 0%,100% { opacity:.38; } 50% { opacity:1; } }
+      @keyframes rise { 0%,100% { transform:translateY(10px); opacity:.55; } 50% { transform:translateY(-10px); opacity:1; } }
+      @keyframes loop { to { transform:rotate(360deg); } }
+      @keyframes sweep { 0%,100% { transform:translateX(-170px); opacity:0; } 45%,60% { opacity:.045; } 90% { transform:translateX(1180px); opacity:0; } }
+      @media (prefers-reduced-motion:reduce) { .spin,.spin2,.dash,.dash2,.pulse,.pulse2,.rise,.loop,.sweep { animation:none !important; } }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="1196" height="606" rx="27" fill="url(#bg)" stroke="#26334C" stroke-width="3"/>
+  <rect x="2" y="2" width="1196" height="606" rx="27" fill="url(#stars)"/>
+  <rect x="-170" y="0" width="100" height="610" fill="#FFFFFF" opacity="0.025" transform="skewX(-20)" class="sweep"/>
+  <g class="sans">
+    <text x="44" y="54" fill="#FFFFFF" font-size="29" font-weight="950" letter-spacing="1.5">THREE DOORS. ONE ECOSYSTEM.</text>
+    <text x="44" y="83" fill="#64748B" font-size="14" font-weight="800" letter-spacing="2">BUILD // LEARN // OPERATE</text>
+    <text x="1148" y="62" text-anchor="end" fill="#94A3B8" font-size="12" font-weight="800" letter-spacing="1.5">CHOOSE YOUR ENTRY POINT →</text>
+  </g>
+  <path d="M40 105 H1160" stroke="url(#brand)" stroke-width="2" opacity="0.7"/>
+
+  <!-- Arsenal portal -->
+  <g transform="translate(36 130)">
+    <path d="M18 0 H322 L340 18 V414 L322 432 H18 L0 414 V18 Z" fill="#070A11" stroke="#7F1D1D" stroke-width="2"/>
+    <path d="M18 0 H322 L340 18 V64 H0 V18 Z" fill="#150A10"/>
+    <g class="sans"><text x="22" y="39" fill="#EF4444" font-size="13" font-weight="900" letter-spacing="2">01 // BUILD</text><text x="316" y="39" text-anchor="end" fill="#FFFFFF" opacity="0.18" font-size="34" font-weight="950">A</text></g>
+    <g transform="translate(-36 -130)">
+      <circle cx="207" cy="306" r="94" fill="none" stroke="#7F1D1D" stroke-width="1"/>
+      <circle cx="207" cy="306" r="78" fill="none" stroke="#EF4444" stroke-width="2" stroke-dasharray="9 13" class="spin"/>
+      <circle cx="207" cy="306" r="58" fill="url(#redCore)" stroke="#EF4444" stroke-opacity="0.5"/>
+      <circle cx="207" cy="306" r="16" fill="#02040A" stroke="#FFFFFF" stroke-width="1.5"/>
+      <circle cx="207" cy="306" r="5" fill="#FFFFFF" filter="url(#glow)" class="pulse"/>
+      <g class="spin2"><circle cx="207" cy="228" r="4" fill="#EF4444" filter="url(#glow)"/><circle cx="275" cy="345" r="4" fill="#60A5FA" filter="url(#glow)"/><circle cx="139" cy="345" r="3" fill="#FFFFFF" filter="url(#glow)"/></g>
+      <path d="M91 306 H149 M265 306 H323" fill="none" stroke="#64748B" stroke-width="1.5" class="dash"/>
+      <g class="sans" text-anchor="middle"><text x="98" y="293" fill="#94A3B8" font-size="10" font-weight="800">IDEA</text><text x="316" y="293" fill="#94A3B8" font-size="10" font-weight="800">DEPLOY</text><text x="207" y="311" fill="#FFFFFF" font-size="10" font-weight="900">ARSENAL</text></g>
+    </g>
+    <g class="sans">
+      <text x="22" y="284" fill="#FFFFFF" font-size="27" font-weight="950">ARSENAL</text>
+      <text x="22" y="310" fill="#FCA5A5" font-size="13" font-weight="800" letter-spacing="1.4">IDEA → WORKING SYSTEM</text>
+      <text x="22" y="345" fill="#94A3B8" font-size="13">Agents · Z-ENGINE · Tune · Zen Mode</text>
+      <text x="22" y="369" fill="#94A3B8" font-size="13">Apps · automations · deployments</text>
+      <rect x="22" y="390" width="142" height="28" rx="14" fill="#EF4444"/><text x="93" y="408" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="900">BUILD &amp; DEPLOY →</text>
+    </g>
+  </g>
+
+  <!-- Pioneer portal -->
+  <g transform="translate(430 130)">
+    <path d="M18 0 H322 L340 18 V414 L322 432 H18 L0 414 V18 Z" fill="#070A11" stroke="#475569" stroke-width="2"/>
+    <path d="M18 0 H322 L340 18 V64 H0 V18 Z" fill="#0D1119"/>
+    <g class="sans"><text x="22" y="39" fill="#FFFFFF" font-size="13" font-weight="900" letter-spacing="2">02 // LEARN</text><text x="316" y="39" text-anchor="end" fill="#FFFFFF" opacity="0.16" font-size="34" font-weight="950">P</text></g>
+    <g transform="translate(0 74)">
+      <path d="M170 174 V20" stroke="#334155" stroke-width="12" stroke-linecap="round"/>
+      <path d="M170 174 V20" stroke="url(#brand)" stroke-width="2" class="dash2"/>
+      <g class="rise">
+        <path d="M170 8 l-13 22 h26z" fill="#FFFFFF" filter="url(#glow)"/>
+        <circle cx="170" cy="43" r="5" fill="#60A5FA" filter="url(#glow)"/>
+      </g>
+      <g class="sans">
+        <g transform="translate(69 153)"><circle cx="0" cy="0" r="8" fill="#0B1224" stroke="#EF4444"/><text x="17" y="5" fill="#CBD5E1" font-size="11" font-weight="800">PROMPT</text></g>
+        <g transform="translate(245 116)"><circle cx="0" cy="0" r="8" fill="#0B1224" stroke="#FFFFFF"/><text x="-17" y="5" text-anchor="end" fill="#CBD5E1" font-size="11" font-weight="800">APP</text></g>
+        <g transform="translate(69 80)"><circle cx="0" cy="0" r="8" fill="#0B1224" stroke="#2563EB"/><text x="17" y="5" fill="#CBD5E1" font-size="11" font-weight="800">AGENT</text></g>
+        <g transform="translate(245 43)"><circle cx="0" cy="0" r="8" fill="#0B1224" stroke="#EF4444"/><text x="-17" y="5" text-anchor="end" fill="#CBD5E1" font-size="11" font-weight="800">DEPLOY</text></g>
+      </g>
+    </g>
+    <g class="sans">
+      <text x="22" y="284" fill="#FFFFFF" font-size="27" font-weight="950">AI PIONEER</text>
+      <text x="22" y="310" fill="#BFDBFE" font-size="13" font-weight="800" letter-spacing="1.4">LEARN → BUILD → PROVE</text>
+      <text x="22" y="345" fill="#94A3B8" font-size="13">Ages 11–18 · real learner action</text>
+      <text x="22" y="369" fill="#94A3B8" font-size="13">Artifacts · Vanguard · credentials</text>
+      <rect x="22" y="390" width="154" height="28" rx="14" fill="#2563EB"/><text x="99" y="408" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="900">EXPLORE PROGRAM →</text>
+    </g>
+  </g>
+
+  <!-- Business portal -->
+  <g transform="translate(824 130)">
+    <path d="M18 0 H322 L340 18 V414 L322 432 H18 L0 414 V18 Z" fill="#070A11" stroke="#1D4ED8" stroke-width="2"/>
+    <path d="M18 0 H322 L340 18 V64 H0 V18 Z" fill="#071326"/>
+    <g class="sans"><text x="22" y="39" fill="#60A5FA" font-size="13" font-weight="900" letter-spacing="2">03 // OPERATE</text><text x="316" y="39" text-anchor="end" fill="#FFFFFF" opacity="0.16" font-size="34" font-weight="950">B</text></g>
+    <g transform="translate(-824 -130)">
+      <circle cx="994" cy="306" r="86" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-dasharray="8 12" class="loop"/>
+      <circle cx="994" cy="306" r="57" fill="url(#blueCore)" stroke="#2563EB" stroke-opacity="0.55"/>
+      <g class="sans" text-anchor="middle"><text x="994" y="300" fill="#93C5FD" font-size="10" font-weight="850" letter-spacing="1.5">BUSINESS</text><text x="994" y="317" fill="#FFFFFF" font-size="13" font-weight="950">SPACE</text></g>
+      <g class="sans" font-size="10" font-weight="850">
+        <g transform="translate(994 202)"><circle r="14" fill="#0B1224" stroke="#2563EB"/><text y="4" text-anchor="middle" fill="#FFFFFF">1</text><text x="0" y="-23" text-anchor="middle" fill="#94A3B8">SIGNAL</text></g>
+        <g transform="translate(1098 306)"><circle r="14" fill="#0B1224" stroke="#FFFFFF"/><text y="4" text-anchor="middle" fill="#FFFFFF">2</text><text x="0" y="-23" text-anchor="middle" fill="#94A3B8">APPROVE</text></g>
+        <g transform="translate(994 410)"><circle r="14" fill="#0B1224" stroke="#EF4444"/><text y="4" text-anchor="middle" fill="#FFFFFF">3</text><text x="0" y="29" text-anchor="middle" fill="#94A3B8">ACT</text></g>
+        <g transform="translate(890 306)"><circle r="14" fill="#0B1224" stroke="#FFFFFF"/><text y="4" text-anchor="middle" fill="#FFFFFF">4</text><text x="0" y="-23" text-anchor="middle" fill="#94A3B8">PROVE</text></g>
+      </g>
+    </g>
+    <g class="sans">
+      <text x="22" y="284" fill="#FFFFFF" font-size="27" font-weight="950">BUSINESS SPACES</text>
+      <text x="22" y="310" fill="#93C5FD" font-size="13" font-weight="800" letter-spacing="1.4">FRICTION → CONTROL → PROOF</text>
+      <text x="22" y="345" fill="#94A3B8" font-size="13">Teams · agents · files · dashboards</text>
+      <text x="22" y="369" fill="#94A3B8" font-size="13">Approvals · work queues · ROI evidence</text>
+      <rect x="22" y="390" width="154" height="28" rx="14" fill="#2563EB"/><text x="99" y="408" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="900">BUILD WITH ZEN →</text>
+    </g>
+  </g>
+
+  <g class="mono"><text x="43" y="585" fill="#64748B" font-size="11">ARSENAL.WORLD // ZENAI.WORLD // ALEXLESCHIK.COM</text><text x="1157" y="585" text-anchor="end" fill="#64748B" font-size="11">SYSTEMS PEOPLE CAN USE, OWN, AND PROVE.</text></g>
+</svg>
