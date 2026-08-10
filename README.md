@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://arsenal.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2">
-  <img src="./assets/zen-cinematic-hero.svg" alt="Alex Leschik — founder of ZEN AI Co. and creator of Arsenal" width="100%" />
+  <img src="./assets/zen-brand-hero.svg" alt="Alex Leschik — founder of ZEN AI Co. and creator of Arsenal" width="100%" />
 </a>
 
 <br />
@@ -22,7 +22,7 @@
 
 <div align="center">
 
-<a href="./evidence/presidential-ai-challenge-2026.pdf"><img src="./assets/presidential-ai-challenge-2026-badge.svg" alt="2026 Presidential AI Challenge recognized contributor — Alexander Leschik" width="520" /></a>&nbsp;&nbsp;<a href="./evidence/presidential-ai-challenge-2026.pdf"><img src="./assets/presidential-ai-challenge-2026-certificate.png" alt="Certificate recognizing Alexander Leschik's contribution to the 2026 Presidential AI Challenge" width="220" /></a>
+<a href="./evidence/presidential-ai-challenge-2026.pdf"><img src="./assets/presidential-ai-challenge-2026-badge-zen.svg" alt="2026 Presidential AI Challenge recognized contributor — Alexander Leschik" width="520" /></a>&nbsp;&nbsp;<a href="./evidence/presidential-ai-challenge-2026.pdf"><img src="./assets/presidential-ai-challenge-2026-certificate.png" alt="Certificate recognizing Alexander Leschik's contribution to the 2026 Presidential AI Challenge" width="220" /></a>
 
 <br />
 <sub><strong>Certificate wording:</strong> “In recognition of your contribution to the 2026 Presidential AI Challenge.” · <a href="./evidence/presidential-ai-challenge-2026.pdf">View the original certificate</a></sub>
@@ -122,7 +122,7 @@ That means agents that execute, interfaces that make intelligence usable, automa
 <div align="center">
 
 <a href="https://arsenal.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=manifesto">
-  <img src="./assets/zen-manifesto.svg" alt="Build what matters, ship what works, prove what changed" width="100%" />
+  <img src="./assets/zen-manifesto-branded.svg" alt="Build what matters, ship what works, prove what changed" width="100%" />
 </a>
 
 <br />
