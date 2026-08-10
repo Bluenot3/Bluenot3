@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img" aria-labelledby="title desc">
+  <title id="title">2026 Presidential AI Challenge recognized contributor badge for Alexander Leschik</title>
+  <desc id="desc">A custom red, white, and blue technology medallion beside the words Presidential AI Challenge, Recognized Contributor, Alexander Leschik.</desc>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      animate, animateTransform { display: none; }
+    }
+  </style>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071327"/>
+      <stop offset="0.5" stop-color="#050a14"/>
+      <stop offset="1" stop-color="#17060b"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#2563eb"/>
+      <stop offset="0.49" stop-color="#f8fafc"/>
+      <stop offset="0.51" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="star" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.55" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#fca5a5"/>
+    </linearGradient>
+    <radialGradient id="core">
+      <stop stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="0.4" stop-color="#2563eb" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22 0H0V22" fill="none" stroke="#93c5fd" stroke-opacity="0.045"/>
+    </pattern>
+    <clipPath id="clip"><rect x="1" y="1" width="898" height="258" rx="24"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip)">
+    <rect x="1" y="1" width="898" height="258" rx="24" fill="url(#panel)"/>
+    <rect x="1" y="1" width="898" height="258" rx="24" fill="url(#grid)"/>
+    <circle cx="162" cy="130" r="150" fill="url(#core)"/>
+    <path d="M0 229C224 185 362 224 565 187S803 130 930 170" fill="none" stroke="#2563eb" stroke-opacity="0.1" stroke-width="26"/>
+    <path d="M-20 250C216 208 387 247 596 205S804 150 935 192" fill="none" stroke="#ef4444" stroke-opacity="0.09" stroke-width="20"/>
+    <path d="M628 -20L910 153V-20Z" fill="#2563eb" opacity="0.055"/>
+    <path d="M736 280L910 170V280Z" fill="#ef4444" opacity="0.07"/>
+  </g>
+  <rect x="1.5" y="1.5" width="897" height="257" rx="23" fill="none" stroke="#334155" stroke-width="3"/>
+  <path d="M25 2H875" stroke="url(#edge)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Custom technology medallion; intentionally not an official government seal. -->
+  <g transform="translate(34 20)">
+    <circle cx="110" cy="110" r="100" fill="#020617" stroke="#1e3a8a" stroke-width="2"/>
+    <circle cx="110" cy="110" r="91" fill="none" stroke="url(#edge)" stroke-width="5" stroke-dasharray="102 18" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" from="0 110 110" to="360 110 110" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="110" cy="110" r="76" fill="#071327" stroke="#475569" stroke-width="1.5"/>
+    <circle cx="110" cy="110" r="61" fill="url(#core)" stroke="#64748b" stroke-opacity="0.55"/>
+    <g fill="#e2e8f0" opacity="0.9">
+      <path d="M110 21l2.8 5.8 6.4.9-4.6 4.5 1.1 6.3-5.7-3-5.7 3 1.1-6.3-4.6-4.5 6.4-.9z"/>
+      <path d="M61 36l2 4.1 4.5.7-3.3 3.2.8 4.5-4-2.1-4 2.1.8-4.5-3.3-3.2 4.5-.7z"/>
+      <path d="M159 36l2 4.1 4.5.7-3.3 3.2.8 4.5-4-2.1-4 2.1.8-4.5-3.3-3.2 4.5-.7z"/>
+      <path d="M31 73l2 4.1 4.5.7-3.3 3.2.8 4.5-4-2.1-4 2.1.8-4.5-3.3-3.2 4.5-.7z"/>
+      <path d="M189 73l2 4.1 4.5.7-3.3 3.2.8 4.5-4-2.1-4 2.1.8-4.5-3.3-3.2 4.5-.7z"/>
+    </g>
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <path d="M60 130L82 130 91 119M160 130H138L129 119M76 155H92L102 143M144 155H128L118 143" fill="none" stroke="#64748b" stroke-width="3"/>
+      <circle cx="59" cy="130" r="4" fill="#2563eb" filter="url(#glow)"/>
+      <circle cx="161" cy="130" r="4" fill="#ef4444" filter="url(#glow)"/>
+      <circle cx="75" cy="155" r="3" fill="#60a5fa"/>
+      <circle cx="145" cy="155" r="3" fill="#f87171"/>
+      <path d="M110 55l13.8 28 30.9 4.5-22.4 21.8 5.3 30.8L110 125.6l-27.6 14.5 5.3-30.8-22.4-21.8 30.9-4.5z" fill="url(#star)" stroke="#fff" stroke-opacity="0.72" stroke-width="1.5" filter="url(#glow)"/>
+      <path d="M110 62v58M91 88h38" stroke="#0f172a" stroke-opacity="0.24" stroke-width="2"/>
+    </g>
+    <text x="110" y="184" fill="#94a3b8" font-family="Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="2.4">CIVIC AI · 2026</text>
+  </g>
+
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="278" y="48" fill="#93c5fd" font-size="13" font-weight="800" letter-spacing="3.2">CERTIFICATE OF RECOGNITION</text>
+    <text x="278" y="91" fill="#f8fafc" font-size="33" font-weight="850" letter-spacing="0.8">PRESIDENTIAL AI CHALLENGE</text>
+    <rect x="278" y="112" width="356" height="38" rx="19" fill="#f8fafc" fill-opacity="0.06" stroke="#64748b" stroke-opacity="0.55"/>
+    <circle cx="300" cy="131" r="5" fill="#ef4444" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.55;1;0.55" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="316" y="136" fill="#f8fafc" font-size="16" font-weight="800" letter-spacing="2">RECOGNIZED CONTRIBUTOR</text>
+    <text x="278" y="187" fill="#e2e8f0" font-size="24" font-weight="750" letter-spacing="0.7">ALEXANDER LESCHIK</text>
+    <text x="278" y="218" fill="#94a3b8" font-size="13.5" letter-spacing="0.35">Contributing to a new generation of American AI innovation</text>
+  </g>
+</svg>

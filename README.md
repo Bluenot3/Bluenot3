@@ -1,216 +1,140 @@
 <div align="center">
 
-<a href="https://arsenal.world">
-  <img src="./assets/zen-hero.svg" alt="Alex Leschik - Founder of ZEN AI Co., Creator of Arsenal, and builder of deployment-first AI systems" width="100%" />
+<a href="https://arsenal.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2">
+  <img src="./assets/zen-cinematic-hero.svg" alt="Alex Leschik — founder of ZEN AI Co. and creator of Arsenal" width="100%" />
 </a>
 
 <br />
 
-<img
-  src="https://readme-typing-svg.demolab.com?font=Inter&weight=850&size=22&duration=2300&pause=650&color=EF4444&center=true&vCenter=true&width=1000&lines=Founder+of+ZEN+AI+Co.+%7C+Creator+of+Arsenal;First+youth+AI+literacy+program+in+United+States+history;Students+ages+11-18+launch+cloud-hosted+AI+systems;Agents+%2B+apps+%2B+tools+%2B+games+%2B+dashboards+%2B+credentials"
-  alt="Animated ZEN AI Co. profile statement"
-/>
+<a href="https://arsenal.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=hero_cta"><img src="https://img.shields.io/badge/ARSENAL-ENTER_THE_SYSTEM-EF4444?style=for-the-badge&amp;logo=rocket&amp;logoColor=white" alt="Enter Arsenal" /></a>
+<a href="https://www.zenai.world/us-world-first-youth-ai-literacy?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=hero_cta"><img src="https://img.shields.io/badge/AI_PIONEER-BUILD_THE_FUTURE-2563EB?style=for-the-badge&amp;logo=bookstack&amp;logoColor=white" alt="Explore AI Pioneer" /></a>
+<a href="mailto:huxley@zenai.biz?subject=Build%20with%20ZEN%20via%20GitHub"><img src="https://img.shields.io/badge/ZEN_FOR_BUSINESS-TURN_FRICTION_INTO_PROOF-111827?style=for-the-badge&amp;logo=minutemailer&amp;logoColor=white" alt="Build with ZEN AI Co." /></a>
 
 <br />
 <br />
 
-<a href="https://arsenal.world">
-  <img src="https://img.shields.io/badge/Arsenal-Agentic_AI_Infrastructure-EF4444?style=for-the-badge&logo=rocket&logoColor=white" alt="Arsenal" />
-</a>
-<a href="https://www.zenai.world">
-  <img src="https://img.shields.io/badge/ZEN_AI_Co.-Programs_%26_Credentials-0F172A?style=for-the-badge&logo=vercel&logoColor=white" alt="ZEN AI Co." />
-</a>
-<a href="https://arsenal.world">
-  <img src="https://img.shields.io/badge/AI_Arena-Model_Access_%26_Execution-2563EB?style=for-the-badge&logo=openai&logoColor=white" alt="AI Arena" />
-</a>
-<a href="https://alexleschik.com">
-  <img src="https://img.shields.io/badge/Portfolio-alexleschik.com-FFFFFF?style=for-the-badge&logo=googlechrome&logoColor=111827&labelColor=111827" alt="Portfolio" />
-</a>
-<a href="https://www.linkedin.com/in/alexanderleschik/">
-  <img src="https://img.shields.io/badge/LinkedIn-Alex_Leschik-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-</a>
+<strong>Founder, ZEN AI Co. · Creator, Arsenal · Washington, D.C.</strong><br />
+<sub>I design agentic systems people can use, own, and prove.</sub>
 
 </div>
 
-```bash
-alex@zen-ai-co:~$ profile --public
+## Presidential AI Challenge recognition
 
-Identity        Founder, ZEN AI Co. | Creator, Arsenal
-Thesis          AI literacy should end in deployed capability, not worksheets
-Historic work   Founder of the first youth AI literacy program in United States history
-Build layer     Agents -> apps -> automations -> dashboards -> credentials -> ecosystem
-Live system     https://arsenal.world
-```
+<div align="center">
+
+<a href="./evidence/presidential-ai-challenge-2026.pdf"><img src="./assets/presidential-ai-challenge-2026-badge.svg" alt="2026 Presidential AI Challenge recognized contributor — Alexander Leschik" width="520" /></a>&nbsp;&nbsp;<a href="./evidence/presidential-ai-challenge-2026.pdf"><img src="./assets/presidential-ai-challenge-2026-certificate.png" alt="Certificate recognizing Alexander Leschik's contribution to the 2026 Presidential AI Challenge" width="220" /></a>
+
+<br />
+<sub><strong>Certificate wording:</strong> “In recognition of your contribution to the 2026 Presidential AI Challenge.” · <a href="./evidence/presidential-ai-challenge-2026.pdf">View the original certificate</a></sub>
+
+</div>
+
+## Choose your door
+
+<img src="./assets/zen-three-doors.svg" alt="Three animated entry points into the ZEN and Arsenal ecosystem" width="100%" />
+
+<div align="center">
+
+<a href="https://arsenal.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=three_doors"><strong>BUILD IN ARSENAL</strong></a>
+&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;
+<a href="https://www.zenai.world/us-world-first-youth-ai-literacy?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=three_doors"><strong>EXPLORE AI PIONEER</strong></a>
+&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;
+<a href="mailto:huxley@zenai.biz?subject=Build%20with%20ZEN%20via%20GitHub"><strong>BUILD A BUSINESS SYSTEM</strong></a>
+
+</div>
 
 ---
 
-## Builder Signal
+I’m **Alex Leschik**. I build the infrastructure between an idea and a working system.
 
-I build **agentic AI systems, multimodal interfaces, automation infrastructure, dashboards, credentials, and deployment-first learning systems**.
+That means agents that execute, interfaces that make intelligence usable, automations that preserve human control, programs that end in deployed artifacts, and business systems that can prove what changed.
 
-I am the founder of **ZEN AI Co.** and creator of **Arsenal**, an agentic infrastructure platform for launching AI agents, automations, full-stack tools, simulations, dashboards, and intelligent workflows from one unified surface.
+> **The thesis:** capability beats content. Outcomes beat outputs. Ownership beats dependency.
 
-I also founded the **first youth AI literacy program in United States history**, where students ages **11-18** launch their own cloud-hosted AI agents, apps, tools, games, dashboards, automations, and more.
+## What lives inside the system
 
-The through-line is simple: reduce the distance between an idea and a working system.
-
----
-
-## What I'm Building
-
-| System | What It Does | Surface |
+| Layer | Systems | What leaves the screen |
 |---|---|---|
-| **Arsenal** | Agentic infrastructure for building agents, tools, automations, simulations, dashboards, workflows, and full-stack AI systems. | [arsenal.world](https://arsenal.world) |
-| **ZEN AI Co.** | AI literacy, programs, credentials, business systems, and deployment-first learning infrastructure. | [zenai.world](https://www.zenai.world) |
-| **AI Pioneer Program** | Youth AI literacy where students build real projects and launch cloud-hosted AI systems. | [zenai.world](https://www.zenai.world) |
-| **AI Arena** | Model access, comparison, testing, and execution layer for working across major AI systems. | Arsenal ecosystem |
-| **Smart Business Systems** | Recruiting, HR, education, operations, dashboards, workflows, and agentic operating layers. | [alexleschik.com](https://alexleschik.com) |
+| **Create** | Arsenal · Agents · Z-ENGINE · Tune · Zen Mode · ZEN AI Arena | Agents, apps, tools, simulations, interfaces, multimodal outputs. |
+| **Operate** | Business Spaces · Automations · Dashboards · Model Routing | Governed workflows, approvals, work queues, operational evidence, measurable results. |
+| **Learn** | AI Pioneer · Vanguard · ZEN Credentials | Student-built agents, apps, games, dashboards, deployments, portfolios, proof of skill. |
+| **Own** | Files / Vault · Projects · Export · GitHub / Hugging Face handoff | Persistent artifacts that remain usable beyond a single session. |
+| **Inspect** | ROAM / Instant Website X-Ray | Deterministic, explainable website intelligence without unnecessary paid dependencies. |
 
----
+<details>
+<summary><strong>Open the granular capability index</strong></summary>
 
-## Arsenal Architecture
+<br />
 
-| Layer | What It Enables |
+- **Arsenal:** unified creation and execution surface for agents, apps, automations, dashboards, simulations, and full-stack systems.
+- **Z-ENGINE:** generative build engine for interfaces, websites, components, and interactive experiences.
+- **Tune:** refinement layer for improving prompts, behavior, assets, and system quality.
+- **Zen Mode:** focused multimodal creation, deliberately separate from protected course-completion logic.
+- **ZEN AI Arena:** model access, comparison, testing, and execution across major AI systems.
+- **Files / Vault:** creation, preview, persistence, export, download, ownership, and builder handoff.
+- **Business Spaces:** teams, agents, files, shifts, dashboards, memory, work queues, approvals, replay, client delivery, and ROI evidence.
+- **AI Pioneer:** deployment-first AI literacy for ages 11–18 built around real learner action and proof artifacts.
+- **Vanguard:** advanced builder progression and higher-complexity systems work.
+- **ZEN Credentials:** portable proof attached to completed capability.
+- **ROAM:** deterministic, low/no-cost website inspection and opportunity mapping.
+- **Model routing:** cost-aware execution across text, code, image, video, and specialized workloads with fallbacks and visible errors.
+
+</details>
+
+## Built in public
+
+<img src="./assets/zen-live-feed.svg" alt="Animated feed of ZEN and Arsenal products and public experiments" width="100%" />
+
+| Live surface | Why it exists |
 |---|---|
-| **Agent Builder** | Agents for research, operations, automation, content, systems, and execution. |
-| **ZENGINE** | Components, interfaces, websites, simulations, animations, and interactive systems. |
-| **Experiences** | Guided AI experiences that behave like interactive products, not static chat. |
-| **Vault** | Saved projects, outputs, prompts, files, workflows, and reusable system assets. |
-| **Model Routing** | Low-cost models for simple work, stronger models for specialized execution. |
-| **Ecosystem Layer** | ZEN programs, student projects, credentials, dashboards, and growth over time. |
+| [**Arsenal**](https://arsenal.world/?utm_source=github&utm_medium=profile&utm_campaign=alex_leschik_v2&utm_content=live_surface) | Build and deploy agentic systems from one operating surface. |
+| [**ZEN AI Co.**](https://www.zenai.world/?utm_source=github&utm_medium=profile&utm_campaign=alex_leschik_v2&utm_content=live_surface) | Programs, credentials, experiments, playgrounds, and the wider ZEN ecosystem. |
+| [**AI Pioneer Program**](https://www.zenai.world/us-world-first-youth-ai-literacy?utm_source=github&utm_medium=profile&utm_campaign=alex_leschik_v2&utm_content=live_surface) | Deployment-first AI literacy for young builders ages 11–18. |
+| [**Agent Visualizer**](https://www.zenai.world/agentviz?utm_source=github&utm_medium=profile&utm_campaign=alex_leschik_v2&utm_content=live_surface) | A public experiment for making agent systems visible and understandable. |
+| [**Alexander Leschik**](https://www.alexleschik.com/?utm_source=github&utm_medium=profile&utm_campaign=alex_leschik_v2&utm_content=live_surface) | Selected product, systems, AI, and operator work. |
 
-```mermaid
-flowchart TB
-    idea["Idea"] --> arsenal["Arsenal"]
+## Bring me the right kind of problem
 
-    arsenal --> builder["Agent Builder"]
-    arsenal --> zengine["ZENGINE"]
-    arsenal --> experiences["Experiences"]
-    arsenal --> vault["Vault"]
-    arsenal --> router["Model Routing"]
+| If you have… | I’m interested in… | Start here |
+|---|---|---|
+| A product idea that should already exist | Turning it into an agent, interface, workflow, or deployable system. | [Enter Arsenal](https://arsenal.world/?utm_source=github&utm_medium=profile&utm_campaign=alex_leschik_v2&utm_content=problem_table) |
+| An operational bottleneck or revenue leak | Designing a controlled loop: signal → approval → action → evidence. | [Build with ZEN](mailto:huxley@zenai.biz?subject=Arsenal%20Business%20System%20via%20GitHub) |
+| A student, school, or learning partner ready to build | Replacing passive AI content with deployed projects and proof of capability. | [Explore AI Pioneer](https://www.zenai.world/us-world-first-youth-ai-literacy?utm_source=github&utm_medium=profile&utm_campaign=alex_leschik_v2&utm_content=problem_table) |
+| A belief in public experimentation | Supporting the continued development of tools, demos, and open work. | [Sponsor the build](https://github.com/sponsors/Bluenot3) |
 
-    builder --> agents["Agents"]
-    zengine --> apps["Apps, components, simulations"]
-    experiences --> interactive["Interactive AI experiences"]
-    vault --> memory["Saved projects and reusable workflows"]
-    router --> execution["Cost-aware model execution"]
-
-    agents --> ops["Operations"]
-    apps --> ops
-    interactive --> learning["Learning and engagement"]
-    memory --> portfolio["User memory and portfolio"]
-    execution --> ops
-
-    ops --> dashboards["Dashboards"]
-    learning --> programs["ZEN Programs"]
-    portfolio --> credentials["Credentials"]
-
-    dashboards --> infrastructure["AI Infrastructure Layer"]
-    programs --> infrastructure
-    credentials --> infrastructure
-
-    classDef core fill:#020617,stroke:#EF4444,color:#FFFFFF,stroke-width:2px;
-    classDef build fill:#0F172A,stroke:#2563EB,color:#E0F2FE,stroke-width:1.5px;
-    classDef output fill:#111827,stroke:#FFFFFF,color:#F8FAFC,stroke-width:1.5px;
-    classDef proof fill:#1E3A8A,stroke:#EF4444,color:#FFFFFF,stroke-width:1.5px;
-
-    class arsenal core;
-    class builder,zengine,experiences,vault,router build;
-    class agents,apps,interactive,memory,execution output;
-    class dashboards,programs,credentials,infrastructure proof;
-```
-
----
-
-## Capability Matrix
-
-| Domain | Current Focus |
-|---|---|
-| **Agentic AI** | System architecture, agent builders, automations, intelligent workflows, and model routing. |
-| **AI Products** | Multimodal dashboards, full-stack tools, simulations, interactive experiences, and deployment surfaces. |
-| **Education Infrastructure** | Youth AI literacy, deployment-first curriculum, student project launches, and portfolio growth. |
-| **Operations** | AI workflows for recruiting, HR, education, business operations, and internal systems. |
-| **Credentials + Access** | AI x Web3 proof-of-skill, token-gated access, learning verification, and digital achievement. |
+## GitHub signal
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/Agentic_AI-Systems_Architecture-EF4444?style=for-the-badge" alt="Agentic AI" />
-<img src="https://img.shields.io/badge/Automation-Operational_Workflows-2563EB?style=for-the-badge" alt="Automation" />
-<img src="https://img.shields.io/badge/AI_Literacy-Deployment_First-FFFFFF?style=for-the-badge&labelColor=111827&color=FFFFFF" alt="AI Literacy" />
-<img src="https://img.shields.io/badge/Interfaces-Multimodal_Dashboards-DC2626?style=for-the-badge" alt="Interfaces" />
-<img src="https://img.shields.io/badge/Web3-Credentials_%26_Access-1D4ED8?style=for-the-badge" alt="Web3 credentials and access" />
-<img src="https://img.shields.io/badge/Product-Full_Stack_AI_Tools-111827?style=for-the-badge" alt="Full stack AI tools" />
-
-</div>
-
----
-
-## Build Stack
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/GitHub-Source_of_Truth-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
-<img src="https://img.shields.io/badge/Vercel-Deployment-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" />
-<img src="https://img.shields.io/badge/Supabase-Auth_%26_Data-3ECF8E?style=flat-square&logo=supabase&logoColor=white" alt="Supabase" />
-<img src="https://img.shields.io/badge/Hugging_Face-AI_Deployments-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face" />
-<img src="https://img.shields.io/badge/Cloudflare-Edge_%26_AI-F38020?style=flat-square&logo=cloudflare&logoColor=white" alt="Cloudflare" />
-<img src="https://img.shields.io/badge/OpenAI-Model_Infrastructure-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" />
-<img src="https://img.shields.io/badge/Resend-Email_Infrastructure-000000?style=flat-square&logo=resend&logoColor=white" alt="Resend" />
-<img src="https://img.shields.io/badge/NEAR-Web3_Credentials-000000?style=flat-square&logo=near&logoColor=white" alt="NEAR" />
-
-</div>
-
----
-
-## Build Philosophy
-
-> Deploy over theorize.  
-> Reduce friction between concept and execution.  
-> Build tools that expand capability for others.  
-> Make AI operational, visible, and useful.  
-> Treat education as infrastructure, not content.
-
----
-
-## GitHub Signal
-
-<div align="center">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=Bluenot3&show_icons=true&hide_border=true&bg_color=050505&title_color=EF4444&icon_color=2563EB&text_color=FFFFFF&rank_icon=github" alt="GitHub stats" />
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Bluenot3&layout=compact&hide_border=true&bg_color=050505&title_color=2563EB&text_color=FFFFFF" alt="Top languages" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Bluenot3&amp;theme=github_dark" alt="Alex Leschik GitHub contribution summary" width="100%" />
 
 <br />
 <br />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Bluenot3&bg_color=050505&color=FFFFFF&line=EF4444&point=2563EB&area=true&area_color=EF4444&hide_border=true" alt="GitHub activity graph" width="100%" />
+<a href="https://github.com/Bluenot3?tab=followers"><img src="https://img.shields.io/github/followers/Bluenot3?style=for-the-badge&amp;color=2563EB&amp;labelColor=111827&amp;logo=github&amp;label=BUILDERS+CONNECTED" alt="GitHub followers" /></a>
+<a href="https://github.com/Bluenot3?tab=repositories"><img src="https://img.shields.io/github/stars/Bluenot3?affiliations=OWNER&amp;style=for-the-badge&amp;color=EF4444&amp;labelColor=111827&amp;logo=github&amp;label=REPO+STARS" alt="Stars across owned repositories" /></a>
+<img src="https://komarev.com/ghpvc/?username=Bluenot3&amp;style=for-the-badge&amp;color=EF4444&amp;label=PROFILE+SIGNAL" alt="GitHub profile views" />
 
 </div>
 
 ---
 
-## Public Links
-
-| Destination | Link |
-|---|---|
-| **Arsenal** | [arsenal.world](https://arsenal.world) |
-| **ZEN AI Co.** | [zenai.world](https://www.zenai.world) |
-| **Portfolio** | [alexleschik.com](https://alexleschik.com) |
-| **LinkedIn** | [linkedin.com/in/alexanderleschik](https://www.linkedin.com/in/alexanderleschik/) |
-| **GitHub** | [github.com/Bluenot3](https://github.com/Bluenot3) |
-
----
-
 <div align="center">
 
-### Build systems. Launch agents. Verify skills. Expand capability.
-
-<a href="https://arsenal.world">
-  <img src="https://img.shields.io/badge/Enter_Arsenal-arsenal.world-EF4444?style=for-the-badge&logo=rocket&logoColor=white" alt="Enter Arsenal" />
+<a href="https://arsenal.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=manifesto">
+  <img src="./assets/zen-manifesto.svg" alt="Build what matters, ship what works, prove what changed" width="100%" />
 </a>
 
 <br />
-<br />
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:2563EB,45:111827,100:EF4444" alt="footer wave" width="100%" />
+<a href="https://arsenal.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=footer"><strong>ARSENAL</strong></a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="https://www.zenai.world/?utm_source=github&amp;utm_medium=profile&amp;utm_campaign=alex_leschik_v2&amp;utm_content=footer"><strong>ZEN AI CO.</strong></a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/alexanderleschik/"><strong>LINKEDIN</strong></a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="https://x.com/ZEN_AGI"><strong>@ZEN_AGI</strong></a>
+&nbsp;&nbsp;·&nbsp;&nbsp;
+<a href="https://github.com/sponsors/Bluenot3"><strong>SPONSOR</strong></a>
 
 </div>
