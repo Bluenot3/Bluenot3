@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="72" viewBox="0 0 280 72" role="img" aria-labelledby="t d" fill="none">
+<title id="t">Linq — all links</title>
+<desc id="d">Link to Linq: all links</desc>
+<style>
+@font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAPYAA8AAAAABxgAAAN/AAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGhwbIBwqBmA/U1RBVEwAfBEICoYMhG0BNgIkAzgLHgAEIAWBBAcgG1gFAB6D424zFWIxxPzzksfnXT0egrV+b2b3TBCVZGZNm4iWQoqETLyMJRrty0EdazZCfOZfHZj/7AA+/OX03q0SXjjFIg/kxqaPDRqbfnwRJRjlYw3gaQkGGGC2LbkK3dojMT3ytedgbyPQBqQUqkJDSwg0TTdT7NLQMwMsJYz+Dwg0LbRYclojuOMcFgBUTJhe5gVUJhXyC4oVgIN+/7gCIrENIGkw8eENDuwA8N1sd4s/I2cUQ7EcAbkwB5itIoS6xHiJ+fKhp1cYAnwCszZCKJQmS4haMZv8B9oqhIx+faS7wHiFwG8q3QAm6itUzbafHgPGnHnzEyB0dDQ53neETZkwblSbept4naoCJm4eVQ+hC6ajgz/ELLQVnIBXBkcVCDizXR07mWBGq9npTVyB14pW0YyOZra0Kq2yo2tebri4CNRW2bxSfX4ur1uw55Th5MR9ry8vW7n1r860zG1yFyW7gJMzJ2TenGQhksbFjZ6ZosJhU5DNaK66axa5hwgypaFX1UTy3GdxraxxLHCgU0NO2iVNXUWtTa/PMSo514lJ3FfTaPg6iyTPSGhc1JWb1QxZOJOeglfd4ubnoF6d4fjmHMA6zHfah1d7RinFF8UpU95ycHVQYcCZB5sGg3NibJjX0JxY+NL2R82ICaKfRbNmVYLC0cDJd7QidC1fCVlXZQlVWefL0XqSLioS+sEu0jGb//kE+3kl+O75eD/4JHjn4WfD1Mla3zTEyi+Em2mdg/VRtxjLJMHJzTvGwzKk2IYqRcFKi9ifr4BDNpClgonlAvZ8WqBszxRuaMqC3YOKNJ2Qw84qvFqqntBL7Sv4IGMpJGQpU9STqURJC9O+ZcKOhcXefCM///x2Rk6B9q4VZrwH3FwLvGZA1tjlziOlK1pB1cfCx91PS20T9t2jba+tZ+Rv6cPhHmmpU0HmxcTBTkVN+USmhuWJ56avbxZqHQy8z7ix58/HXuLdS3WhGqo64yXsAbm6mPL8EwK5pjz8v/vnak/uP1ZR/IVnC+qXdLspo3qpgkqNqgTBa0nyHMM7EtMEEKbazXNgA9towVGQg7CgAXVQQwUi3wT4IdC1Qpooz9ZisRU7oIqyga66DwnausGasaYGe9qW/219Teuc4M5TOD/OQlhy582TlzDqooQJ4UxFID9utIVx5sebKxOB/DkLgAqMuhNBMAAA) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+@keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(6px,0px)}}.drift3{animation:drift3 10.0s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="sc1"><rect x="1.5" y="1.5" width="277" height="69" rx="18"/></clipPath>
+<radialGradient id="au2"><stop offset="0" stop-color="#3B82F6" stop-opacity="0.3"/><stop offset=".45" stop-color="#3B82F6" stop-opacity="0.1"/><stop offset="1" stop-color="#3B82F6" stop-opacity="0"/></radialGradient>
+</defs>
+<g clip-path="url(#sc1)"><rect width="280" height="72" fill="#070B14"/>
+<g class="drift3"><circle cx="36" cy="36" r="90" fill="url(#au2)"/></g>
+</g>
+<rect x="1.5" y="1.5" width="277" height="69" rx="18" stroke="#1E293B" stroke-width="1.5"/>
+<rect x="1.5" y="1.5" width="277" height="69" rx="18" stroke="#3B82F6" stroke-width="2" stroke-dasharray="40 664" stroke-opacity=".9"><animate attributeName="stroke-dashoffset" values="-480;-1184" dur="6.4s" repeatCount="indefinite"/></rect>
+<rect x="14" y="14" width="44" height="44" rx="12" fill="#0C1220" stroke="#1F2A3F"/>
+<path d="M31 41l10-10m-6-2 3-3a5 5 0 017 7l-3 3m-8 8-3 3a5 5 0 01-7-7l3-3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" transform="translate(2 1)"/>
+<text x="74" y="33" class="f-monoB" font-size="12" fill="#94A3B8" letter-spacing="2" >LINQ</text>
+<text x="74" y="55" class="f-monoB" font-size="15" fill="#F8FAFC" >all links</text>
+</svg>

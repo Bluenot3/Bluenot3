@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="330" height="84" viewBox="0 0 330 84" role="img" aria-labelledby="t d" fill="none">
+<title id="t">Portfolio — alexleschik.com</title>
+<desc id="d">Button: Portfolio (alexleschik.com).</desc>
+<style>
+@font-face{font-family:ZDisplay;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAMAAA8AAAAABfgAAAKmAAGzdQAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgWIcMAZgP1NUQVQqAGQRCAqDLIJWATYCJAMkCxQABCAFVgcgG4cEIJ6DcZscUgikRptqtyKUPewWD/+N/bpvBrWoGqpY8wbJm3vlUAqZyCGUzZv637Z5fGh/9f7OLHkA3cR8TfGaktTkTPc/ALp4PVlJ5aVhplUUSSWYgdPp9nHA7xrM7D8enjBMz0WNys8FL7E8sewBQe92xTGyqjvv/4NAEyAJoVYINJjkjSxHxqdDddjTWg/VSUl7I1QolC8QxxWtjeAhEKrUqxPqhIQ6yR6KI73gqQYAKEmqEkx76TJqfEJDuQRqUyqyxTl4XYe5qwZZqFYlqSUonPQ6q7qkdpojbIgbZub2qmydjbFJn6xtwIpJxg5cYxiIcDPWFxKBP4yl54cipOpfGIKANJO+QT9y0N10YdCNdV9V3c7QS74zopEYAxIyuhCBLtQmaCND0C9SjHjJUqUXQSTpuV7WGSUYxaBXDVHUilAPOkAjLsAXAKq+TpRUL1FV23uyNi0tSifkSdFyDckWFbCLhFRQRzNjx1SXjN/cMH23t8KJ62v0Xl1lTrj60MMCwfjVFXqTuqU+gYgRT5yyf2KbRZby/EycdpcscYWoTkgFtXLIfnbN9s08vvft6mun3r4RXHn7foNNZaS6yul04RuPbSMHJc0LnZ1KNxdH3MHhk7Bie7dUHx/UcTEM1+KrUjoZEtOZkhzTBQ9QGrLiai+0HOfb91bXzL194+6bM11rOcq1H6uuW377PsgaCIhpiI2OaRzwz7IpyyVMoRATH29jb+ov9akawDsE4rfjIj2ksEjq/5+XySvwMjK9065Tlc7zrBI1Egg+0cr5LxVFnn+6TfW5HCFZjIWoRYCK8gHT7BMUqUMBVP4RqNdfeIxsyyYRUcVH0oKrYiiatPw4ITroSlWhSod6JVplqVCjSrV2Ebq1a1UiVJN65QhQkCsAAAAA) format('woff2');}.f-display{font-family:ZDisplay,'Arial Black',Impact,sans-serif;}
+@font-face{font-family:ZMono;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAASsAA8AAAAACEwAAARVAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGigbIBwqBmA/U1RBVEwAfBEICogshl4BNgIkA0ALIgAEIAV+ByAbVwZRVE7GQfw4jN0jK44E9UYxCl9MX5prk9jFw//v12+f+2a+vIupJVH5KqhMwkKGRAosQtVIZXVJX6bsqj6Bsx64akH23oOIKGSAMzhE/wO4l/3hfqb/bY3NHUIzr0iqso1GAx7YdEAZ134WdEc8OjwgPdNLGg+WLSOtO8oefvsQgTGAELIQAgGCTkZpjnlK+w8eP69BpWJU1UZhL7NCmm9cb9P9fjOI4HIlXY2/qqT3qZdxTN0dN20KOYlGVT0cPLoXXyzwuBga+c4djzW0F6Zl6QUWqAqhQcKUiCwZetTReT/wN8yfjPFCxQwJohp/ia+kyyiEFBPcQ6oXmAKbVVJF529PM0GhzgLrNGnRpkufAfc8HhWI3qlnqXtri8022dBovt4aKwqQqIxqvKE6ASwgFMcf7mfAGEBOgjDKJr4kX0PMzY2zyqqyYPyKSeOEM8bkX3j/JGpPc47ag/L9rRnl01/5w2OpjHL16+8XPzyNQIpe32+iVn5G1BipC+UnPuMer+/PPJyfH32/Kj8YAxLvzn7Dtag9Kd8/4lKuZufzipqPSFGbZlnKkYsyxqaMsyrlS/nylfJiaeykZqxSeX0xl5o8o/ZtuH+Tbp4HOTR5II5by8jrR98vfngY4c62E8a8vPZ2HrwbtZGXCO+TL2Del8C6c7m58y6kzuKe4ca0scyhYJ5n5dqK1eurVvasVesqV6wpdyfmXUqZdT1/uGrmhSEmchkufvKfRi/0W6wD/eG1qHAUKjxlG5xtGO8LwVHQM3FQv9IyLqRFnIyREelX9xZ09y4B4hx1fxkRVyxRErH8TurkhAGpgaGi4yj5l1pK/SPR46KhqYEJAwCSo+rD8Jh8iQKPhqJKncTSP6GAbhF/lxEvGTEkTzPB2aBq5VgFQ3MKvuY34H4x9AQYWLtGaTFonImBgeFDIbFehh5iQsABr8I9sOTGUQh8L4YuTSx99fRQ1tGGqcs+N30BU1BTd69Jdv8EbEabsaZ9ELCdQW35J1Flr1Ci4Ud3/hF1Iihtlm+Pb2naWlOTOx1bmo/U1syUxQDJVidRPKZYpMSjwa22BaLKRQo89nNVUfICvYg5TxI3mUX0LVCdzfo7ZEp+KFPcg0irWppvnNTm+gqcer0ZOhOd3v7WTMVQ8nZXp3hba2NknD4vnO81G2z9ff0BcqXuRM7U+OohL6juF0PUR089kXu5durgHUNeU9TXKUN2ACSn+393z4928bue7m8Amdu2oql5RVv5xuamFUx1y9ShzvgJKnCGtKYofDYskLZV3va1b7g1fs+/hqL4A8+Xfvwiu+eO/k+bi0LUSceD9RgKpssEwsibKUJ1TQCrV9Nle17sSTiPPQOXYO7kbgqshu/3AL8FJlgrmSa5sHUpV+1ViEpjdhymVDDGOKhiZ8F47LKXTVDa5Kw2HR7o1eSuS8fY8g6d7juhTasuWLnPEfc16a22OGug846b9CuA0dkEAQA=) format('woff2');}.f-mono{font-family:ZMono,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+@keyframes drift4{0%,100%{transform:translate(0,0)}50%{transform:translate(8px,0px)}}.drift4{animation:drift4 8s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}.ng{animation:nudge 1.6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="bc1"><rect x="2" y="2" width="326" height="80" rx="40.0"/></clipPath>
+<linearGradient id="bg2" x1="0" x2="1"><stop offset="0" stop-color="#0B1020"/><stop offset="1" stop-color="#05070D"/></linearGradient>
+<radialGradient id="au3"><stop offset="0" stop-color="#93C5FD" stop-opacity="0.35"/><stop offset=".45" stop-color="#93C5FD" stop-opacity="0.12"/><stop offset="1" stop-color="#93C5FD" stop-opacity="0"/></radialGradient>
+<linearGradient id="sh5" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<g clip-path="url(#bc1)"><rect width="330" height="84" fill="url(#bg2)"/>
+<g class="drift4"><circle cx="50" cy="42" r="120" fill="url(#au3)"/></g>
+<rect y="0" width="90" height="84" fill="url(#sh5)" transform="skewX(-20)"><animate attributeName="x" values="-160;390;390" keyTimes="0;.4;1" dur="4.5s" begin="1.7999999999999998s" repeatCount="indefinite"/></rect>
+</g>
+<rect x="2" y="2" width="326" height="80" rx="40.0" stroke="#93C5FD" stroke-opacity=".35" stroke-width="1.5"/>
+<rect x="2" y="2" width="326" height="80" rx="40.0" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="70 673.33"><animate attributeName="stroke-dashoffset" values="0;-743.33" dur="4.800000000000001s" repeatCount="indefinite"/></rect>
+<circle cx="42" cy="42" r="26" fill="#0A0F1C" stroke="#93C5FD" stroke-opacity=".6"/>
+<path d="M33 51L51 33M40 33h11v11" stroke="#93C5FD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="84" y="40" class="f-display" font-size="17.5" fill="#F8FAFC" letter-spacing="0.6" >PORTFOLIO</text>
+<text x="84" y="62" class="f-mono" font-size="12.5" fill="#93C5FD" letter-spacing="0.3" >alexleschik.com</text>
+<g class="ng"><path d="M284 42h14m0 0-6-6m6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>
