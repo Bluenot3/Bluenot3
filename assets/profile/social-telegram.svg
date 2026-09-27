@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="72" viewBox="0 0 280 72" role="img" aria-labelledby="t d" fill="none">
+<title id="t">Telegram — @ZENOAI</title>
+<desc id="d">Link to Telegram: @ZENOAI</desc>
+<style>
+@font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAQgAA8AAAAAB1wAAAPIAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmA/U1RBVEwAeBEICoZwhTcBNgIkAx4LHgAEIAWBBAcgG34FIB6Dbds4YgjnLBbzvYoTeUQ8PL/W79w3s/bmi3j6iEiCLGJdfIh/f6mEQkiUvCGRSJD37+2q92eW3Qu5Z2Ezoi8TsqsLlf/sAEPX1I/yB6oUf8SjL6pVin3gbIATHA1Hawqt0CIbzgY8EJi5NQaHPjS72LyhQvTsBQQGAEkIlRDIFghBly3s3IBOCf3/AYFsiwxSSn9Mb4PTEoAnEba4TLfJIqhJOyQvAFfd0XEfVMIIINFBc5h45SKA37DCp/jz75FeQJS0FdNWeocV1EJoS5gwaCPzLjIqDQH/viyNmIXSDBJEq1gB6S91oEJIMbI9nLIFJpCF0VSebsqCrLTCmDlL1hy5cOPTFyuMBMLufU1/355d2zZtWA5hDL95UAjR1zDCEFgARkBUxHUAUL4oq8EJjjOS2p2BjQGaxTE2JuZOOx8Ywh/g/pgH5uaLeww883U9CuDUgwbUoz3aeX5GRf3ygnefniDX19jOJaTvV3j3BkWOQd8fH/GoiiidU6VqVOXgFbvWP8zZOSrsOdPKUb9QJuyF+fQ/eaCH9wYWZqoy3+/ukvZx0yh71B7OtQ+wmr1S3cepNYBPtfLGfDBSUXUfUH2P5aqRY1guq3jBgAY9PXEs5fXM//0WG2UUdYnfwVzlgYpPrjHpEdL3J7xyp7uIUL2ASXMA3+d5V94O1t66xcYWnvvSFcgVWwxnslFTY7BOB6feSZHiGEMRw4ZiESh1bOI19EJMNEz1gv2WjXWcBoaZdlAY5fcwUo4STIgxEefiCkkHJmlAzYDTj+bn5pIt5x4hsNfhIF0Hcr1pk8+j4xj2s9X48/S76lNNqizaTPooDVfrQk9rM/oIugzqXO1TON1b3FOToA2iChKjlL1b3FFTpPak8hY3AqJjHauhE2KiYQJwN6xtYmJg/9i6WP6a0KDsKyjsUzSIa7jQ++mQrG4QamZpljhVTYyms1twdHioBMsrhqp4wHuH7Tq6um0HsN3Fj8vdxTqG45k6MPvlX25uVezj6mNeXGzu45qhbxBnvprYIXJNrKnom3k4JDiYeeirrBIfxdlNGCX2/FZw9gr0dvX08/O0SKAyWFmlJEh9FxT8LpVAfAL49k8gHS2TtX5ZBTLr/acjF3/g82b/Edab7dsnM9InNCUQfNt+uplA4egBCN0Qb+GDlxM9TgLJ0aPHmAxbYBbCkHNLduCihovIouxIhggNwYAhoWUMnzBswPYvOgJznItwkdLFCZbCU7hokaKkMZclTYpgJhLFCWMtTbA40UK5SBQvWAIy0A+nckwA) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+@keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(6px,0px)}}.drift3{animation:drift3 9.5s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="sc1"><rect x="1.5" y="1.5" width="277" height="69" rx="18"/></clipPath>
+<radialGradient id="au2"><stop offset="0" stop-color="#94A3B8" stop-opacity="0.3"/><stop offset=".45" stop-color="#94A3B8" stop-opacity="0.1"/><stop offset="1" stop-color="#94A3B8" stop-opacity="0"/></radialGradient>
+</defs>
+<g clip-path="url(#sc1)"><rect width="280" height="72" fill="#070B14"/>
+<g class="drift3"><circle cx="36" cy="36" r="90" fill="url(#au2)"/></g>
+</g>
+<rect x="1.5" y="1.5" width="277" height="69" rx="18" stroke="#1E293B" stroke-width="1.5"/>
+<rect x="1.5" y="1.5" width="277" height="69" rx="18" stroke="#F8FAFC" stroke-width="2" stroke-dasharray="40 664" stroke-opacity=".9"><animate attributeName="stroke-dashoffset" values="-420;-1124" dur="5.7s" repeatCount="indefinite"/></rect>
+<rect x="14" y="14" width="44" height="44" rx="12" fill="#0C1220" stroke="#1F2A3F"/>
+<path transform="translate(24 24)" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="#fff"/>
+<text x="74" y="33" class="f-monoB" font-size="12" fill="#94A3B8" letter-spacing="2" >TELEGRAM</text>
+<text x="74" y="55" class="f-monoB" font-size="15" fill="#F8FAFC" >@ZENOAI</text>
+</svg>
