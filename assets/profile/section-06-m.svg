@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="88" viewBox="0 0 1200 88" role="img" aria-labelledby="t d" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="104" viewBox="0 0 720 104" role="img" aria-labelledby="t d" fill="none">
 <title id="t">06 — Connect</title>
 <desc id="d">Section 06: Connect</desc>
 <style>
 @font-face{font-family:ZDisp;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAPUAA8AAAAABrwAAAN7AAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgUocKgZgP1NUQVQ+AFwRCAqEUIQmATYCJAMgCxIABCAFgQoHIBt1BSCeg3GbHI6gUmlTmbLQfiNEUK2RPXt7//vEllABgCQhgUISqHyEjDNxcS9kXIzOGZBnTdJ2ATlL83mgijOfq+t/gPOCTdYK/2/icvprNIHXMOgyGXNq2R5ggUXW+VpA0ZgiXRomEohm7upqfpbLNiyUpx8p0AlIQmgRAu12xKCfeAVEQO62pjQfWo+lVB603qaWF0ILHZojhNtIekOVFkJIJSVAAKevDllShCLZQMeRCHQ1+poA2W+jDhqrcLsG4UqrjnwY3jQdpE3oALhMFyfnmkY2o6Zepj8Cv0yJ9OoqWfuiugJJRsATXd8EhuMqVJS3Xv0vBpS/aRwE5FHGczBKQAhFhUEEFpEfistqCRvg42N2OUEgfuvUES4gJVUdDVfgEvUJYjRhcuku9u1WJC1GuUtHKVLeCCGo8B3usiWLJo0WeOgQjYQRCugFBb8hpgGQAVHAtJDpaR1pERG6SE3v59dEy5sv/H0scCMF2FV8vUwmmlmsqJkDbrQgM13Qy2ZPZHI4Sovs5ypecJRLgd4QjWjJaCwcZX5mcR5dgFeQ5EMW9E5Gi/RmUC/hMplRDkK18v/VQSjiBXmaL/H39fHjZy9fL5swCZF55HjxVMzvvydjnS48an7jvztQcFu0TlHQwzkvwa9S07PjYhP1c3Eh48elpg7PCs0EX+dcIQ9F0dqC23v9r/3hNTL/u6/1cG2t9fh33zy1a99UEDjOHcsdq+ZR7CdvElwSaj9OUfZjJSHBJr5yrmqeNbyM6ICJ5sI9B3iMLP4eaDxaXmk5/j4wUXYhuGvE526N7/QJ8WqDSMf6YregwGI3x/rIymjH1gqfCKdEdSeXN//Fs7oXH8ei5jJUUIVX2Mys/+xUf/FWSuK5rnHBrOLcsnSXdHObQviPLPzraTvc2Gg7+te7sPi3t+3IHXv4t2fhXWBpkNNYZlYXLg0OBBBMZmVeNQh6/1TYC+wzyoI81vcdZd3E2fKxBlsL7X2AHwhkR38+TNxOFnbY56HxAL5NLVw1NxNtfq6f8RtUEggeiLt+nUAwGsYDZkrtQvgg1yNnwDGXtX2X8C5PYze9JRq3QKCYTTqAk2pHaCLzIunGVSAIdOoW2ECGnMAFApaO6Qo+e8JQslTIl6pUNEqOLNnKBStWLke6VPlUhMtRi+KrPKgd/LAwRQqkKkQDGroKAgA=) format('woff2');}.f-disp{font-family:ZDisp,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
 @font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAJIAA4AAAAABCgAAAHxAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcKgZgP1NUQVQ2AEQRCAqBcIFvATYCJAMKCwoABCAFZgcgGyQDCK4KbHC/QsOCSZQQi7rNvHoAb/wYQbVG9szuMwWQFRFIYvdgTZRnYeJSuYu5/TDL4lVckmiaOtAiIREbzTIhcXRh6zM483f8FvY8kTCyJDD5Av5ut/y3LyvmaMsdP7RlkvttcVsYFnjSIksw0PQhaN4WxBkHGBCkcyN8EChsB901WVwq0GmOeWL/weUGbCo0AIFOy6yQWp3n+Z2LDF6Z8DWv5hdpIafDZeAY/zNuykcXJB0AAgCO7gXwzQLbyu8/KP9iDQJyWT6wQIsQ2iWGBZbI14/YC4InLzAR6RNSETL6QYBEwbAiMKzagHbtEgtssK0hDm++NxsCQIiGPoQK2tGCk8AzACqgSAZ7XaPd2DQZ5at714yZ/AJcnPmL8OL08fZt0zO+rq6Z4Uu/AaJyzXl55H6o4V2/El2QL5Y7xg9LVazX7FdQpjSetGDXb/Y2yHxEl7+b9xS+2zz9b2nulnCoEKrzwkVY0zF/3mxK01JMeToB69nWIBKv7yoZYjRuckJ9RtWGUxFparwBALchyG11Npm+1bfnb3spf+DD0tvmsZ3NOT8/aJUg+KfNy5K0syCUKyIvOxmrIVCtUUAwrtqmiNoh9TIpQbde6hOz3tuv0zJnURhXIoxuj8JhsC5mLjAiDmFFIcHIjECT/DMAAAA=) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-@keyframes dw{from{stroke-dashoffset:953.39}}.dw{stroke-dasharray:953.39;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
+@keyframes dw{from{stroke-dashoffset:425.72}}.dw{stroke-dasharray:425.72;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-<clipPath id="cf1"><rect width="1200" height="88" rx="20"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+<clipPath id="cf1"><rect width="720" height="104" rx="22"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
 </defs>
-<rect width="1200" height="88" rx="20" fill="#07080A"/><g clip-path="url(#cf1)">
+<rect width="720" height="104" rx="22" fill="#07080A"/><g clip-path="url(#cf1)">
 </g>
-<text x="36" y="49.29" class="f-monoB" font-size="14.5" fill="#FF4A3D" >06</text>
-<text x="71.4" y="54.92" class="f-disp" font-size="30" fill="#F5F7FA" letter-spacing="-1.05" >Connect</text>
-<path class="dw" d="M210.61 44H1164" stroke="#2A3039" stroke-width="1.2"/><circle cx="1164" cy="44" r="2" fill="#5E6674"/>
-<rect x=".5" y=".5" width="1199" height="87" rx="19.5" stroke="url(#cf1e)"/>
+<text x="36" y="59.3" class="f-monoB" font-size="20" fill="#FF4A3D" >06</text>
+<text x="82" y="66.56" class="f-disp" font-size="40" fill="#F5F7FA" letter-spacing="-1.4" >Connect</text>
+<path class="dw" d="M258.28 52H684" stroke="#2A3039" stroke-width="1.2"/><circle cx="684" cy="52" r="2.5" fill="#5E6674"/>
+<rect x=".5" y=".5" width="719" height="103" rx="21.5" stroke="url(#cf1e)"/>
 </svg>

@@ -1,22 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="72" viewBox="0 0 280 72" role="img" aria-labelledby="t d" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="80" viewBox="0 0 300 80" role="img" aria-labelledby="t d" fill="none">
 <title id="t">X — @ZEN_AGI</title>
 <desc id="d">Link to X: @ZEN_AGI</desc>
 <style>
-@font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAO4AA8AAAAABmgAAANeAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmA/U1RBVEwAeBEICoUMhAsBNgIkAxgLGAAEIAWBBAcgG8wEUZQuykaCrw54w/hHKXgGE0NA8eUl2knLCi0DtpgDJAnRI4Iuk/0SD/8/h973k1JS4AEAWALb7fhJ9GyBjJomcHMFo7a1h2mF0hgqlxB9M4vfna3U5PI/HWDgnJsHWAf4qGkmw1fpr6NHJWccv7+av+v3/m6jGqAD3RbpiAi4CulClJrS9buhm2lZohMTD/E0CzDwsTSxBAMaY+IEm+Lh49vzm7eMy+jTsWUukr49nh1AoBaQhFAlBAr9DRTL41ILkhx6egIChZFGS5o54/z8dYElw7LztJcdrILUkXqAdTE4DsKNxUCiBtHDAdYuBbwz2KGsszuyzhiPgDQyfcZgFUKoltAqYbh0abt7EXzANCYNQq63BFGVDSb9wwJkQopG9rtIyNCqMCKaOw6f2iiTG2yJSCJT0TMw7RGDLS7fa3peW1ma6mirF2hGv1kIIXrUgFCCdpT4hE5ADkii7UOqrqkdXtv8RW+UT6kvD+EDaCfaXoN3br6K7z9Ly4o6Gl9tnnt9jezO5628+3pR3DmjjiOk2yd890JEEXX+PZdRZplWSSW1ojywuYqWeXFwBVTfcF813rGywVvaklSUu6vQztVN/vy6sLSMU2TUWcHa4DllKoYV/W7fow6DAkB5g77lTuLO4RZRT0i3X7g0zB8R4J0OolqA24pOP25GHyvU/iHP5ZP2Dn3ahqy1TyfXtMPm/+G2vk9GoIk+BE7N2rhzfvNS57L5RxJu7ZqYE1bLFvWcCRM442fquFBwxy2K3aK8MVSX806bYzOvM7HrHgH0c3dl1zIP0w6rx4/NpizsJvou2h7NYq0fg0ljOSc8+BH0eip64Y6DQlWuGC78zxnzEmeAooD33L3uOLm37oH3ZPxzHAgHdck0c7jar04bHk7D0zsCC2MrzpIl5a38yhpI3ZmfyE8tD0w90/3QLdG64RP+Jm7Z3VBVUlFbW5GeoC0cfKZPjPyJDvjlLo5DD249EEgz8wk7s8VTc/5/Kct+wPURvLNurT3ltJz5gkoJBE/Dpt0SotUABDEh8Adsm9FR3modij4CpUUbdSirwlKsyGsk9cwoQa16skqzvmSDWuP/0UaF2bZa23o7mXvoWtvb2nmJ/Lw8zPmuTlYyL3Mne0sNV2dzFyzQc4J7KwAAAA==) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-@keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(6px,0px)}}.drift3{animation:drift3 6.0s ease-in-out infinite}
+@font-face{font-family:ZSansM;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAATcAA8AAAAACHgAAASEAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgwgcKgZgP1NUQVRaAHARCAqFaIUKATYCJAMoCxYABCAFgTYHIBv7BlGUUM4JyH4kVDc7MK/AEENM81yF6SKe7+Ph+/1o5973vqwips1tuqmUTCQlpkNobCiUsP8IL5s9FEltpWRK4UHdS+p/gPTXE5fj/60LbA16sFf69rCwC+cCesCMxljnAUYJdgEF1gUiAWvD2JUX8SEFxgEphFYIjNrvGtpxBzc/ELldmJ0KCvez41JA4QlBpoOCCsP/kJDbycdx2enAoYYERmSgBiLX3vqDopczfEFhpopiscVWCkXV6IXemCodUIZFc0DjgHQBDbfkYdIy0sP2xF1rKI2cDUN7kLu1Z/cZHf74kAqomry+CClEaGQHwOxsYqYPbF49qSLNt1RI3W5iwxSgK6aYCXXAYve8dOK5A2a9jTLAce6YUASM1bWRQF80NNto5wD89CX5F0ZzeJimAKmCPehHnDrt7gsHSbneHfw3m36K0gME1PN0BoCVxoXQK5irYKt8nplThIzA+/uJJEIQD0kiFVkBRWu25QJiL8xECGIb+oIiZVgDIEAyaiB8orqSmm1mS3ylYfYcOfMQInLPZt7g8LMdDPvstccOKxZDmMlwn+hbDuJEGAVzMYp/IO4BgPofoLDHNzFZ2ZRoYkIuXLTJ8WL2Qqzo2q0A/MoNv4JQxA14MTdwUDjtXoVNj26hytuP8earBuGPXWvAmq5cgYqrV7OLrl9H9myIEypuPCguxIpH8a22AOQKETNeyFZ0OIgFGHZqBCYcFV+/HuhPh2MciBcKrlzxC7h+HR/bf436rtOCh1dvQsUVw0Rml6QM5sdQZZOO5qvqOMJpFdMFKudveXDlBlTcvPqQVxn677xyJaLcvbRH5gYupCltzxCQPsb4xiNrIR3nxaF/QEv3oBe3BMG9xUKlfj9tP0wBnbHp6Pm9w4eHz145CtpefKe1dy0Hvnq7Gqix83DBJYeZ6uSt3Kkvea3tEwnXIgWX8tMV5M8tW8gfZytr87cSMZuLdi3udV3eM8Er1AtC/gygMx7bjkH/R3RZ3oLddgVuPfIB25h8WGaoHdp+z4DOYJbMEQ13qwpfti6Uo6ez7Kd1qopB7pAydUPLPqPZyI7fOZy+lxLBelRnWMl3QteZ7DZx5HeOoO+jRGJHwbqy/0FYyYd3JUF3rpUEvP0cUHnrom3Vvac5KvM5Ule8F9ujs8zzZH1dGpmFbVujcup2VkU8aG9OvbG/uIiodVjGQtf6TUzcTOw9QiX39TT4vVvc9j9+aY0jfs+RKOHNWwnBA4eEYrb7DogWyIkZTj3pUloT6Y8LzXY26ErLMKnKNvLzyvQwrfML1elLD4Ite7bsIQD4/gNCdfR//CPGdU6zr31hAfiybvS3f9R0EnMm/RmAIkHwW02FmALo9oIFjH1HGyvkRJ+hWS/CVPPD01SEXy0tvlYUXnd3Ia1sAbkECIy6NKo1tKpzCVVUVkiTIA1CMG4S0EUWc0aw0HrOBHoHOStgc/JerAFzio84CXKlImQLFCdJgkQkd3FiJcmVxlMmUpIYhFRSTktSJI62naWUM9Je+2I+MqQhpKMC0/uMMgA=) format('woff2');}.f-sansM{font-family:ZSansM,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-<clipPath id="sc1"><rect x="1.5" y="1.5" width="277" height="69" rx="18"/></clipPath>
-<radialGradient id="au2"><stop offset="0" stop-color="#FF4D4D" stop-opacity="0.3"/><stop offset=".45" stop-color="#FF4D4D" stop-opacity="0.1"/><stop offset="1" stop-color="#FF4D4D" stop-opacity="0"/></radialGradient>
+
 </defs>
-<g clip-path="url(#sc1)"><rect width="280" height="72" fill="#070B14"/>
-<g class="drift3"><circle cx="36" cy="36" r="90" fill="url(#au2)"/></g>
-</g>
-<rect x="1.5" y="1.5" width="277" height="69" rx="18" stroke="#1E293B" stroke-width="1.5"/>
-<rect x="1.5" y="1.5" width="277" height="69" rx="18" stroke="#FF4D4D" stroke-width="2" stroke-dasharray="40 664" stroke-opacity=".9"><animate attributeName="stroke-dashoffset" values="0;-704" dur="5.0s" repeatCount="indefinite"/></rect>
-<rect x="14" y="14" width="44" height="44" rx="12" fill="#0C1220" stroke="#1F2A3F"/>
-<path transform="translate(24 24)" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" fill="#fff"/>
-<text x="74" y="33" class="f-monoB" font-size="12" fill="#94A3B8" letter-spacing="2" >X</text>
-<text x="74" y="55" class="f-monoB" font-size="15" fill="#F8FAFC" >@ZEN_AGI</text>
+<rect x="1" y="1" width="298" height="78" rx="39.0" fill="#0F1115" stroke="#2A3039" stroke-width="1.5"/>
+<path transform="translate(30 28) scale(1.0)" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" fill="#F5F7FA"/>
+<text x="72" y="49.46" class="f-sansM" font-size="26" fill="#F5F7FA" letter-spacing="-0.16" >@ZEN_AGI</text>
 </svg>

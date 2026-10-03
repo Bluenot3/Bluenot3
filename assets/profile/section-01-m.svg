@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="88" viewBox="0 0 1200 88" role="img" aria-labelledby="t d" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="104" viewBox="0 0 720 104" role="img" aria-labelledby="t d" fill="none">
 <title id="t">01 — Impact</title>
 <desc id="d">Section 01: Impact</desc>
 <style>
 @font-face{font-family:ZDisp;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAQMAA8AAAAABuQAAAO0AAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgVAcKgZgP1NUQVQ+AGQRCAqEbIQ4ATYCJAMgCxIABCAFgQoHIBuVBVGUMMopED8SMrcrNcMJTipCaELZbmWhzEI4H82jePhvv//tc2bmffP+Pakhlki2umoUL5lGaiyahkgj0an//k9u+oNURJxXAlQsdfXTnNEw0eN22k00/88B5v9yfLfF1yC4Q/yHazWmjjXAUv4Y+KSe5700TCQwS3Uu5eCAEBrLnNUd/kiBYUAKoScEBp0ShXTJwy8MZO4UY+mg8QBD00DjKSUvEzSQoPsfIuYi+QTFMkFgtcSAsLe0WpX6JdIPPYeEy2KQ9EDdIKNRG903uvVmPhiRS21j4ZVCQLhVFLUkZpkWgiVQBiW1RXhtJT9ptO36BJ+lJH/7miUvagWpIuCJrl33D4Urs/L6rk5EQP+f7ENAnW1MzOITQr+CaQhWEF5k55YgVuDlA0YegohHeZR0xAkIUpEyzgMgQGJQIAr5HSRXgHFCiJjljSJZhmx5neB77ci0KYP69RT48CE6CSL0g3FgAN+JVQAqIKQQUlInaYlo6EgKkYRKi/lKKS04jlSz2exINvsZglTjOE8LiyXHhyxv6wO6gMSH8GyBjmjtRpC+vTuW2Rp5DlXXDxkPm5mNcL4JnDmrUPXw0HrYL9mK/Cw2ebn5gcfPCZfANiJX5+8cRqJL+YH3NilbxWL1Phw34SElvjtTjdtPl4IAEsvPVXU+aq280NKSOYNIizORmTKXvwBsCqXOuie0pcS45Od69KkFc1J4coSE1Dh19ZyC1WxsotRMnW2BnIqNP4psT5kzxuJtasOecvWTuoJ8CrT5rwPSLS0T7bIOzk89eN08I5R99LWO/OXBQ3Lsa2vN99nZmp9fW8fQFdvKDP8+zmjOaBW3bB9Zo8CcYNs+FLXtzQkKNPKWcVZxL+YmR/r1V2Wu2kGGEumLqFwYNafe0qd4q1UUUxL1o2I9DhHoVGTcUumJQCc1IynAPsrMKN6hljwcTkNDLGNN8S3ueOVB+hdo3wZ6CucN7yJ1t8bHLdj3mfmc74+bW9zzteICfxHP/Uj1y/J16ElJcejO8vMLLAh26qYmO/UWBIHOXyV8HD9U5Ofa/2EvfUEUl43WWxyvawX4AEF14d9nZmqioN1/rtIP3i2NX8nTJk4SOHobE0WC4Nfxe10CzeBYP/B8/e0c4kXg9LImgGulgn3vfxn11LN8ZyLuEeh3ZHoAsOYCoqgD0ihHTYRho9wBKTLcOeCzdc/zwOOMECi6fOkoMJFQKegY8gTKlidFMop0SkKlKIHylhcENz8sRJYMFJmIQEd1hQ==) format('woff2');}.f-disp{font-family:ZDisp,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
 @font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAIYAA4AAAAAA9wAAAHBAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcKgZgP1NUQVQ2ADwRCAqBLIEyATYCJAMKCwoABCAFZgcgG98CAI7Dpsyv+CbbNeVBhsTD92v8zn27X1wQl2RqFc8WGUqUUqmeaJAYdtnhGgQpJhJ4lCYS0gWr1bbSyXHQlkkgnmmkCSYcHqx5CAEGhkHuaGb+VdwjahWo1K1XrF67eZtyORQFIFBp1LjE5GrPHb52QTuJQZ72pEdQQnqCu7Bp/oU4YGYsJ1EBIABg40p80m9G9u8/k/2LyQhIo+kL+pUIoVxCs8CwdPPkqWuB09cOn4s6IcmEFPUgQEKGZplAs9w4SuVC0m9GUaDf9KIovhYkACGKQh1CDsqRYx7WAnJAJmisra46/EQ1ssfvVT0VkR4x73h6Tfb4uCcb0iMKT3o8HlVPm0e1KqpKtsXOqrzKpIq1J+bMP7xi8cp5h07OWbvuxJx5h1YuXjH/8Ik5a07M/T1r8azfc+P/z149s3t7ZvW0gd7Ztp/5aD+Whx/yq/Q6gkMCaW7+3n/+B+sW/ynPsl9wb+TdNLa2+Iuj6RtKJRB8wdIuQswMhLIi0i57rLUNgdxkGQiqcnNlIq+Q1LKroFot1XHnvfUqjdriuJOuO+ewK3Y67rSTTrlmg2sOO+e0o7a46LzDLsiA4riZlwAAAAA=) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-@keyframes dw{from{stroke-dashoffset:974.71}}.dw{stroke-dasharray:974.71;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
+@keyframes dw{from{stroke-dashoffset:454.14}}.dw{stroke-dasharray:454.14;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-<clipPath id="cf1"><rect width="1200" height="88" rx="20"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+<clipPath id="cf1"><rect width="720" height="104" rx="22"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
 </defs>
-<rect width="1200" height="88" rx="20" fill="#07080A"/><g clip-path="url(#cf1)">
+<rect width="720" height="104" rx="22" fill="#07080A"/><g clip-path="url(#cf1)">
 </g>
-<text x="36" y="49.29" class="f-monoB" font-size="14.5" fill="#FF4A3D" >01</text>
-<text x="71.4" y="54.92" class="f-disp" font-size="30" fill="#F5F7FA" letter-spacing="-1.05" >Impact</text>
-<path class="dw" d="M189.29 44H1164" stroke="#2A3039" stroke-width="1.2"/><circle cx="1164" cy="44" r="2" fill="#5E6674"/>
-<rect x=".5" y=".5" width="1199" height="87" rx="19.5" stroke="url(#cf1e)"/>
+<text x="36" y="59.3" class="f-monoB" font-size="20" fill="#FF4A3D" >01</text>
+<text x="82" y="66.56" class="f-disp" font-size="40" fill="#F5F7FA" letter-spacing="-1.4" >Impact</text>
+<path class="dw" d="M229.86 52H684" stroke="#2A3039" stroke-width="1.2"/><circle cx="684" cy="52" r="2.5" fill="#5E6674"/>
+<rect x=".5" y=".5" width="719" height="103" rx="21.5" stroke="url(#cf1e)"/>
 </svg>

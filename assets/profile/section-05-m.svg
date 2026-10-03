@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="88" viewBox="0 0 1200 88" role="img" aria-labelledby="t d" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="104" viewBox="0 0 720 104" role="img" aria-labelledby="t d" fill="none">
 <title id="t">05 — Work together</title>
 <desc id="d">Section 05: Work together</desc>
 <style>
 @font-face{font-family:ZDisp;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAASIAA8AAAAAB9wAAAQtAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgX4cKgZgP1NUQVQ+AGwRCAqGIIU6ATYCJAMoCxYABCAFgQoHIBtVBgAeg207eRRJUi9JpxhGPHztx+/cffu+ajVNmkSni3YzongmREohJdFIY5jOdNaHf0//3CZT0gzyl9yZnR7GdKAenT6A6n+A9MBTaytEIEEkmrdEK3uoNBONDA1CI1LaRUT8/5O3D/W7l/h+XfveUk7C/ghNx/5JgTZAEkKTEGixIgO9Ex6bCsOz5poy2F7VFJbC9j63rgK2aCj/I0IuJN0V1lRANYe0QYwvQ4EsaXrSXybnaDzqg5IGAMp4yGZB8qGNXetrKH+TgzOp4lwuVVHGOx+MrEqBDzWgnrOq8jDVkhxKKnkHiBPsiWSqq0boV1WDc02JuqBAvUCfBXzg6dInHBC1fFBdgSQj4IH2D+JScADm6hoP/NMEmn6LpgEC8pDCJcAQ8RzxFfrmY47oSVVtC/ECnl7J6ghB/OLjIBKI5g9xrREE7Dx/BAMl+ELaKeih3mOhIVKFZEpVqlFXBHo07zO4VQTzzDHTdNMiqmNDlP+pIbSAPtCOfyFeEzpzSeI9dEhMTNmq6ynRtLq6duvlWrjmqwGTxlxvlLbK8E3ilmvX0tkrV1KbysdcatJt0bBjfaKBrtBI7daqmTF2LfAOwATMEjNnzZXqaE/nhItaLCHMhlqmd1QQSzjFriwZ2UVJxoBiciktbuVoxjEAuk2h25zFUyzPyRjZ2dbMFUmL56FGV6mXPpKfVeHQCudWHcywwNAvoRrZnHLX3gM3lsX7MdtfI4KBzSUn9jCjLbVeb7leNcNdI8Nqve16Hak4hbEWhyS13foEbq2XeoZLjs16TSl7mXHq192fuxytm+181bgr2qjL6apetu4iCB2Uvxrf8WPBwu6fz8ZPr92dMDg58kRz1KzNWk3Oaf5tVcHxcS3g335ag9S/pz4yNWCEVYDk9i8tfkh+LhMpHyedSW6cyRUqrjqVZepT09basJD8GZXQYBM25uxQ1Sf5gpovZ8YMhjXYjo4zInOZ/0t35slI+UBifYJkUl6uZHJ9fGJMVXTARF4GgFujeTeJQ/2dO+jhMm7HzHFVy0eP2Dk4jeOrSmrzJfmuXhXIXQ8wGrNQ8lTsvVvTG6LJV+Re27z79RTEDApvh3u/L13a++PtGEH+ZgxBMuz3N8PC3bia+ICpRTxhaxLi4gBQfNF7jUf5ELWRMs5py+ENJ394/TCMtvEb5eFZlhwLxz/m14Rr2804Zc9T/gbBWteMMp2XC31jAbx9B4Js65faOdkoNb+vypQy4NW4cCAsxv5PVLqlcAlQSSD4itWNfz2Q5WszZVT+llpCIhGTa+Gfdxf8fJTnNPEsGZmef550BxpxFBBosYwCIQyqbaFEVkHSAdgIQZsOshf0GZIlEJt/zCAw1iQrxKtXJlcNqULFeDJ1ElSpUyxfrjLmUhRrUShKnZZr/WTJKpXLVYECSkEHEAAAAAA=) format('woff2');}.f-disp{font-family:ZDisp,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
 @font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAJkAA4AAAAABCQAAAINAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcKgZgP1NUQVQ2AEQRCAqBbIFoATYCJAMKCwoABCAFZgcgGx0DIK4HbGN42B+D0qFsitwpNUZ20hvlsfjZnoyPGA//7Ue7b/6sqCZNe7q4gEfzSk20SCi0FZ///eZ9mFaTBE1Mk8r7uMbltZ1O7dO2TCgTcMjtcLCANA+YaoCHDs7/d/NW2xItjPjKNL3/PNIxQW7sVPCw746XGRv9DzBedtqZ9nzice5pFqZdFGCXYJZgYEXPhgMb0GgKA4JB3KwkHj6EXWu1WwUqddMhc+liBQIZngQEKo0yYyFtsrf0tIEChM5zOmE9IUl/yAJYbf8zLmCPKJCoABAAsDID+Kufq/h9oLhnBAFpNL2jH1cI5RKaEQxjfZzOTgS8ekdXRC4khZCiHhAgoUAztkAzjilQrlxCPyvXk/zZzpIFgBBPCiGDcmRsgjsAGVAIGmslQ9fPKWH6O+cOYkTpVwgc/M67Vhjr21m8sX5V8NiNR97dZccgPNrbtaWo3hObf99gEZ0OwvTE5aWxYNwzmLrSmVm3Lh6MLXXkqYn7UdDx2NL/SePUaR3a+jqdE5YK5jbkVq6uudU9dWScU5fpZ29+2d6Okte9mXWFm8yKyTC3PYArBGk6fz315cH/NS3+wbeR+x/XFp4mffpGqQSCL7TpCBDSFUSaOAStIAcuszHsQpCzbBpb5ApJLaMSVKuFdbTze+uJjCoZmzpboQ7qxuamZk5yTqiVuaGSrTVqgw08jf0hAAAA) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-@keyframes dw{from{stroke-dashoffset:878.6}}.dw{stroke-dasharray:878.6;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
+@keyframes dw{from{stroke-dashoffset:326}}.dw{stroke-dasharray:326;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-<clipPath id="cf1"><rect width="1200" height="88" rx="20"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+<clipPath id="cf1"><rect width="720" height="104" rx="22"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
 </defs>
-<rect width="1200" height="88" rx="20" fill="#07080A"/><g clip-path="url(#cf1)">
+<rect width="720" height="104" rx="22" fill="#07080A"/><g clip-path="url(#cf1)">
 </g>
-<text x="36" y="49.29" class="f-monoB" font-size="14.5" fill="#FF4A3D" >05</text>
-<text x="71.4" y="54.92" class="f-disp" font-size="30" fill="#F5F7FA" letter-spacing="-1.05" >Work together</text>
-<path class="dw" d="M285.4 44H1164" stroke="#2A3039" stroke-width="1.2"/><circle cx="1164" cy="44" r="2" fill="#5E6674"/>
-<rect x=".5" y=".5" width="1199" height="87" rx="19.5" stroke="url(#cf1e)"/>
+<text x="36" y="59.3" class="f-monoB" font-size="20" fill="#FF4A3D" >05</text>
+<text x="82" y="66.56" class="f-disp" font-size="40" fill="#F5F7FA" letter-spacing="-1.4" >Work together</text>
+<path class="dw" d="M358 52H684" stroke="#2A3039" stroke-width="1.2"/><circle cx="684" cy="52" r="2.5" fill="#5E6674"/>
+<rect x=".5" y=".5" width="719" height="103" rx="21.5" stroke="url(#cf1e)"/>
 </svg>

@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="88" viewBox="0 0 1200 88" role="img" aria-labelledby="t d" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="104" viewBox="0 0 720 104" role="img" aria-labelledby="t d" fill="none">
 <title id="t">04 — Recognition</title>
 <desc id="d">Section 04: Recognition</desc>
 <style>
 @font-face{font-family:ZDisp;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAASgAA8AAAAACAgAAARIAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhwbgXwcKgZgP1NUQVQ+AGwRCAqGQIVUATYCJAMwCxoABCAFgQoHIBt7BiCOxDgW8g+ViRDEw7dp85ZddEmoOT2hIkaIqBJRkrpD1eDMDTn9ExP6H0A98PxfTm8NOvuHzUWJZ7Qn3fsUjcljWS8roCI7bYGna4AGcu9IAtFsW6LYw0cgu0xrjq3ffioC6ACAgoKgIZiwIAhgZTkVqClpOSWMbt440I2rbcDbhau7cU0vLlSAeDxBhv2gdHkHeknolkMBAVwJBvcqmBHMKBt8K9DODowYMa/4jxC/I3gHvuNvFSsHB9USAg+rAGgYAAGUqZSk4ErLgIJavs7FZJRUQsn0yAnbr2oGZQcaaPPUN4AL0EJ5g6eVTQ00Ayy7CgJ/UFFxbjFP42SN6en/B4P5E+UUIACqU3sXcKIjCGYMwFAEmI7S51u9SRbD+rb2NSLIXz494kZBwQDWJAkee2QByYDAAio3YDCOBCWdFNGMlzY66GNNXLixXhW5u1wlJOiS804nbClIPF6i8oIOwEjADvwDsg7QXzhUoBKPQ4ACJxipuia7HOoIh0N16LbNiYFIhB3hsFUXeyAWk53RqFU3J3baO3r80ajsjMVsQV2RUj0UfXey6g+H2eHotgVi78Um2MVv04ED4JBBJTujGml+Qm2JfqmU2YPvOIGI9e5Za/Jokk3sxh3hcN1dRPfqstjNXaoOyoo1toGqazsjYntHaphXll3dTIJUq8yOJ2yBgA2/35oiyWa/+iUof/R6tHezb/xxza7YqRMHI38O3Hzy89Olm5d5erKzPd2bl5U7P1tYfvX0uqtJG3Hp68CuP667btdfXwcueW9dtr0n95Sp0lR5WYova8zs/P7CZae83mUn+wvyZ2eOTrosdaNFK885vaP3tuWkjAh9fXjbn1dfs/Ovzw+fXv1Y/v7jGS9vzDx335AN00tXbPF58nJ9nhVbSteVr9i1NqNkZe3lK90f/T2k7UDozUqK7zr2etH6s3av8dZXq8YvHdiyed018m99/rorU/1vHPD9HLp64NfX/ftT17kacsfIRWv8hr3+aV1oX8HafPexpkb38bV5Bdm+rJVH29pXHvVl0eO0O9lYUGh3WhLnzj308NlDvpsaah/Zf8re5utc3exunre4l+wRwe8O7v7jhht2//mdPxj61r/7z6HsH98eDH6SO5C38mRr2wUM5Ofm+oltaz1WHlM/dUaD0Ycm2M2LXl0xyjMkOqZy+k3BPQEcV9yXUlm6yl1ZkpJCefcqehRGF0bAiO0nVIBSkOPaJ5vfRgAVz+CJz46sT1z+m9lgBmDLlcGnYXXQ/wXq3wmRYyRoUODzLmjuAKRhmRnepGtuydCms15tYYW6WpHHRPmCUqFHverQOVYoHzNIXgCg5dDWLETBsSBw2OWp4cGAqBaYAEMHEXQSDIsZyWiDG525l0zCykqK8NLGWrppZIByvHTQRjtryMfHGjpoppFunBTTwSa8ZLKmBydVVkQfPTTSiwEA4i08jQE=) format('woff2');}.f-disp{font-family:ZDisp,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
 @font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAIcAA4AAAAAA+wAAAHFAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcKgZgP1NUQVQ2AEQRCAqBNIE0ATYCJAMKCwoABCAFZgcgG+kCAC4KbCJjD+mTPmUTmXlCfRiyH7utE7EIxDHsknaMD4iKQCGwNXNywrwb/N/Nwwn6T2Tj7QTHVIojDTiOD6NeKrcRCUXsOjkIUpMgqThHkb72P8B42afHQVsmuQcYpgm2k13wwsfm3z5v5xMe8LoxNM2w4mNBMLtVoNVMs8WefUeOa1ZhWkCg1WJLpWas8/6V5w8NK3NQ82x+RgP5V57G4fqKuGh9eJIWAAEAh3ZhzFwbyzfFlIlYiYBcnDeYq0EIzRL9Agvlq1u3nwfeXOqjS0hFyOgGARIF/YpAv2otmjVLzLXWxmn52Y6MAkCIaXUhVNCMiq3YD6iAIujt5O1X/r4nypf/9b97kZ+Z3b8z9K3+Lqwj/7fGl9b2r/icO6I9brVd1xZtuaKl3tzkxrAz2mHfVDtIbXFnmArbsm1ucqdsBvFXEzYKkJAqhEJ/wt4m/lyZFp/zFcBlgdxcr27H+66d/3Ep48D7RccYc3um3+zNBzRKENxD87SC7OsI4YnI087aZw8C1UoFBJtVmxVRW6ROeha064QuHP1vt1aLHXXDLS/cd8VTp9xwxy23PXfQc1fcd8c1Rz3ywBUPFWB61m8CAAAA) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-@keyframes dw{from{stroke-dashoffset:910.72}}.dw{stroke-dasharray:910.72;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
+@keyframes dw{from{stroke-dashoffset:368.82}}.dw{stroke-dasharray:368.82;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-<clipPath id="cf1"><rect width="1200" height="88" rx="20"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+<clipPath id="cf1"><rect width="720" height="104" rx="22"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
 </defs>
-<rect width="1200" height="88" rx="20" fill="#07080A"/><g clip-path="url(#cf1)">
+<rect width="720" height="104" rx="22" fill="#07080A"/><g clip-path="url(#cf1)">
 </g>
-<text x="36" y="49.29" class="f-monoB" font-size="14.5" fill="#FF4A3D" >04</text>
-<text x="71.4" y="54.92" class="f-disp" font-size="30" fill="#F5F7FA" letter-spacing="-1.05" >Recognition</text>
-<path class="dw" d="M253.28 44H1164" stroke="#2A3039" stroke-width="1.2"/><circle cx="1164" cy="44" r="2" fill="#5E6674"/>
-<rect x=".5" y=".5" width="1199" height="87" rx="19.5" stroke="url(#cf1e)"/>
+<text x="36" y="59.3" class="f-monoB" font-size="20" fill="#FF4A3D" >04</text>
+<text x="82" y="66.56" class="f-disp" font-size="40" fill="#F5F7FA" letter-spacing="-1.4" >Recognition</text>
+<path class="dw" d="M315.18 52H684" stroke="#2A3039" stroke-width="1.2"/><circle cx="684" cy="52" r="2.5" fill="#5E6674"/>
+<rect x=".5" y=".5" width="719" height="103" rx="21.5" stroke="url(#cf1e)"/>
 </svg>

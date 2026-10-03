@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="88" viewBox="0 0 1200 88" role="img" aria-labelledby="t d" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="104" viewBox="0 0 720 104" role="img" aria-labelledby="t d" fill="none">
 <title id="t">03 — AI Pioneer Program</title>
 <desc id="d">Section 03: AI Pioneer Program</desc>
 <style>
 @font-face{font-family:ZDisp;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAVsAA8AAAAACWQAAAURAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhwbgjAcKgZgP1NUQVQ+AHwRCAqISIcoATYCJAM8CyAABCAFgQoHIBufB0AeB9XtE9M/vIzLdNRTsZm4gufpverPrVSl0+2Vs8IXrJ6VM2CW4IOdeYIy/3r5Uwq5nAtQo+Spr5s8tf8B2gPP/7HUi7Q7sGy3f/+yYpuVHdACB9jPU2fDTG8tmg1sADi15S4wk+LpxH77UxEgAQAoFEIEIUoCQYAYXRmP7tvfxAbUnJUYFQKaeFG+waBJoWdMGGiCBgjDBBn7QRXMiQoDqZm7MiCAVpCbVTiI9StWa654NzfiEEGWDl8qVbJ8EFRvn+o/XyXDm3xf1GqeLp/PyfFZo0FG+oUEFhCxYRvNMxqr19CaGakoYGEFsLhi9CY0Q+lTVwlffZJsrY2lVmPAtNEvAEdjXOoFHlZL34mxAIUGBNyg0WNMrcHDuPiRh/+vCM57aj8gANo1rwIuCQTBwQIqI0ArVElpdBLUERZ5ATGQID8G9UA9USisaaH0gjul0PdbSIysyf3pVclgYePSi0GMZAZz8MijBD/8jxJU0XfhFk25zTmnnXLScUcT5DcKEoalASENQF0gAzIE5Ccg8cwiBalIKgzV6UMGSWldvVnFZk0yukW1TKZyIr4suSQx9fW3s/HgzbG5zlAFli2hWxZflt5WXs7qIIglJLntjTdkzeuvdx5nxtYIgOYN0eS09pckO7s1CGonOm1cxVOObnKxm4MgO1fI/ttXg7Ze08usfqS8SFdBLJKRCmP1PbDaaOMqnnrxANoyZiybPPFKnl62Nj1me3vFJWmvDoKpe1BtAVbeaNLxHcQOxTguBo/IbtbwpsQ1BSnAHqtiJPVBKk9+juxubMQJyTvYObgx27KtSqCC1Z7i9au8Otf9Ou7450+zdTmC6g8O05iPbCazjj9Ysg/yGTUIUcyrNRcri+p/q+fF1/lrL/bvz7n4ZcGFrueD2WRdTIixMSY4WceO456bMvndeLeSQCdMbDShRmwU5YxYWYapUaRlq56WYjqdx4up9tIFJt9v3cnZEdij7LvqZI/ddw7o3SON4qTpHxleqKk5TS98fG6GQNt3gJ2wkbzU3cP4Qd9qbV/vWPl7ujPz7/MdB6JnzPMrDTaXDGoYYV0sZ6ufEoExMwWIXX7bOHv9rAUGNrCrKNzz5u9KXkHb/gTG3FSxO3pRPf0c++qzE+vq+CnJcZ3Qv9NGxInji/Y2l76f7Ij6fH7rJnychIcpL3QsFl7Y7qdTT+ZZxJojFV6eSGWsmYVxhBFc7gUAIAuKXHq3e0RkX1WqPdYnMldzcOJgMasvxDrUJ6oKzvp22LsMJE8z7Jod6mGm76CmNAXONkfG+flaaTqraswyiAFLRlrSu9F069bb764viej3cJ3Kr6H3SoOivRFvVa1iMKRa63db1v1c6M3+/W7ribbHrZClNv35dsuJu2G+GVw919/3+OamQJgTPb+DMgNFLuktVu3JKS7+PJU/fvNRP9246zQNzUIrE5BpdFtfR1sU4miDsx4bBIWLAnYTHMAm9RMCMA5kj3lv5d8IoOm9++Wf76elu/5GZTkALG/c+jAy8f9H2vv4WwAWCgCBL5jVDssR08c5yP7TpqcMNMeJqwiLjGGRnkofPY9u+j66yReM80lFdkjUp6KH6aZyPk6eAGA2AqTpjCKDQhAFpA29sRAdRaQUKSEREqSYHalOTWZPErQ+yV7E6M5o5uCxgEJm4JPDHPLwyGU+IyhlPnnMYgaFuIwhj6XMYRDzZ1j2xUZTQhEzKMYCgHB2DyMAAAA=) format('woff2');}.f-disp{font-family:ZDisp,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
 @font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAJEAA4AAAAABBgAAAHuAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcKgZgP1NUQVQ2AEQRCAqBYIFiATYCJAMKCwoABCAFZgcgGxcDAC4KbGPq0A0LJoUh5iwUpvpw/GGMh2q/8nXPHIICCgErIJDEdtea0zGWhYlL5f+x33wfs4yX4CahQMa3JS9FQjXJy4S0Wz5HUxfvcv7bl1nutIO2THJ/7K0AswBrkSUYaBKEgQUURZBgQBB87r415pdznlKWCvSaMiOOHHMEgKBCAxDotcwKydTRnt8ZtIBOwrjm1fwCHWQLdRk4rf8ZN/FCA5IeAAEApw4BWDBnc/n7P+VfrEFALssfzOkQQrfEuMAS+fpRZYDgyYtsAxkSUhEyhkGARMG4IjCu2oBu3RJzNtjcMPZuvjc1BIAQDUMIFXSj4gxwB4AKKILRQcrcndXHR5Svn5997fd3+eXt7WL71fQvpNZTtZ/DrYf4+tjXvvcFb/p8JlOIuDcu9ceA83HdgdZd3WN6KJRktQqdOFMWmswG6aBTaCXZnhtLotPmPfzTtkr/t5jewuXwOctZXAEs7jE94ktS6gn/bqvosEki2G3zNC8Pk+V1s8W1RTcrUUtSFT7AbQhyW61uX35LD+35213KH/iw9GJBz+1tztH8RacEwe/ZvEwoxwrCxHEqYndQIlCtUUAISmxrRO2RBrHXgn6DGJIT7x3Wa5mzisqGGrJ6woqqyioGrAayGqryfNqaslrQQBPeSwAAAA==) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
-@keyframes dw{from{stroke-dashoffset:817.61}}.dw{stroke-dasharray:817.61;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
+@keyframes dw{from{stroke-dashoffset:244.68}}.dw{stroke-dasharray:244.68;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-<clipPath id="cf1"><rect width="1200" height="88" rx="20"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+<clipPath id="cf1"><rect width="720" height="104" rx="22"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
 </defs>
-<rect width="1200" height="88" rx="20" fill="#07080A"/><g clip-path="url(#cf1)">
+<rect width="720" height="104" rx="22" fill="#07080A"/><g clip-path="url(#cf1)">
 </g>
-<text x="36" y="49.29" class="f-monoB" font-size="14.5" fill="#FF4A3D" >03</text>
-<text x="71.4" y="54.92" class="f-disp" font-size="30" fill="#F5F7FA" letter-spacing="-1.05" >AI Pioneer Program</text>
-<path class="dw" d="M346.39 44H1164" stroke="#2A3039" stroke-width="1.2"/><circle cx="1164" cy="44" r="2" fill="#5E6674"/>
-<rect x=".5" y=".5" width="1199" height="87" rx="19.5" stroke="url(#cf1e)"/>
+<text x="36" y="59.3" class="f-monoB" font-size="20" fill="#FF4A3D" >03</text>
+<text x="82" y="66.56" class="f-disp" font-size="40" fill="#F5F7FA" letter-spacing="-1.4" >AI Pioneer Program</text>
+<path class="dw" d="M439.32 52H684" stroke="#2A3039" stroke-width="1.2"/><circle cx="684" cy="52" r="2.5" fill="#5E6674"/>
+<rect x=".5" y=".5" width="719" height="103" rx="21.5" stroke="url(#cf1e)"/>
 </svg>
