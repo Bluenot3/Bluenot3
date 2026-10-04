@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="104" viewBox="0 0 720 104" role="img" aria-labelledby="t d" fill="none">
+<title id="t">02 — Platform</title>
+<desc id="d">Section 02: Platform</desc>
+<style>
+@font-face{font-family:ZDisp;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAARIAA8AAAAAB4gAAAPvAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbggwcKgZgP1NUQVQ+AGwRCAqFQIRoATYCJAMoCxYABCAFgQoHIBsRBlFUT16Q/TyMwT3aFeGglmXUstJqrZRskJX6nvBOuYuHr7Xy/Z6evQ0wKAJQxxRCoaNScWqFCepc+ZSPTf+J9/W6MNCuD8zJ6PQnJ6AA/usCZOKa599gr5FbC89mFNVYxdFgo+nIKm19Pvrzgc6fZCA4a3PDRUs8PEkc4vCJifog0tSw9SMF5gKSEJpCYLYTnsgXLt14YHVP6/So7QN1fSO2j+Y+G7ddhvJfiKOdNNI3PW6+CJciAJKpqpQ0Bc4n0zLe+axNG6rHbLrmu7h8oGy2rByi/P3PPDvKOzvy2BvltwoC5zmZVtjVvFhrSOpcNqvgDCtsCJXkze9AbbdTcs9fHVk5oOdzXaVPaur9+TK+UpC+aaW2L9UVkoygb7p3/+Z9LRs9a2v9X0xzJs1GQN5Ys9ho7mxEhaWXsVeamHz6Jo7wcmDwWYT46dMSZyRJdc3EWd7f2mha08T27AkWWyiPbHRHl35jJkx7VmLhUSmUv2X75dH5551ztqAtIUoLxPOzwVLMxQzz5JCpFZIkmIIorNy5OMvmZ2YyMgoCMuLt0gyPBz0cJyZBSTKEUL0Yi0mI5NIYU72EkGRCrlI3JZrjNCSMU/xxggcCe1lsG8clSRM1e9cpzuFceg16jvPaQYpqFe2tuYYRB5oWo6+BSHurRLu4qCSItXoTaeoRFuztOxS9lc7morfHweofgB6YhrjEt9xuRZhbb/Lk0iVFeg7/WZhqBkHWZ82Hhj4ye/YA+dy4esW7uUnt7n4V4eF+5e1uSUqPYatM2crArLHSNL/G+qDZBrHCuWK1MjIGwuYWPrEGbm4pBva+7iBYVocuJo+XrrKty3TrT7giMkdgKiasyVTyeFSFs3O2R/WewweDxAOCk3TDLE32RWqCeYIOXoXFv9yZHdY141NhmyqLJXyVvBN9hsBqFgRZSRBkobLAS3mNhILaQeew1m2MfJ2OfERB3YxXUuGy5Ix17QekJgsqc6I8UxxsMr36BRckFhXGOafbO+WHNEA49Ha0//vq1f0/3tJoyRuaxjT3+5tRdDeyLsprVlFxwOuiIyMNDBYXpU+Ngsr82/k1MjoyitWmP7x+GChg6JHt5FwRFwFmT3Qwwnu1JUWcL3iq+slj9VSLtWiAAYGPnwSyc78jd93JXnDin0jVBO+2oRavW1ReNGbVv1FJIPhqgUYpoDZMatIXZ9dn4kpde5nbnU8zFsVzY41iLH9xMqVg+mN3nUZgtmNDx+Bc7ZxK5FmS+UApwlzzmSNWWs2cMdc+Mc+a7ZR7+gx4blSXaY/1GTJg0DO3TXpmSI8uoza6b8gbfa56ZkxZid0zYUyXcRVQCrQAAA==) format('woff2');}.f-disp{font-family:ZDisp,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
+@font-face{font-family:ZMonoB;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAIwAA4AAAAABBAAAAHcAAI2BAAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcKgZgP1NUQVQ2AEQRCAqBWIFaATYCJAMKCwoABCAFZgcgGw8DAI6ULgfk8fD/a//b5858c8RM6yM0S9FCE/FEg8RiCpHXcscPv73Jux9g0pYGlrbIEgw4fAgCCyjKIMCAIL2Vh+bhA2vq6pYKVOuki5g1Z9EqlXIoCkCgWh/9JE1b/aHtp45opyR2njaka8pIpbQOC+d/xhYjYhqJKgABAAtm4IFuRmT//j8j+xeDEJD6pDfopkwIlRJaCfSSzu7ddyqw/9T2Q9EgJJmQohEESMjQSibQSm4YKlVK6GaYEUUh9i6+Fo+LRwJAiKLQgJCDSuSYiy2AHJAJmutrO24vvXgR2fWXL2tuPH8uXXv2bM2Np2R8Ul16hPTx2tK9uH5f0Lnr2ppY+/RlwFe/PIMPrVpVZ2DVnD2jx22fPmnG2G17R8+ZS2AOMyZNZ5Hl7D1jfo+cNPL3GOT/Rz3sPKpL55Gd20FdRll+6uuPGLx8wOjS8LEfxp4za8KuA2Pmzto1cuzmaTNnXl44/9bNMYfANoE0Jl/lrq0Nk/5UZtkvuNT7zoOcm1z8TW3SN5RLIPg1l9YpxIyKUK6ItM4Gc0xGIDdIBoJZuTEykVdJ6tlVUKueGrjDextV62OF3fY67ZDtTlhrt/322ueU+U7Z7pD9dlrhqMO2OyIDit1GvAQ=) format('woff2');}.f-monoB{font-family:ZMonoB,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+@keyframes dw{from{stroke-dashoffset:426.28}}.dw{stroke-dasharray:426.28;animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="cf1"><rect width="720" height="104" rx="22"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+</defs>
+<rect width="720" height="104" rx="22" fill="#07080A"/><g clip-path="url(#cf1)">
+</g>
+<text x="36" y="59.3" class="f-monoB" font-size="20" fill="#FF4A3D" >02</text>
+<text x="82" y="66.56" class="f-disp" font-size="40" fill="#F5F7FA" letter-spacing="-1.4" >Platform</text>
+<path class="dw" d="M257.72 52H684" stroke="#2A3039" stroke-width="1.2"/><circle cx="684" cy="52" r="2.5" fill="#5E6674"/>
+<rect x=".5" y=".5" width="719" height="103" rx="21.5" stroke="url(#cf1e)"/>
+</svg>

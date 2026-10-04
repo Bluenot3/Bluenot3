@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="96" viewBox="0 0 320 96" role="img" aria-labelledby="t d" fill="none">
+<title id="t">Enter Arsenal — arsenal.world</title>
+<desc id="d">Button: Enter Arsenal — arsenal.world</desc>
+<style>
+@font-face{font-family:ZSansS;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAARwAA8AAAAAB5AAAAQVAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgXocKgZgP1NUQVRaAGQRCAqFHIRbATYCJAMkCxQABCAFgToHIBsyBiCeBTnZ04gQiXx2W3AIFE/zn//O6txXL3HTjmZc01Al01tJCzUr8QtytPCXHR4ejtlbBo0bKHDWPMBK8aEOuP38xH4k5D8qwPxfTm9sPZBdWymxtReNCRby4RfvRVPssDCRNABLPdHCud8ITddn6vYlQQAjAAAYQjQIAfQa2fBx96AJ8at1WUL2Tp5eRPZZdDmQjQMQCCD0LgPsNC07EDwHkQCy9wEfzDFaRIuZwgEOJ6CmQUuBZ4V71cDHgEQI/AQi4hNhcb/v0NlUAKFPSC4CDKdKW4V1DgQCdfNitlzMF9wwGbtDMM+kMRtUoOrzNwBcFeqxJx5gFxeoUpvB2MUPH18OTeBpqZy5p/8PB7R/7BIABABfqN4FkMqIEC0BEEkAFGK3JecG1QKruzkXEejgEiVqBaMWLhkBQCNEAggBDZgNgIBhiTbghzjNfRQuc6OAUKFLaqVqI5omcXCGJCSrF//xdNzoOle43CURLoFQECJ8OgDCATrAW0AzgOWwwDDkugwEp3PDc3lMZKFhM2jduOH9wGJw+01rBygM4t3rJcXn81l9vreIFK9Xf5bbnWhB2nC2B2PgRdLfMyjL2WWiS14Wy5nPu9/G3jMe+8eBDysHCE2EmQw4YM/jaft8KWY3lDbXjZuL3Kgz7NPb9sDLKqXWbcgzMNReyMJldxTcOWaxWoRJEV7LPqgvazbdVBbGHv55s8eDPbc7K9Xz7lha1ruZoU5d9popu/Lp5vJnxnOyVkI7dGGSX+fH45ELt/eLF0mHu9ZWey/PHNWK+pWQY1nqysI+S25Ly+GcurbbfkyNmVLOfLZnzXpj3o6t77yZL/68ctc0vF0c9eSYs6lptnnn4aVuY6/+vdMPZhwpL/5/IhXTjVt/OGcvcNd79NUF1yw83H32OcNvnz100QNhy2WHGs90DpomVoeaTzGvTHeet9tvaTic3t7233fNmEMnn/viCGKH70L1Y1D9cGJzi/X9wUKTi8976KIz5bvEw4+e/iCdJ8tbM50L9Y0nQen766Gkw+dOH4uJoK+/7FZndEr1TfaBHWQ29l4a2L4oZO7XpLARefzwEftAbWl/U1/wozlXp1191ca049IXx0/Ze2Rg6ayQQ18lvTFjsk3M9z7X6G0eDn0i59rUKy5enl+99j0LAGAXCMC117PfDT0S0vibVtACALZ61z4d9rLiq8ylp0pJwAAAwckLqx4FlOxTWrCry7RS7zhLWkFf+kaMJjkU/ioUIQwK78FI4mdAAJ164yMAaewnoLQOTDBIMyIYBcuVCBUv1yJWvtwErXa5FUb9z9QGPYtx02Ytk4hkVtPmzZrjMmGa3bx2x0mmjFjiMm+SSJJqwrwN08qVLrJ9XNaiNxt3nJ3IQQAA+P9bD4AAAAA=) format('woff2');}.f-sansS{font-family:ZSansS,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+
+</defs>
+<rect x="1" y="1" width="318" height="94" rx="47.0" fill="#F5F7FA" stroke="#D6DBE2" stroke-width="1.5"/>
+<path transform="translate(36 35) scale(0.0281) translate(-69 -157)" d="M162 157V467H281L376 372H251V262H587L162 687V888L250 800V748L736 262H888L69 1083H1081V776H965L862 879H988V986H651L1081 556V355L990 446V508L512 986H352L1181 157Z" fill="#07080A"/>
+<text x="81.22" y="58.92" class="f-sansS" font-size="30" fill="#07080A" letter-spacing="-0.36" >Arsenal</text>
+<path d="M258 48H280M271.2 39.2L280 48L271.2 56.8" stroke="#07080A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
