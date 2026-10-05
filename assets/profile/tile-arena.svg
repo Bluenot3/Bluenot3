@@ -14,7 +14,7 @@
 <circle cx="72" cy="76" r="160" fill="url(#gw2)"/>
 </g>
 <rect x="26" y="28" width="96" height="96" rx="24" fill="#0D0F13" stroke="#2A3039"/>
-<circle cx="66" cy="76" r="15" stroke="#F5F7FA" stroke-width="2.2"/><circle cx="82" cy="76" r="15" stroke="#FF4A3D" stroke-width="2.2"/>
+<circle cx="66" cy="76" r="15" stroke="#F5F7FA" stroke-width="2.2"><animate attributeName="cx" values="66;61;66" dur="3.6s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" repeatCount="indefinite"/></circle><circle cx="82" cy="76" r="15" stroke="#FF4A3D" stroke-width="2.2"><animate attributeName="cx" values="82;87;82" dur="3.6s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" repeatCount="indefinite"/></circle>
 <text x="150" y="70" class="f-sansS" font-size="36" fill="#F5F7FA" letter-spacing="-0.43" >ZEN AI Arena</text>
 <text x="150" y="110" class="f-sans" font-size="26" fill="#8C95A3" >Models + agents</text>
 <path d="M486 47L501 32M490.5 32H501V42.5" stroke="#5E6674" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -309,7 +309,7 @@ def logo_width(h: float) -> float:
 
 
 def laser_logo(doc: Doc, x: float, y: float, h: float, *, dur: float = 14.0, fill: str = WHITE,
-               draw_frac: float = 0.16) -> str:
+               draw_frac: float = 0.16, trace: str = "#FFFFFF") -> str:
     """The ZZ monogram: a laser traces the outline, the solid mark resolves, then it holds."""
     tf, s = logo_transform(x, y, h)
     pid = doc.uid("logo")
@@ -320,13 +320,13 @@ def laser_logo(doc: Doc, x: float, y: float, h: float, *, dur: float = 14.0, fil
     p = [f'<g transform="{tf}">',
          f'<use href="#{pid}" fill="{fill}"><animate attributeName="opacity" values="0;0;1;1;0" '
          f'keyTimes="0;{f2(k1 * 0.75)};{f2(k2)};.97;1" dur="{dur}s" repeatCount="indefinite"/></use>']
-    for wdt, col, op in ((sw * 4, RED, 0.22), (sw, "#FFFFFF", 1)):
+    for wdt, col, op in ((sw * 4, RED, 0.22), (sw, trace, 1)):
         p.append(
             f'<use href="#{pid}" stroke="{col}" stroke-width="{f2(wdt)}" stroke-opacity="{op}" stroke-linejoin="round" '
             f'stroke-dasharray="{f2(L)}" stroke-dashoffset="{f2(L)}">'
             f'<animate attributeName="stroke-dashoffset" values="{f2(L)};0;0;0" keyTimes="0;{f2(k1)};.97;1" dur="{dur}s" repeatCount="indefinite"/>'
             f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;{f2(k2)};{f2(k2 + 0.04)};1" dur="{dur}s" repeatCount="indefinite"/></use>')
-    p.append(f'<g><circle r="{f2(7 / s)}" fill="{RED}" opacity=".35"/><circle r="{f2(2.4 / s)}" fill="#fff"/>'
+    p.append(f'<g><circle r="{f2(7 / s)}" fill="{RED}" opacity=".35"/><circle r="{f2(2.4 / s)}" fill="{trace}"/>'
              f'<animateMotion dur="{dur}s" repeatCount="indefinite" keyPoints="0;1;1;1" keyTimes="0;{f2(k1)};.99;1" calcMode="linear">'
              f'<mpath href="#{pid}"/></animateMotion>'
              f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;{f2(k1)};{f2(k1 + 0.01)};1" dur="{dur}s" repeatCount="indefinite"/></g>')
@@ -401,7 +401,8 @@ def country_at(countries, lon, lat):
 
 # ─────────────────────────────────────────────────────────────── globe
 def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period: float = 90,
-          step: float = 2.8, face_lon: float = -77.04, lat_range=(-56, 78), label_scale: float = 1.0) -> str:
+          step: float = 2.8, face_lon: float = -77.04, lat_range=(-56, 78), label_scale: float = 1.0,
+          arcs: bool = True) -> str:
     """A rotating dotted Earth in pure SVG.
 
     Each latitude ring is one path of zero-length round-capped segments on the unit circle, placed
@@ -507,7 +508,95 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
             f'<circle {c} r="{f2(R)}" fill="url(#{gid}b)"/>'
             + "".join(front)
             + f'<circle {c} r="{f2(R)}" fill="url(#{gid}l)"/><circle {c} r="{f2(R)}" fill="url(#{gid}s)"/>'
-            f'<circle {c} r="{f2(R)}" stroke="url(#{gid}r)" stroke-width="1.2"/>' + beacon)
+            f'<circle {c} r="{f2(R)}" stroke="url(#{gid}r)" stroke-width="1.2"/>'
+            + (globe_arcs(doc, cx, cy, R, tilt=tilt, period=period, face_lon=face_lon, ks=label_scale) if arcs else "")
+            + beacon)
+
+
+ARC_CITIES = [(34.05, -118.24), (47.61, -122.33), (37.77, -122.42), (39.74, -104.99), (30.27, -97.74),
+              (41.88, -87.63), (33.75, -84.39), (25.76, -80.19), (42.36, -71.06), (44.98, -93.27)]
+
+
+def globe_arcs(doc: Doc, cx, cy, R, *, tilt, period, face_lon, ks=1.0) -> str:
+    """Arcs that launch from Washington, D.C. to cities across the U.S. and ride the rotating globe.
+
+    Each arc is a quadratic Bezier through the projected endpoints and the projected apex of an
+    elevated great circle. Its `d` is keyframed every 5 degrees of rotation while D.C. faces the
+    viewer, and its opacity follows the endpoints' depth so arcs fade out at the limb. The launch
+    itself (trail draw, comet head, landing ping) is a CSS cycle staggered across the arcs.
+    """
+    a = math.radians(tilt)
+    off = -face_lon
+
+    def unit(lat, lon):
+        p, l = math.radians(lat), math.radians(lon + off)
+        return (math.cos(p) * math.sin(l), math.sin(p), math.cos(p) * math.cos(l))
+
+    def turn(P, al):
+        X, Y, Z = P
+        return (X * math.cos(al) + Z * math.sin(al), Y, Z * math.cos(al) - X * math.sin(al))
+
+    def proj(P):
+        X, Y, Z = P
+        return cx + R * X, cy - R * (Y * math.cos(a) - Z * math.sin(a))
+
+    def depth(P):
+        X, Y, Z = P
+        return Z * math.cos(a) + Y * math.sin(a)
+
+    fw, bw = list(range(0, 115, 5)), list(range(-110, 0, 5))
+    angs = fw + bw + [0]
+    kts = ";".join(f4(k) for k in [d / 360 for d in fw] + [(360 + d) / 360 for d in bw] + [1.0])
+    T, n = 7.2, len(ARC_CITIES)
+    ease = "cubic-bezier(.45,0,.2,1)"
+    doc.css.append(
+        f".aT{{stroke-dasharray:1 1;stroke-linecap:round;animation:aT {T}s {ease} infinite both}}"
+        "@keyframes aT{0%{stroke-dashoffset:1;opacity:1}24%,62%{stroke-dashoffset:0;opacity:1}82%,100%{stroke-dashoffset:0;opacity:0}}"
+        f".aH{{stroke-dasharray:.06 2;stroke-linecap:round;opacity:0;animation:aH {T}s {ease} infinite both}}"
+        "@keyframes aH{0%{stroke-dashoffset:.06;opacity:1}24%{stroke-dashoffset:-1;opacity:1}26%,100%{stroke-dashoffset:-1;opacity:0}}"
+        f".aP{{opacity:0;transform-box:fill-box;transform-origin:center;animation:aP {T}s ease-out infinite both}}"
+        "@keyframes aP{0%,23%{opacity:0;transform:scale(.15)}26%{opacity:1;transform:scale(.25)}52%,100%{opacity:0;transform:scale(1.7)}}"
+        f".aD{{opacity:0;animation:aD {T}s infinite both}}"
+        "@keyframes aD{0%,23%{opacity:0}26%,62%{opacity:1}82%,100%{opacity:0}}")
+    U0 = unit(38.9, -77.04)
+    out = []
+    for i, (lat, lon) in enumerate(ARC_CITIES):
+        U1 = unit(lat, lon)
+        w = math.acos(max(-1.0, min(1.0, sum(p * q for p, q in zip(U0, U1)))))
+        lift = 0.04 + 0.42 * w
+
+        def at(t, w=w, U1=U1, lift=lift):
+            P = [(math.sin((1 - t) * w) * p + math.sin(t * w) * q) / math.sin(w) for p, q in zip(U0, U1)]
+            e = 1 + lift * math.sin(math.pi * t)
+            return tuple(c * e for c in P)
+
+        A, M, B = at(0), at(0.5), at(1)
+        ds, ops, ends = [], [], []
+        for d in angs:
+            al = math.radians(d)
+            (x0, y0), (xm, ym), (x2, y2) = (proj(turn(P, al)) for P in (A, M, B))
+            ds.append(f"M{x0:.1f} {y0:.1f}Q{2 * xm - (x0 + x2) / 2:.1f} {2 * ym - (y0 + y2) / 2:.1f} {x2:.1f} {y2:.1f}")
+            ops.append(max(0.0, min(1.0, (min(depth(turn(A, al)), depth(turn(B, al))) - 0.08) / 0.22)))
+            ends.append(f"{x2:.1f} {y2:.1f}")
+        ops[len(fw) - 1] = ops[len(fw)] = 0.0
+
+        def anim(attr, vals):
+            return (f'<animate attributeName="{attr}" values="{";".join(vals)}" keyTimes="{kts}" '
+                    f'dur="{period}s" repeatCount="indefinite"/>')
+
+        pid = doc.uid("arc")
+        dl = f'style="animation-delay:{f2(i * T / n)}s"'
+        doc.defs.append(f'<path id="{pid}" pathLength="1" d="{ds[0]}">{anim("d", ds)}</path>')
+        out.append(
+            f'<g opacity="{f2(ops[0])}">{anim("opacity", [f2(o) for o in ops])}'
+            f'<use href="#{pid}" class="aT" {dl} stroke="{RED}" stroke-opacity=".85" stroke-width="{f2(1.5 * ks)}"/>'
+            f'<use href="#{pid}" class="aH" {dl} stroke="#FFFFFF" stroke-width="{f2(2.8 * ks)}"/>'
+            f'<g transform="translate({ends[0]})"><animateTransform attributeName="transform" type="translate" '
+            f'values="{";".join(ends)}" keyTimes="{kts}" dur="{period}s" repeatCount="indefinite"/>'
+            f'<circle class="aP" {dl} r="{f2(9 * ks)}" stroke="#FFFFFF" stroke-width="{f2(1.2 * ks)}"/>'
+            f'<circle class="aD" {dl} r="{f2(2.4 * ks)}" fill="{RED}"/></g>'
+            "</g>")
+    return "".join(out)
 
 
 # ─────────────────────────────────────────────────────────────── shared pieces
@@ -663,8 +752,18 @@ def build_sections():
                 L = x1 - x0
                 doc.css.append(f"@keyframes dw{{from{{stroke-dashoffset:{f2(L)}}}}}"
                                f".dw{{stroke-dasharray:{f2(L)};animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}}")
+                gid, cid, gw = doc.uid("gl"), doc.uid("gc"), (90 if m else 130)
+                doc.defs.append(
+                    f'<linearGradient id="{gid}"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+                    f'<stop offset=".7" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+                    f'<clipPath id="{cid}"><rect x="{f2(x0)}" y="{f2(cy - 4)}" width="{f2(L)}" height="8"/></clipPath>')
+                run = 'dur="7s" begin="1.8s" repeatCount="indefinite"'
                 doc.add(f'<path class="dw" d="M{f2(x0)} {f2(cy)}H{f2(x1)}" stroke="{LINE2}" stroke-width="1.2"/>'
-                        f'<circle cx="{f2(x1)}" cy="{f2(cy)}" r="{2.5 if m else 2}" fill="{DIM}"/>')
+                        f'<g clip-path="url(#{cid})"><rect x="{f2(x0 - gw)}" y="{f2(cy - 1)}" width="{gw}" height="2" fill="url(#{gid})">'
+                        f'<animate attributeName="x" values="{f2(x0 - gw)};{f2(x1)};{f2(x1)}" keyTimes="0;.4;1" {run}/></rect></g>'
+                        f'<circle cx="{f2(x1)}" cy="{f2(cy)}" r="{2.5 if m else 2}" fill="{DIM}">'
+                        f'<animate attributeName="fill" values="{DIM};{DIM};{RED};{RED};{DIM}" keyTimes="0;.38;.41;.55;1" {run}/>'
+                        f'<animate attributeName="r" values="{2.5 if m else 2};{2.5 if m else 2};{4 if m else 3.2};{2.5 if m else 2}" keyTimes="0;.38;.42;1" {run}/></circle>')
             doc.add(cl)
             doc.save(f"section-{num}{suffix(m)}.svg")
 
@@ -711,9 +810,60 @@ STATS = [  # (label, digits, suffix, desktop caption lines, phone caption lines)
 ]
 
 
+def _stat_viz(doc: Doc, i, x, y, w, m, start, T=16.0) -> str:
+    """Small chart under each number, timed to the odometer loop."""
+    doc.css.append(f"@keyframes lt{{0%{{opacity:.16}}3%,92%{{opacity:1}}97%,100%{{opacity:.16}}}}"
+                   f".lt{{opacity:.16;animation:lt {T}s infinite both}}")
+    s = 1.3 if m else 1.0
+
+    def dl(t):
+        return f'style="animation-delay:{f2(t)}s"'
+
+    out = []
+    if i == 0:  # the origin point everything runs out from
+        gid = doc.uid("og")
+        doc.defs.append(f'<linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="{f2(x)}" x2="{f2(x + w)}">'
+                        f'<stop offset="0" stop-color="{RED}"/><stop offset="1" stop-color="{RED}" stop-opacity="0"/></linearGradient>')
+        doc.css.append(f"@keyframes ln{{0%{{stroke-dashoffset:1;opacity:1}}16%,92%{{stroke-dashoffset:0;opacity:1}}97%,100%{{stroke-dashoffset:0;opacity:0}}}}"
+                       f".ln{{stroke-dasharray:1 1;animation:ln {T}s cubic-bezier(.3,.7,.2,1) infinite both}}")
+        line = f'd="M{f2(x)} {f2(y)}H{f2(x + w)}" stroke-width="{f2(2 * s)}" stroke-linecap="round"'
+        out.append(f'<path {line} stroke="{LINE}"/><path class="ln" {dl(start)} pathLength="1" {line} stroke="url(#{gid})"/>')
+        out.append(f'<circle cx="{f2(x)}" cy="{f2(y)}" r="{f2(4.5 * s)}" stroke="{RED}" stroke-width="{f2(1.4 * s)}" opacity="0">'
+                   f'<animate attributeName="r" values="{f2(4.5 * s)};{f2(17 * s)}" dur="2.4s" repeatCount="indefinite"/>'
+                   f'<animate attributeName="opacity" values=".8;0" dur="2.4s" repeatCount="indefinite"/></circle>'
+                   f'<circle cx="{f2(x)}" cy="{f2(y)}" r="{f2(4.5 * s)}" fill="{RED}"/>')
+    elif i == 1:  # one tick per thousand
+        n = 33
+        step = w / n
+        tw, h = step * 0.42, 14 * s
+        for j in range(n):
+            out.append(f'<rect class="lt" {dl(start + 0.2 + j * 0.04)} x="{f2(x + j * step)}" y="{f2(y - h / 2)}" '
+                       f'width="{f2(tw)}" height="{f2(h)}" rx="{f2(tw / 2)}" fill="{RED if j == n - 1 else WHITE}"/>')
+    elif i == 2:  # 42 of 50 states
+        cols = 25
+        step = w / cols
+        sq, gap = step * 0.6, 3.2 * s
+        for j in range(50):
+            cx_, cy_ = x + (j % cols) * step, y - sq - gap / 2 + (j // cols) * (sq + gap)
+            box = f'x="{f2(cx_)}" y="{f2(cy_)}" width="{f2(sq)}" height="{f2(sq)}" rx="{f2(sq * 0.28)}"'
+            if j < 42:
+                out.append(f'<rect class="lt" {dl(start + 0.2 + j * 0.03)} {box} fill="{RED if j == 41 else WHITE}"/>')
+            else:
+                out.append(f'<rect {box} fill="{LINE2}"/>')
+    else:  # four consecutive years
+        gap, h = 8 * s, 6 * s
+        sw_ = (w - 3 * gap) / 4
+        for j in range(4):
+            sx = x + j * (sw_ + gap)
+            out.append(f'<rect class="lt" {dl(start + 0.3 + j * 0.35)} x="{f2(sx)}" y="{f2(y - h / 2)}" width="{f2(sw_)}" '
+                       f'height="{f2(h)}" rx="{f2(h / 2)}" fill="{RED if j == 3 else WHITE}"/>')
+            out.append(doc.text(sx, y + 20 * s, f"’{24 + j}", "mono", 11 * s, TEXT2 if j == 3 else DIM))
+    return "".join(out)
+
+
 @both
 def build_signal(m: bool):
-    W, H = (720, 660) if m else (1200, 288)
+    W, H = (720, 744) if m else (1200, 318)
     doc = Doc(W, H, "Impact — ZEN AI Co. by the numbers",
               "1st youth AI literacy program in U.S. history · 33,000+ young people reached, ages 11–18 · "
               "42 states · 4th year with Boys & Girls Clubs of Greater Washington in 2027.")
@@ -747,6 +897,8 @@ def build_signal(m: bool):
             doc.add(doc.text(x + ns * 0.03, sup_y, suf, "disp", ss, MUTED))
         for k, line in enumerate(cap_m if m else cap_d):
             doc.add(doc.text(ix, cy + k * clh, line, "sans", cs, TEXT2))
+        vy, vw = (y0 + 312, cw - 62) if m else (y0 + 242, cw - 58)
+        doc.add(_stat_viz(doc, i, ix, vy, vw, m, 0.3 + i * 0.18))
     doc.add(cl)
     doc.save(f"signal{suffix(m)}.svg")
 
@@ -779,6 +931,19 @@ def build_ecosystem(m: bool):
         for k, name in enumerate(items):
             ang = math.radians(a0 + k * 360 / len(items))
             nodes.append((ri, name, CX + rx * math.cos(ang), CY + ry * math.sin(ang), ang))
+    # radar sweep: a fading wedge circles the core; every node pings as the beam crosses it
+    k_ = rings[-1][1] / rings[-1][0]
+    Rs = rings[-1][0] + (14 if m else 26)
+    TS = 10.0
+    wg = doc.uid("wg")
+    doc.defs.append(f'<linearGradient id="{wg}" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="{f2(-0.34 * Rs)}">'
+                    f'<stop offset="0" stop-color="#FFFFFF" stop-opacity=".13"/><stop offset=".35" stop-color="#FFFFFF" stop-opacity=".05"/>'
+                    f'<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>')
+    sl = [f'<path d="M0 0H{Rs}A{Rs} {Rs} 0 0 0 0 {-Rs}Z" fill="url(#{wg})"/>',
+          f'<path d="M0 0H{Rs}" stroke="#FFFFFF" stroke-opacity=".4" vector-effect="non-scaling-stroke"/>']
+    doc.add(f'<g transform="translate({CX} {CY}) scale(1 {f4(k_)})"><g>'
+            f'<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="{TS}s" repeatCount="indefinite"/>'
+            f'{"".join(sl)}</g></g>')
     # spokes + packets to the four platforms
     for k, (ri, name, nx, ny, ang) in enumerate([n for n in nodes if n[0] == 0]):
         doc.add(f'<path d="M{CX} {CY}L{f2(nx)} {f2(ny)}" stroke="#FFFFFF" stroke-opacity=".10"/>')
@@ -789,6 +954,12 @@ def build_ecosystem(m: bool):
                 f'<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.2;.8;1" dur="{dur}s" begin="-{f2(k * 0.85)}s" repeatCount="indefinite"/></circle>')
     halo = f'stroke="{INK}" stroke-width="{6 if m else 5}" stroke-opacity=".92" paint-order="stroke" stroke-linejoin="round"'
     for idx, (ri, name, nx, ny, ang) in enumerate(nodes):
+        th = math.degrees(math.atan2((ny - CY) / k_, nx - CX)) % 360
+        pr = (15, 11, 8)[ri] * (1.35 if m else 1)
+        run = f'dur="{TS}s" begin="{f2(th / 360 * TS)}s" repeatCount="indefinite"'
+        doc.add(f'<circle cx="{f2(nx)}" cy="{f2(ny)}" r="{f2(pr)}" stroke="{RED if ri == 0 else WHITE}" stroke-width="{1.8 if m else 1.4}" opacity="0">'
+                f'<animate attributeName="opacity" values=".85;0;0" keyTimes="0;.16;1" {run}/>'
+                f'<animate attributeName="r" values="{f2(pr * 0.35)};{f2(pr * 1.7)};{f2(pr * 1.7)}" keyTimes="0;.16;1" {run}/></circle>')
         if ri == 0:
             doc.add(f'<circle cx="{f2(nx)}" cy="{f2(ny)}" r="{18 if m else 14}" fill="#FFFFFF" fill-opacity=".05"/>'
                     f'<circle cx="{f2(nx)}" cy="{f2(ny)}" r="{8 if m else 6}" fill="{INK}" stroke="{WHITE}" stroke-width="2"/>'
@@ -834,35 +1005,49 @@ def build_ecosystem(m: bool):
 
 
 # ═══════════════════════════════════════════════════════════════ PRODUCT TILES
-def _glyph(kind, cx, cy) -> str:
+def _glyph(doc: Doc, kind, cx, cy) -> str:
+    loop = 'repeatCount="indefinite"'
     if kind == "arsenal":
-        return static_logo(cx - logo_width(32) / 2, cy - 16, 32, WHITE)
-    if kind == "arena":
-        return (f'<circle cx="{cx - 8}" cy="{cy}" r="15" stroke="{WHITE}" stroke-width="2.2"/>'
-                f'<circle cx="{cx + 8}" cy="{cy}" r="15" stroke="{RED}" stroke-width="2.2"/>')
-    if kind == "qubit":
+        return laser_logo(doc, cx - logo_width(32) / 2, cy - 16, 32, dur=9, draw_frac=0.24)
+    if kind == "arena":  # two models drift together and apart
+        return (f'<circle cx="{cx - 8}" cy="{cy}" r="15" stroke="{WHITE}" stroke-width="2.2">'
+                f'<animate attributeName="cx" values="{cx - 8};{cx - 13};{cx - 8}" dur="3.6s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" {loop}/></circle>'
+                f'<circle cx="{cx + 8}" cy="{cy}" r="15" stroke="{RED}" stroke-width="2.2">'
+                f'<animate attributeName="cx" values="{cx + 8};{cx + 13};{cx + 8}" dur="3.6s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" {loop}/></circle>')
+    if kind == "qubit":  # the state vector precesses
         return (f'<circle cx="{cx}" cy="{cy}" r="19" stroke="{WHITE}" stroke-width="2"/>'
                 f'<ellipse cx="{cx}" cy="{cy}" rx="19" ry="6.5" stroke="{MUTED}" stroke-width="1.4"/>'
+                f'<g><animateTransform attributeName="transform" type="rotate" from="0 {cx} {cy}" to="360 {cx} {cy}" dur="6s" {loop}/>'
                 f'<path d="M{cx} {cy}L{cx + 10} {cy - 13}" stroke="{RED}" stroke-width="2.2" stroke-linecap="round"/>'
-                f'<circle cx="{cx + 10}" cy="{cy - 13}" r="3.4" fill="{RED}"/><circle cx="{cx}" cy="{cy}" r="2.2" fill="{WHITE}"/>')
-    if kind == "pioneer":
-        return (f'<path d="M{cx - 19} {cy + 14}L{cx - 6} {cy + 1}L{cx + 3} {cy + 8}L{cx + 17} {cy - 10}" stroke="{WHITE}" '
-                f'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>'
-                f'<circle cx="{cx + 17}" cy="{cy - 10}" r="4" fill="{RED}"/>')
-    if kind == "solutions":
+                f'<circle cx="{cx + 10}" cy="{cy - 13}" r="3.4" fill="{RED}"/></g><circle cx="{cx}" cy="{cy}" r="2.2" fill="{WHITE}"/>')
+    if kind == "pioneer":  # the trajectory draws, then the endpoint lands
+        return (f'<path pathLength="1" stroke-dasharray="1 1" d="M{cx - 19} {cy + 14}L{cx - 6} {cy + 1}L{cx + 3} {cy + 8}L{cx + 17} {cy - 10}" '
+                f'stroke="{WHITE}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+                f'<animate attributeName="stroke-dashoffset" values="1;0;0;0" keyTimes="0;.35;.9;1" dur="4s" {loop}/>'
+                f'<animate attributeName="opacity" values="1;1;1;0" keyTimes="0;.35;.9;1" dur="4s" {loop}/></path>'
+                f'<circle cx="{cx + 17}" cy="{cy - 10}" r="4" fill="{RED}" opacity="0">'
+                f'<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.33;.38;.9;1" dur="4s" {loop}/></circle>'
+                f'<circle cx="{cx + 17}" cy="{cy - 10}" r="4" stroke="{RED}" stroke-width="1.5" opacity="0">'
+                f'<animate attributeName="opacity" values="0;0;.9;0;0" keyTimes="0;.36;.38;.6;1" dur="4s" {loop}/>'
+                f'<animate attributeName="r" values="4;4;4;13;13" keyTimes="0;.36;.38;.6;1" dur="4s" {loop}/></circle>')
+    if kind == "solutions":  # layers breathe apart in sequence
         out = []
         for k, col in enumerate((DIM, MUTED, RED)):
             y = cy + 10 - k * 10
-            out.append(f'<path d="M{cx} {y - 9}L{cx + 21} {y}L{cx} {y + 9}L{cx - 21} {y}Z" fill="{INK2}" stroke="{col}" stroke-width="2" stroke-linejoin="round"/>')
+            out.append(f'<path d="M{cx} {y - 9}L{cx + 21} {y}L{cx} {y + 9}L{cx - 21} {y}Z" fill="{INK2}" stroke="{col}" stroke-width="2" stroke-linejoin="round">'
+                       f'<animateTransform attributeName="transform" type="translate" values="0 0;0 {-2 - 2 * k};0 0" dur="3s" begin="{k * 0.25}s" '
+                       f'calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" {loop}/></path>')
         return "".join(out)
-    if kind == "tools":
-        out = []
-        for k in range(4):
-            x, y = cx - 16 + (k % 2) * 18, cy - 16 + (k // 2) * 18
-            if k == 1:
-                out.append(f'<rect x="{x}" y="{y}" width="14" height="14" rx="4" fill="{RED}"/>')
-            else:
-                out.append(f'<rect x="{x + 1}" y="{y + 1}" width="12" height="12" rx="3.5" stroke="{WHITE}" stroke-width="2"/>')
+    if kind == "tools":  # the active tool steps around the grid
+        cells = [(cx - 16 + (k % 2) * 18, cy - 16 + (k // 2) * 18) for k in range(4)]
+        out = [f'<rect x="{x + 1}" y="{y + 1}" width="12" height="12" rx="3.5" stroke="{WHITE}" stroke-width="2"/>' for x, y in cells]
+        order = [1, 3, 2, 0]
+        xs = ";".join(str(cells[k][0]) for k in order + order[:1])
+        ys = ";".join(str(cells[k][1]) for k in order + order[:1])
+        spl = ";".join([".6 0 .2 1"] * 4)
+        out.append(f'<rect x="{cells[1][0]}" y="{cells[1][1]}" width="14" height="14" rx="4" fill="{RED}">'
+                   f'<animate attributeName="x" values="{xs}" dur="4.8s" calcMode="spline" keySplines="{spl}" {loop}/>'
+                   f'<animate attributeName="y" values="{ys}" dur="4.8s" calcMode="spline" keySplines="{spl}" {loop}/></rect>')
         return "".join(out)
     return ""
 
@@ -884,12 +1069,24 @@ def build_tiles():
         op, cl = frame(doc, W, H, 26, bg=INK)
         doc.add(op, glow(doc, 72, 76, 160, RED if kind in ("arsenal", "pioneer") else BLUE, .07), BACKDROP_END)
         doc.add(f'<rect x="26" y="28" width="96" height="96" rx="24" fill="{INK2}" stroke="{LINE2}"/>')
-        doc.add(_glyph(kind, 74, 76))
+        doc.add(_glyph(doc, kind, 74, 76))
         doc.add(doc.text(150, 70, name, "sansS", fit("sansS", name, 36, 320), WHITE))
         doc.add(doc.text(150, 110, desc, "sans", fit("sans", desc, 26, 340), MUTED))
         doc.add(arrow_ne(W - 54, 32, 15, DIM, 2.2))
         doc.add(cl)
         doc.save(f"tile-{kind}.svg")
+
+
+def shimmer(doc: Doc, x0, x1, dur=7.0, delay=1.0) -> str:
+    """Fill for display text: white, with a faint warm light that sweeps across it."""
+    gid, w = doc.uid("sm"), x1 - x0
+    doc.defs.append(
+        f'<linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="{f2(x0)}" x2="{f2(x1)}">'
+        f'<stop offset="0" stop-color="{WHITE}"/><stop offset=".4" stop-color="{WHITE}"/><stop offset=".5" stop-color="#FFB3A9"/>'
+        f'<stop offset=".6" stop-color="{WHITE}"/><stop offset="1" stop-color="{WHITE}"/>'
+        f'<animateTransform attributeName="gradientTransform" type="translate" values="{f2(-w)} 0;{f2(w)} 0;{f2(w)} 0" '
+        f'keyTimes="0;.42;1" dur="{dur}s" begin="{delay}s" repeatCount="indefinite"/></linearGradient>')
+    return f"url(#{gid})"
 
 
 # ═══════════════════════════════════════════════════════════════ AI PIONEER
@@ -919,7 +1116,9 @@ def build_pioneer(m: bool):
         X = 64
         doc.add(doc.text(X, 84, "AI PIONEER PROGRAM  ·  WITH BOYS & GIRLS CLUBS OF GREATER WASHINGTON", "mono", 12, MUTED, ls=2))
         doc.add(doc.text(X - 2, 160, "The first generation", "disp", 56, WHITE))
-        doc.add(doc.runs(X - 2, 226, [("of ", WHITE, "disp", 56), ("AI builders.", WHITE, "serif", 68)]))
+        x_ab = X - 2 + width("disp", "of ", 56)
+        sh = shimmer(doc, x_ab, x_ab + width("serif", "AI builders.", 68))
+        doc.add(doc.runs(X - 2, 226, [("of ", WHITE, "disp", 56), ("AI builders.", sh, "serif", 68)]))
         for k, line in enumerate(wrap("sans", body, 19, 580)):
             doc.add(doc.text(X, 284 + k * 29, line, "sans", 19, TEXT2))
         qx = 760
@@ -952,7 +1151,7 @@ def build_pioneer(m: bool):
                          ls=min(2.4, (608 - FB.width("mono", "WITH BOYS & GIRLS CLUBS OF GREATER WASHINGTON", 18)) / 44)))
         doc.add(doc.text(X - 3, 214, "The first", "disp", 68, WHITE))
         doc.add(doc.text(X - 3, 292, "generation of", "disp", 68, WHITE))
-        doc.add(doc.text(X - 3, 378, "AI builders.", "serif", 84, WHITE))
+        doc.add(doc.text(X - 3, 378, "AI builders.", "serif", 84, shimmer(doc, X - 3, X - 3 + width("serif", "AI builders.", 84))))
         for k, line in enumerate(lines):
             doc.add(doc.text(X, 448 + k * 39, line, "sans", 27, TEXT2))
         doc.add(f'<rect x="{X}" y="{qy}" width="3" height="98" rx="1.5" fill="{RED}"/>')
@@ -1061,16 +1260,26 @@ def build_buttons():
         W, H = 320, 96
         doc = Doc(W, H, title, f"Button: {title}")
         r = H / 2
+        i = [b[0] for b in BUTTONS].index(slug)
         if primary:
             doc.add(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="{r - 1}" fill="{WHITE}" stroke="#D6DBE2" stroke-width="1.5"/>')
             lh = 26
-            doc.add(static_logo(36, r - lh / 2, lh, INK))
+            doc.add(laser_logo(doc, 36, r - lh / 2, lh, fill=INK, trace=INK, dur=8, draw_frac=0.26))
             tx, fg, ac = 36 + logo_width(lh) + 14, INK, INK
         else:
-            doc.add(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="{r - 1}" fill="#0F1115" stroke="{LINE2}" stroke-width="1.5"/>')
+            cid, gid = doc.uid("bc"), doc.uid("bs")
+            doc.defs.append(f'<clipPath id="{cid}"><rect x="2" y="2" width="{W - 4}" height="{H - 4}" rx="{r - 2}"/></clipPath>'
+                            f'<linearGradient id="{gid}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+                            f'<stop offset=".5" stop-color="#fff" stop-opacity=".13"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>')
+            doc.add(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="{r - 1}" fill="#0F1115" stroke="{LINE2}" stroke-width="1.5"/>'
+                    f'<g clip-path="url(#{cid})"><rect x="-150" y="0" width="90" height="{H}" fill="url(#{gid})" transform="skewX(-18)">'
+                    f'<animate attributeName="x" values="-150;{W + 60};{W + 60}" keyTimes="0;.32;1" dur="6s" begin="{f2(0.8 + i * 0.5)}s" repeatCount="indefinite"/></rect></g>')
             tx, fg, ac = 38, WHITE, TEXT2
         doc.add(doc.text(tx, r + 30 * 0.364, label, "sansS", 30, fg))
-        doc.add(arrow_e(W - 62, r, 22, ac, 2.6))
+        doc.css.append("@keyframes aw{0%,62%{transform:translateX(0);opacity:1}74%{transform:translateX(16px);opacity:0}"
+                       "75%{transform:translateX(-16px);opacity:0}88%,100%{transform:translateX(0);opacity:1}}"
+                       ".aw{animation:aw 4.2s cubic-bezier(.5,0,.2,1) infinite}")
+        doc.add(f'<g class="aw" style="animation-delay:{f2(1.2 + i * 0.3)}s">{arrow_e(W - 62, r, 22, ac, 2.6)}</g>')
         doc.save(f"btn-{slug}.svg")
 
 
@@ -1129,7 +1338,12 @@ def build_footer(m: bool):
     op, cl = frame(doc, W, H, 26)
     doc.add(op, glow(doc, W / 2, 0, 420 if m else 360, BLUE, .12), glow(doc, W / 2, H, 380, RED, .06), BACKDROP_END)
     lh = 60 if m else 44
-    doc.add(laser_logo(doc, W / 2 - logo_width(lh) / 2, 54 if m else 40, lh))
+    ly = 54 if m else 40
+    for k in range(3):
+        doc.add(f'<circle cx="{W / 2}" cy="{f2(ly + lh / 2)}" r="{f2(lh * 0.9)}" stroke="#FFFFFF" stroke-width="1" opacity="0">'
+                f'<animate attributeName="r" values="{f2(lh * 0.9)};{f2(lh * 2.8)}" dur="4.5s" begin="{k * 1.5}s" repeatCount="indefinite"/>'
+                f'<animate attributeName="opacity" values=".28;0" dur="4.5s" begin="{k * 1.5}s" repeatCount="indefinite"/></circle>')
+    doc.add(laser_logo(doc, W / 2 - logo_width(lh) / 2, ly, lh))
     if m:
         doc.add(doc.text(W / 2, 176, "ZEN AI Co.", "sansS", 30, WHITE, anchor="middle"))
         doc.add(doc.text(W / 2, 236, "zenai.world  ·  arsenal.world", "mono", 19, MUTED, anchor="middle", ls=1))

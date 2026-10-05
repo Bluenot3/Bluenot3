@@ -14,7 +14,7 @@
 <circle cx="72" cy="76" r="160" fill="url(#gw2)"/>
 </g>
 <rect x="26" y="28" width="96" height="96" rx="24" fill="#0D0F13" stroke="#2A3039"/>
-<rect x="59" y="61" width="12" height="12" rx="3.5" stroke="#F5F7FA" stroke-width="2"/><rect x="76" y="60" width="14" height="14" rx="4" fill="#FF4A3D"/><rect x="59" y="79" width="12" height="12" rx="3.5" stroke="#F5F7FA" stroke-width="2"/><rect x="77" y="79" width="12" height="12" rx="3.5" stroke="#F5F7FA" stroke-width="2"/>
+<rect x="59" y="61" width="12" height="12" rx="3.5" stroke="#F5F7FA" stroke-width="2"/><rect x="77" y="61" width="12" height="12" rx="3.5" stroke="#F5F7FA" stroke-width="2"/><rect x="59" y="79" width="12" height="12" rx="3.5" stroke="#F5F7FA" stroke-width="2"/><rect x="77" y="79" width="12" height="12" rx="3.5" stroke="#F5F7FA" stroke-width="2"/><rect x="76" y="60" width="14" height="14" rx="4" fill="#FF4A3D"><animate attributeName="x" values="76;76;58;58;76" dur="4.8s" calcMode="spline" keySplines=".6 0 .2 1;.6 0 .2 1;.6 0 .2 1;.6 0 .2 1" repeatCount="indefinite"/><animate attributeName="y" values="60;78;78;60;60" dur="4.8s" calcMode="spline" keySplines=".6 0 .2 1;.6 0 .2 1;.6 0 .2 1;.6 0 .2 1" repeatCount="indefinite"/></rect>
 <text x="150" y="70" class="f-sansS" font-size="36" fill="#F5F7FA" letter-spacing="-0.43" >ZEN Tools</text>
 <text x="150" y="110" class="f-sans" font-size="26" fill="#8C95A3" >AI utilities</text>
 <path d="M486 47L501 32M490.5 32H501V42.5" stroke="#5E6674" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>

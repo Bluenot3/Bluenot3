@@ -14,7 +14,7 @@
 <circle cx="72" cy="76" r="160" fill="url(#gw2)"/>
 </g>
 <rect x="26" y="28" width="96" height="96" rx="24" fill="#0D0F13" stroke="#2A3039"/>
-<path d="M74 77L95 86L74 95L53 86Z" fill="#0D0F13" stroke="#5E6674" stroke-width="2" stroke-linejoin="round"/><path d="M74 67L95 76L74 85L53 76Z" fill="#0D0F13" stroke="#8C95A3" stroke-width="2" stroke-linejoin="round"/><path d="M74 57L95 66L74 75L53 66Z" fill="#0D0F13" stroke="#FF4A3D" stroke-width="2" stroke-linejoin="round"/>
+<path d="M74 77L95 86L74 95L53 86Z" fill="#0D0F13" stroke="#5E6674" stroke-width="2" stroke-linejoin="round"><animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="3s" begin="0.0s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" repeatCount="indefinite"/></path><path d="M74 67L95 76L74 85L53 76Z" fill="#0D0F13" stroke="#8C95A3" stroke-width="2" stroke-linejoin="round"><animateTransform attributeName="transform" type="translate" values="0 0;0 -4;0 0" dur="3s" begin="0.25s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" repeatCount="indefinite"/></path><path d="M74 57L95 66L74 75L53 66Z" fill="#0D0F13" stroke="#FF4A3D" stroke-width="2" stroke-linejoin="round"><animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="3s" begin="0.5s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" repeatCount="indefinite"/></path>
 <text x="150" y="70" class="f-sansS" font-size="36" fill="#F5F7FA" letter-spacing="-0.43" >ZEN Solutions</text>
 <text x="150" y="110" class="f-sans" font-size="26" fill="#8C95A3" >Enterprise + business AI</text>
 <path d="M486 47L501 32M490.5 32H501V42.5" stroke="#5E6674" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>

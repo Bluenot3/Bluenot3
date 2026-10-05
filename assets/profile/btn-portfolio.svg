@@ -3,12 +3,13 @@
 <desc id="d">Button: Portfolio — alexleschik.com</desc>
 <style>
 @font-face{font-family:ZSansS;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAPgAA8AAAAABywAAAOIAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhwbghIcKgZgP1NUQVRaAGwRCAqECIM1ATYCJAMsCxgABCAFgToHIBu6BVFUcM6A+HlgG9MeDAVFbGNZlDfS45ZdZqEIkXf4u/AYD/8/5u77E01oxRNNRCqEKOKJRmicxb4QKZG6D8/XtL3/dxOWUqti0KjSS3K9uBuP8Ah5QvLD/t4/d4ITpcoHpoFqc7UuBrjho/8B0r0PnHMarQOpds/UjffQ88VudMDpQ+CWhMODvQG4dZMxfuAB0VCdSZ3oqQpoAiRKGMLjCIG6TQ/s5t7JDWOHtXySpdN8kGDp6rOYZokF+X9CwmmkyyCfpuu8kAMQQAKCpRzhqDwL3/xS0QJAP563lF+Rj5EXACgBdOfptajdIsiHyGNV83DI1/nPi8KAZr5wfB7zgLAkIgV/ScDfFH7JCk27NgIfKeAaiqXBFImH0kRxE1quKrU1tfbf8QqQWAgAsH9wes2/GcXKTKcP1b9UhwDFPW8PBnQQwjHQw8A4vc0W6mKJ19NoURByXvxMiiPK12eKgFgyAEEQkykSFCiNNUAACc1TwelYD9Clh6FmXAjFJGXkFbNI98HzqDYtmjWqV1fgywiS/9cNoR3ogwb8QBua0AQImv8nhBIK0SnHJc7FJSYmxSUmJEgSLcUwoKOogBAiXEoQCAPHBYT4SNCFFPEzCEKwFNMObVgSKEGBT5BfmI9UJETKK8FxhHEsJ4d3F+HLqhujQMewoxEEwdEuakODkHD1ZGKE+ei7zLJu2ARa4wjJJIxG9tyjcuDeMx56JhUfV1WRj15II6yzzCS6s0OBf4BDPt0pmfeLUajX+ti6ENtrISu8tMkjxS5ZJExj9Stc2d3GyWkYGF4cXjBitnfFHGMhSJLpeitn/h8ZYcJbRVf3awUTwo7/r+Vde5EFsbZdGZm23W4VGQELVWZGauP5sdDw+p7mV44vT0uWlUSert15NF1zre3yfKiw6uq1zlgfEFctGylbqUmNsVXPCB6DroH6KhBD7x0igm1tTe3gEOla2BYm/hgLZW3/esAlolXmvv0TULTVD/Gn927bf2eqwNdo+wzW688vbpW5oUCBwLddlVYLiM7zjCqw0hA7xNNT9GsQ/YlLwlAaE3bBRUE8XHRXf3wBLwQaZqgeiAISqTWg4okhxRrVhdAUoUOXOKnHmDhrxJq4xNkSV+lwdExrtLlzJRBRkvQp714gJiKq6FogJWZLRtKPc1lFMd8+Jc24FlMX2LAu0oeKTlHPrmSkfEozgM6LJgQ=) format('woff2');}.f-sansS{font-family:ZSansS,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
+@keyframes aw{0%,62%{transform:translateX(0);opacity:1}74%{transform:translateX(16px);opacity:0}75%{transform:translateX(-16px);opacity:0}88%,100%{transform:translateX(0);opacity:1}}.aw{animation:aw 4.2s cubic-bezier(.5,0,.2,1) infinite}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-
+<clipPath id="bc1"><rect x="2" y="2" width="316" height="92" rx="46.0"/></clipPath><linearGradient id="bs2" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".13"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
 </defs>
-<rect x="1" y="1" width="318" height="94" rx="47.0" fill="#0F1115" stroke="#2A3039" stroke-width="1.5"/>
+<rect x="1" y="1" width="318" height="94" rx="47.0" fill="#0F1115" stroke="#2A3039" stroke-width="1.5"/><g clip-path="url(#bc1)"><rect x="-150" y="0" width="90" height="96" fill="url(#bs2)" transform="skewX(-18)"><animate attributeName="x" values="-150;380;380" keyTimes="0;.32;1" dur="6s" begin="2.3s" repeatCount="indefinite"/></rect></g>
 <text x="38" y="58.92" class="f-sansS" font-size="30" fill="#F5F7FA" letter-spacing="-0.36" >Portfolio</text>
-<path d="M258 48H280M271.2 39.2L280 48L271.2 56.8" stroke="#B7BFCB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="aw" style="animation-delay:2.1s"><path d="M258 48H280M271.2 39.2L280 48L271.2 56.8" stroke="#B7BFCB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>

@@ -13,7 +13,8 @@
 <clipPath id="cf1"><rect width="720" height="1168" rx="26"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
 <radialGradient id="gw2"><stop offset="0" stop-color="#FF4A3D" stop-opacity="0.1"/><stop offset=".5" stop-color="#FF4A3D" stop-opacity="0.03"/><stop offset="1" stop-color="#FF4A3D" stop-opacity="0"/></radialGradient>
 <radialGradient id="gw3"><stop offset="0" stop-color="#3D6DF2" stop-opacity="0.09"/><stop offset=".5" stop-color="#3D6DF2" stop-opacity="0.03"/><stop offset="1" stop-color="#3D6DF2" stop-opacity="0"/></radialGradient>
-<linearGradient id="pl4" gradientUnits="userSpaceOnUse" x1="0" y1="844" x2="0" y2="1104"><stop offset="0" stop-color="#FF4A3D"/><stop offset="1" stop-color="#F5F7FA"/></linearGradient>
+<linearGradient id="sm4" gradientUnits="userSpaceOnUse" x1="53" x2="397.32"><stop offset="0" stop-color="#F5F7FA"/><stop offset=".4" stop-color="#F5F7FA"/><stop offset=".5" stop-color="#FFB3A9"/><stop offset=".6" stop-color="#F5F7FA"/><stop offset="1" stop-color="#F5F7FA"/><animateTransform attributeName="gradientTransform" type="translate" values="-344.32 0;344.32 0;344.32 0" keyTimes="0;.42;1" dur="7.0s" begin="1.0s" repeatCount="indefinite"/></linearGradient>
+<linearGradient id="pl5" gradientUnits="userSpaceOnUse" x1="0" y1="844" x2="0" y2="1104"><stop offset="0" stop-color="#FF4A3D"/><stop offset="1" stop-color="#F5F7FA"/></linearGradient>
 </defs>
 <rect width="720" height="1168" rx="26" fill="#07080A"/><g clip-path="url(#cf1)">
 <circle cx="0" cy="1168" r="620" fill="url(#gw2)"/>
@@ -23,7 +24,7 @@
 <text x="56" y="114" class="f-mono" font-size="18" fill="#8C95A3" letter-spacing="2.4" >WITH BOYS &amp; GIRLS CLUBS OF GREATER WASHINGTON</text>
 <text x="53" y="214" class="f-disp" font-size="68" fill="#F5F7FA" letter-spacing="-2.38" >The first</text>
 <text x="53" y="292" class="f-disp" font-size="68" fill="#F5F7FA" letter-spacing="-2.38" >generation of</text>
-<text x="53" y="378" class="f-serif" font-size="84" fill="#F5F7FA" letter-spacing="0.34" >AI builders.</text>
+<text x="53" y="378" class="f-serif" font-size="84" fill="url(#sm4)" letter-spacing="0.34" >AI builders.</text>
 <text x="56" y="448" class="f-sans" font-size="27" fill="#B7BFCB" >Ages 11–18. Students build agents, apps and</text>
 <text x="56" y="487" class="f-sans" font-size="27" fill="#B7BFCB" >games with frontier models, deploy them to the</text>
 <text x="56" y="526" class="f-sans" font-size="27" fill="#B7BFCB" >cloud, and leave with a public portfolio and a</text>
@@ -33,7 +34,7 @@
 <text x="82" y="736" class="f-serif" font-size="42" fill="#F5F7FA" letter-spacing="0.17" >it’s not finished.”</text>
 <text x="82" y="776" class="f-mono" font-size="17" fill="#5E6674" letter-spacing="2.4" >PROGRAM PRINCIPLE</text>
 <path d="M76 844V1104" stroke="#2A3039" stroke-width="2.4" stroke-linecap="round"/>
-<path d="M76 844V1104" stroke="url(#pl4)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"><animate attributeName="stroke-dashoffset" values="260;0;0;260" keyTimes="0;.62;.92;1" dur="9.0s" repeatCount="indefinite"/></path>
+<path d="M76 844V1104" stroke="url(#pl5)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"><animate attributeName="stroke-dashoffset" values="260;0;0;260" keyTimes="0;.62;.92;1" dur="9.0s" repeatCount="indefinite"/></path>
 <circle cx="76" cy="844" r="9.5" fill="#07080A" stroke="#2A3039" stroke-width="2.4"><animate attributeName="stroke" calcMode="discrete" values="#2A3039;#F5F7FA;#F5F7FA;#2A3039" keyTimes="0;0;.92;1" dur="9.0s" repeatCount="indefinite"/></circle>
 <text x="112" y="853.5" class="f-sansM" font-size="27" fill="#B7BFCB" letter-spacing="-0.16" >Prompt</text>
 <text x="664" y="850.5" class="f-mono" font-size="18" fill="#5E6674" text-anchor="end" letter-spacing="1" >01</text>

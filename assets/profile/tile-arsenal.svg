@@ -9,12 +9,13 @@
 <defs>
 <clipPath id="cf1"><rect width="540" height="152" rx="26"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
 <radialGradient id="gw2"><stop offset="0" stop-color="#FF4A3D" stop-opacity="0.07"/><stop offset=".5" stop-color="#FF4A3D" stop-opacity="0.02"/><stop offset="1" stop-color="#FF4A3D" stop-opacity="0"/></radialGradient>
+<path id="logo3" d="M162 157V467H281L376 372H251V262H587L162 687V888L250 800V748L736 262H888L69 1083H1081V776H965L862 879H988V986H651L1081 556V355L990 446V508L512 986H352L1181 157Z"/>
 </defs>
 <rect width="540" height="152" rx="26" fill="#07080A"/><g clip-path="url(#cf1)">
 <circle cx="72" cy="76" r="160" fill="url(#gw2)"/>
 </g>
 <rect x="26" y="28" width="96" height="96" rx="24" fill="#0D0F13" stroke="#2A3039"/>
-<path transform="translate(54.79 60) scale(0.0346) translate(-69 -157)" d="M162 157V467H281L376 372H251V262H587L162 687V888L250 800V748L736 262H888L69 1083H1081V776H965L862 879H988V986H651L1081 556V355L990 446V508L512 986H352L1181 157Z" fill="#F5F7FA"/>
+<g transform="translate(54.79 60) scale(0.0346) translate(-69 -157)"><use href="#logo3" fill="#F5F7FA"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.18;0.3;.97;1" dur="9s" repeatCount="indefinite"/></use><use href="#logo3" stroke="#FF4A3D" stroke-width="162.05" stroke-opacity="0.22" stroke-linejoin="round" stroke-dasharray="10289.65" stroke-dashoffset="10289.65"><animate attributeName="stroke-dashoffset" values="10289.65;0;0;0" keyTimes="0;0.24;.97;1" dur="9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.3;0.34;1" dur="9s" repeatCount="indefinite"/></use><use href="#logo3" stroke="#FFFFFF" stroke-width="40.51" stroke-opacity="1" stroke-linejoin="round" stroke-dasharray="10289.65" stroke-dashoffset="10289.65"><animate attributeName="stroke-dashoffset" values="10289.65;0;0;0" keyTimes="0;0.24;.97;1" dur="9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.3;0.34;1" dur="9s" repeatCount="indefinite"/></use><g><circle r="202.56" fill="#FF4A3D" opacity=".35"/><circle r="69.45" fill="#FFFFFF"/><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;1;1;1" keyTimes="0;0.24;.99;1" calcMode="linear"><mpath href="#logo3"/></animateMotion><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.24;0.25;1" dur="9s" repeatCount="indefinite"/></g></g>
 <text x="150" y="70" class="f-sansS" font-size="36" fill="#F5F7FA" letter-spacing="-0.43" >Arsenal</text>
 <text x="150" y="110" class="f-sans" font-size="26" fill="#8C95A3" >Agent + app builder</text>
 <path d="M486 47L501 32M490.5 32H501V42.5" stroke="#5E6674" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
