@@ -14,7 +14,7 @@
 <circle cx="72" cy="76" r="160" fill="url(#gw2)"/>
 </g>
 <rect x="26" y="28" width="96" height="96" rx="24" fill="#0D0F13" stroke="#2A3039"/>
-<path d="M55 90L68 77L77 84L91 66" stroke="#F5F7FA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="91" cy="66" r="4" fill="#FF4A3D"/>
+<path pathLength="1" stroke-dasharray="1 1" d="M55 90L68 77L77 84L91 66" stroke="#F5F7FA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dashoffset" values="1;0;0;0" keyTimes="0;.35;.9;1" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;1;0" keyTimes="0;.35;.9;1" dur="4s" repeatCount="indefinite"/></path><circle cx="91" cy="66" r="4" fill="#FF4A3D" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.33;.38;.9;1" dur="4s" repeatCount="indefinite"/></circle><circle cx="91" cy="66" r="4" stroke="#FF4A3D" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="0;0;.9;0;0" keyTimes="0;.36;.38;.6;1" dur="4s" repeatCount="indefinite"/><animate attributeName="r" values="4;4;4;13;13" keyTimes="0;.36;.38;.6;1" dur="4s" repeatCount="indefinite"/></circle>
 <text x="150" y="70" class="f-sansS" font-size="36" fill="#F5F7FA" letter-spacing="-0.43" >AI Pioneer</text>
 <text x="150" y="110" class="f-sans" font-size="26" fill="#8C95A3" >Youth AI literacy</text>
 <path d="M486 47L501 32M490.5 32H501V42.5" stroke="#5E6674" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>

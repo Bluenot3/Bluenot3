@@ -9,11 +9,12 @@
 </style>
 <defs>
 <clipPath id="cf1"><rect width="1200" height="88" rx="20"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+<linearGradient id="gl2"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".7" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><clipPath id="gc3"><rect x="210.19" y="40" width="953.81" height="8"/></clipPath>
 </defs>
 <rect width="1200" height="88" rx="20" fill="#07080A"/><g clip-path="url(#cf1)">
 </g>
 <text x="36" y="49.29" class="f-monoB" font-size="14.5" fill="#FF4A3D" >02</text>
 <text x="71.4" y="54.92" class="f-disp" font-size="30" fill="#F5F7FA" letter-spacing="-1.05" >Platform</text>
-<path class="dw" d="M210.19 44H1164" stroke="#2A3039" stroke-width="1.2"/><circle cx="1164" cy="44" r="2" fill="#5E6674"/>
+<path class="dw" d="M210.19 44H1164" stroke="#2A3039" stroke-width="1.2"/><g clip-path="url(#gc3)"><rect x="80.19" y="43" width="130" height="2" fill="url(#gl2)"><animate attributeName="x" values="80.19;1164;1164" keyTimes="0;.4;1" dur="7s" begin="1.8s" repeatCount="indefinite"/></rect></g><circle cx="1164" cy="44" r="2" fill="#5E6674"><animate attributeName="fill" values="#5E6674;#5E6674;#FF4A3D;#FF4A3D;#5E6674" keyTimes="0;.38;.41;.55;1" dur="7s" begin="1.8s" repeatCount="indefinite"/><animate attributeName="r" values="2;2;3.2;2" keyTimes="0;.38;.42;1" dur="7s" begin="1.8s" repeatCount="indefinite"/></circle>
 <rect x=".5" y=".5" width="1199" height="87" rx="19.5" stroke="url(#cf1e)"/>
 </svg>

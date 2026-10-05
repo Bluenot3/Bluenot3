@@ -9,11 +9,12 @@
 </style>
 <defs>
 <clipPath id="cf1"><rect width="720" height="104" rx="22"/></clipPath><linearGradient id="cf1e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".17"/><stop offset=".3" stop-color="#FFFFFF" stop-opacity=".08"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".055"/></linearGradient>
+<linearGradient id="gl2"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".7" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><clipPath id="gc3"><rect x="439.32" y="48" width="244.68" height="8"/></clipPath>
 </defs>
 <rect width="720" height="104" rx="22" fill="#07080A"/><g clip-path="url(#cf1)">
 </g>
 <text x="36" y="59.3" class="f-monoB" font-size="20" fill="#FF4A3D" >03</text>
 <text x="82" y="66.56" class="f-disp" font-size="40" fill="#F5F7FA" letter-spacing="-1.4" >AI Pioneer Program</text>
-<path class="dw" d="M439.32 52H684" stroke="#2A3039" stroke-width="1.2"/><circle cx="684" cy="52" r="2.5" fill="#5E6674"/>
+<path class="dw" d="M439.32 52H684" stroke="#2A3039" stroke-width="1.2"/><g clip-path="url(#gc3)"><rect x="349.32" y="51" width="90" height="2" fill="url(#gl2)"><animate attributeName="x" values="349.32;684;684" keyTimes="0;.4;1" dur="7s" begin="1.8s" repeatCount="indefinite"/></rect></g><circle cx="684" cy="52" r="2.5" fill="#5E6674"><animate attributeName="fill" values="#5E6674;#5E6674;#FF4A3D;#FF4A3D;#5E6674" keyTimes="0;.38;.41;.55;1" dur="7s" begin="1.8s" repeatCount="indefinite"/><animate attributeName="r" values="2.5;2.5;4;2.5" keyTimes="0;.38;.42;1" dur="7s" begin="1.8s" repeatCount="indefinite"/></circle>
 <rect x=".5" y=".5" width="719" height="103" rx="21.5" stroke="url(#cf1e)"/>
 </svg>

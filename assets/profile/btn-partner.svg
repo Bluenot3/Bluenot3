@@ -3,12 +3,13 @@
 <desc id="d">Button: Partner with ZEN — huxley@zenai.biz</desc>
 <style>
 @font-face{font-family:ZSansS;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAAQgAA8AAAAABxQAAAPGAAQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgV4cKgZgP1NUQVRaAGQRCAqEQIQJATYCJAMgCxIABCAFgToHIBvABYCeg3FDXyLCFK0MZdx/vgXR6pR4+G/57r7Z2d2fWlRCa6qo1rtsRWGxoLC4WCTHl2ZRCI3NHNFps4lLPkv5CpBPIRL6H+Ac9fxfky9SD6QaQI4i8fvR9coiwYaUeOCLej6x6XAiA7HhbJuRDR9IcIuinrxDX1KgF5CE0AiBbuu4IGwzsnAAnqspseEgdDM2IAyE7mHxkSCEAOV/SOgw6W5AbCQw3IoNiN4+ybKkY6GOv483fkIwogZIDAPE4am8pdzWj5FyzxDB8hbK4/IHlKd/HrJQbghVZjzUkkr19XdbRARuOp9hIoJrBu25PpxcgEi9Kp/FB6tJX82kun51BSSmFPArHDlqaQ/b5ohvt2eHQedvqgcC8m7iJcxBJ4SOCqPwWAH3MDouFamARzeD4xGCuB2PhSMdwGkMOwBBrMcGhCBWJxcAlSSFLgACJDr7IZ9BcAgYxASPOWxgAkSKFV9EXutlRo9OjerUFjAcovyPkSl8vX3wBj4TA4Aw2yIkoZdPTC5hEeFkIzD1pDGWXb0Kr/9coaFD9GXXr6Oca9do6ChY6bVrKOf69evO16+fR8Gs9MqVfU7HpSV0XoXcjWjGl+d0Aao/4Q0LHLlyAV5/uRrBDG+XVQaD+RgbgNfi0hLAQccrGAwj0FFpXWn6FZB7iTlFDm2Qhp70qCA0nnWQnwFDuNNTsi8qe1zYcf7KH34NVUD9a+Xw67TU29XV6bfepI3m3QvGsvW0k6ystROzdX3Jn6yPhg6ZYbXhXobJSSZNAjYUjCaR0VeQpLDC1ElEW9tLWFV38MOcCf+ckl3jZOce0UwX08rARz/eZzlYZUixb9rGaWoGaWUuRxvRmdBcfuvB7y0n9c9+DgSMD7wvz/4/umz08l176LJRWbnVhTLL2mnmBFlPjZI4Cwf7JEutfMfEAIPKLDMndS8+Pd2/b+dweuZVHLOG3GfpONPvOKYpqcql2pLYUcxrtWgRVcbGpgcahKppxEDO7p9L+y9UBPhysqJX/4xI/NvC1TQjzDNBdJvp6ZzTg8w4gbVsGmwLfDwnTZxJYh8HG6oBXkLItnxCN/d4M2r8p+ApAM8XdmzbYqS8zOcewL5KAsEjSepNWZLQqg7A6WQehEyIvCpyDuzOPXAon/KmYpaTLhqJT0CgY03HJWhrnYEXmQpJP74FIejVLylgwiOp4CImaaLYIukAnT3PpAs0TrATIEiCcJhYzgKECBIsnr0AEULoiRLOn7Vo8UL4wYQ7xF6IVAHkyGzGVLxd8WZ2okTARMIDs2/MAAAA) format('woff2');}.f-sansS{font-family:ZSansS,Inter,'Segoe UI',Helvetica,Arial,sans-serif;}
+@keyframes aw{0%,62%{transform:translateX(0);opacity:1}74%{transform:translateX(16px);opacity:0}75%{transform:translateX(-16px);opacity:0}88%,100%{transform:translateX(0);opacity:1}}.aw{animation:aw 4.2s cubic-bezier(.5,0,.2,1) infinite}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 <defs>
-
+<clipPath id="bc1"><rect x="2" y="2" width="316" height="92" rx="46.0"/></clipPath><linearGradient id="bs2" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".13"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
 </defs>
-<rect x="1" y="1" width="318" height="94" rx="47.0" fill="#0F1115" stroke="#2A3039" stroke-width="1.5"/>
+<rect x="1" y="1" width="318" height="94" rx="47.0" fill="#0F1115" stroke="#2A3039" stroke-width="1.5"/><g clip-path="url(#bc1)"><rect x="-150" y="0" width="90" height="96" fill="url(#bs2)" transform="skewX(-18)"><animate attributeName="x" values="-150;380;380" keyTimes="0;.32;1" dur="6s" begin="1.8s" repeatCount="indefinite"/></rect></g>
 <text x="38" y="58.92" class="f-sansS" font-size="30" fill="#F5F7FA" letter-spacing="-0.36" >Partner</text>
-<path d="M258 48H280M271.2 39.2L280 48L271.2 56.8" stroke="#B7BFCB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="aw" style="animation-delay:1.8s"><path d="M258 48H280M271.2 39.2L280 48L271.2 56.8" stroke="#B7BFCB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>

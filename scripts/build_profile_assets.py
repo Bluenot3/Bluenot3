@@ -309,7 +309,7 @@ def logo_width(h: float) -> float:
 
 
 def laser_logo(doc: Doc, x: float, y: float, h: float, *, dur: float = 14.0, fill: str = WHITE,
-               draw_frac: float = 0.16) -> str:
+               draw_frac: float = 0.16, trace: str = "#FFFFFF") -> str:
     """The ZZ monogram: a laser traces the outline, the solid mark resolves, then it holds."""
     tf, s = logo_transform(x, y, h)
     pid = doc.uid("logo")
@@ -320,13 +320,13 @@ def laser_logo(doc: Doc, x: float, y: float, h: float, *, dur: float = 14.0, fil
     p = [f'<g transform="{tf}">',
          f'<use href="#{pid}" fill="{fill}"><animate attributeName="opacity" values="0;0;1;1;0" '
          f'keyTimes="0;{f2(k1 * 0.75)};{f2(k2)};.97;1" dur="{dur}s" repeatCount="indefinite"/></use>']
-    for wdt, col, op in ((sw * 4, RED, 0.22), (sw, "#FFFFFF", 1)):
+    for wdt, col, op in ((sw * 4, RED, 0.22), (sw, trace, 1)):
         p.append(
             f'<use href="#{pid}" stroke="{col}" stroke-width="{f2(wdt)}" stroke-opacity="{op}" stroke-linejoin="round" '
             f'stroke-dasharray="{f2(L)}" stroke-dashoffset="{f2(L)}">'
             f'<animate attributeName="stroke-dashoffset" values="{f2(L)};0;0;0" keyTimes="0;{f2(k1)};.97;1" dur="{dur}s" repeatCount="indefinite"/>'
             f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;{f2(k2)};{f2(k2 + 0.04)};1" dur="{dur}s" repeatCount="indefinite"/></use>')
-    p.append(f'<g><circle r="{f2(7 / s)}" fill="{RED}" opacity=".35"/><circle r="{f2(2.4 / s)}" fill="#fff"/>'
+    p.append(f'<g><circle r="{f2(7 / s)}" fill="{RED}" opacity=".35"/><circle r="{f2(2.4 / s)}" fill="{trace}"/>'
              f'<animateMotion dur="{dur}s" repeatCount="indefinite" keyPoints="0;1;1;1" keyTimes="0;{f2(k1)};.99;1" calcMode="linear">'
              f'<mpath href="#{pid}"/></animateMotion>'
              f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;{f2(k1)};{f2(k1 + 0.01)};1" dur="{dur}s" repeatCount="indefinite"/></g>')
@@ -401,7 +401,8 @@ def country_at(countries, lon, lat):
 
 # ─────────────────────────────────────────────────────────────── globe
 def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period: float = 90,
-          step: float = 2.8, face_lon: float = -77.04, lat_range=(-56, 78), label_scale: float = 1.0) -> str:
+          step: float = 2.8, face_lon: float = -77.04, lat_range=(-56, 78), label_scale: float = 1.0,
+          arcs: bool = True, clip_h=None) -> str:
     """A rotating dotted Earth in pure SVG.
 
     Each latitude ring is one path of zero-length round-capped segments on the unit circle, placed
@@ -411,6 +412,7 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
     lit; Washington, D.C. carries a beacon whose label counter-rotates to stay upright.
     """
     countries = load_world()
+    plan = ArcPlan(tilt=tilt, period=period, face_lon=face_lon) if arcs else None
     a = math.radians(tilt)
     offset = -face_lon
     front = []
@@ -435,7 +437,7 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
             lam = math.radians(lon + offset)
             p = f"M{f4(math.sin(lam))} {f4(math.cos(lam))}h.002"
             if c:
-                buckets["us" if c == "840" else "ld"].append(p)
+                buckets["us" if c == "840" else "ld " + region(lat, lon)].append(p)
             elif abs(((lon + 180) % 30) - 15) > 15 - 180 / n:
                 buckets["gd"].append(p)
             elif i % 2 == 0 and k % 2 == 0:
@@ -444,9 +446,10 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
         tv = max(-1.2, t)
         doc.defs.append(f'<clipPath id="{rid}"><rect x="-1.3" y="{f4(tv)}" width="2.6" height="{f4(1.3 - tv)}"/></clipPath>')
         inner = [f'<g><animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="{period}s" repeatCount="indefinite"/>']
-        for kind in ("oc", "gd", "ld", "us"):
+        for kind in sorted(buckets, key=lambda k: ("oc", "gd", "ld", "us").index(k.split()[0])):
             if buckets[kind]:
-                inner.append(f'<path class="{kind}" d="{"".join(buckets[kind])}"/>')
+                cls = kind if not plan else " ".join([kind.split()[0]] + [f"L{r}" for r in kind.split()[1:]] + (["Lus"] if kind == "us" else []))
+                inner.append(f'<path class="{cls}" d="{"".join(buckets[kind])}"/>')
         inner.append("</g>")
         front.append(f'<g transform="translate({f2(cx)} {f2(cy0)}) scale({f4(r)} {f4(b)})" clip-path="url(#{rid})">{"".join(inner)}</g>')
 
@@ -457,6 +460,8 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
         ".ld{stroke:#C4CEDD;stroke-width:2.35;stroke-opacity:.9}"
         f".us{{stroke:{WHITE};stroke-width:2.55}}"
     )
+    if plan:
+        doc.css.append(plan.lights_css())
 
     # Washington, D.C. beacon
     lat = 38.9
@@ -471,7 +476,8 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
     doc.defs.append(f'<clipPath id="{bid}"><rect x="-1.6" y="{f4(t)}" width="3.2" height="{f4(1.6 - t)}"/></clipPath>')
     ks = label_scale
     halo = f'stroke="{INK}" stroke-width="{f2(4 * ks)}" stroke-opacity=".9" paint-order="stroke" stroke-linejoin="round"'
-    lbl = (f'<g transform="scale({f4(1 / r)} {f4(1 / b)})">'
+    lbl = (f'<g transform="scale({f4(1 / r)} {f4(1 / b)})"><animate attributeName="opacity" values="1;1;0;0;1;1" '
+           f'keyTimes="0;.14;.18;.82;.86;1" dur="{period}s" repeatCount="indefinite"/>'
            f'<path d="M0 0L{f2(16 * ks)} {f2(-22 * ks)}H{f2(30 * ks)}" stroke="{WHITE}" stroke-opacity=".55" stroke-width="1"/>'
            + doc.text(36 * ks, -18 * ks, "Washington, D.C.", "sansM", 13 * ks, WHITE, attrs=halo)
            + doc.text(36 * ks, -3 * ks, "38.90° N  77.04° W", "mono", 9.5 * ks, MUTED, attrs=halo)
@@ -507,7 +513,203 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
             f'<circle {c} r="{f2(R)}" fill="url(#{gid}b)"/>'
             + "".join(front)
             + f'<circle {c} r="{f2(R)}" fill="url(#{gid}l)"/><circle {c} r="{f2(R)}" fill="url(#{gid}s)"/>'
-            f'<circle {c} r="{f2(R)}" stroke="url(#{gid}r)" stroke-width="1.2"/>' + beacon)
+            f'<circle {c} r="{f2(R)}" stroke="url(#{gid}r)" stroke-width="1.2"/>'
+            + (globe_arcs(doc, cx, cy, R, plan=plan, ks=label_scale, clip_h=clip_h) if plan else "")
+            + beacon)
+
+
+HUBS = {
+    "dc": (38.90, -77.04), "chi": (41.88, -87.63), "atl": (33.75, -84.39), "bos": (42.36, -71.06),
+    "mia": (25.76, -80.19), "tor": (43.65, -79.38), "msp": (44.98, -93.27), "aus": (30.27, -97.74),
+    "den": (39.74, -104.99), "mex": (19.43, -99.13), "la": (34.05, -118.24), "sf": (37.77, -122.42),
+    "sea": (47.61, -122.33), "anc": (61.22, -149.90), "hnl": (21.31, -157.86), "tyo": (35.68, 139.69),
+    "sel": (37.57, 126.98), "sha": (31.23, 121.47), "hkg": (22.32, 114.17), "sin": (1.35, 103.82),
+    "syd": (-33.87, 151.21), "del": (28.61, 77.21), "bom": (19.08, 72.88), "dxb": (25.20, 55.27),
+    "cai": (30.04, 31.24), "ist": (41.01, 28.98), "nbo": (-1.29, 36.82), "jnb": (-26.20, 28.05),
+    "los": (6.52, 3.38), "ber": (52.52, 13.40), "par": (48.86, 2.35), "mad": (40.42, -3.70),
+    "lon": (51.51, -0.13), "gru": (-23.55, -46.63), "bue": (-34.60, -58.38),
+}
+# The network spreads westward in step with the rotation: D.C. lights the country, hops cross the
+# Pacific, run through Asia, the Middle East, Africa and Europe, and London closes the loop on D.C.
+ARC_WAVE_1 = ["chi", "atl", "bos", "mia", "tor", "msp", "aus", "den", "mex", "la", "sf", "sea"]
+ARC_HOPS = [
+    ("sea", "anc"), ("la", "hnl"), ("sf", "hnl"), ("anc", "tyo"), ("hnl", "tyo"), ("hnl", "syd"),
+    ("tyo", "sel"), ("tyo", "sha"), ("sha", "hkg"), ("hkg", "sin"), ("syd", "sin"), ("hkg", "del"),
+    ("sin", "bom"), ("del", "dxb"), ("bom", "dxb"), ("dxb", "cai"), ("dxb", "nbo"), ("cai", "ist"),
+    ("nbo", "jnb"), ("nbo", "los"), ("ist", "ber"), ("ber", "par"), ("par", "lon"), ("par", "mad"),
+    ("los", "gru"), ("gru", "bue"), ("lon", "dc"), ("mad", "mia"),
+]
+
+
+ARC_FLIGHTS = {"s": 1.6, "m": 2.1, "l": 2.7}  # flight times (s), quantized so arcs share CSS timelines
+
+
+def region(lat, lon) -> str:
+    """Coarse continent for a point: which part of the map lights up when the network arrives."""
+    if lon < -25:
+        return "na" if lat > 12 else "sa"
+    if lon >= 110 and lat < -10:
+        return "oc"
+    if lon < 60 and lat >= 36 and not (lon > 26 and lat < 42 and lon > 35):
+        return "eu"
+    if lon < 52 and lat < 36:
+        return "af"
+    return "as"
+
+
+class ArcPlan:
+    """When each hop launches and lands. Pure geometry: depends on tilt, period and facing only."""
+
+    def __init__(self, *, tilt, period, face_lon):
+        self.a, self.P, self.off = math.radians(tilt), float(period), -face_lon
+        self.T_END = self.P - 1.0  # everything has faded by here; D.C. relaunches at t = 0
+        self.hops, self.landed = [], {"dc": 0.0}
+        for i, (src, dst) in enumerate([("dc", k) for k in ARC_WAVE_1] + ARC_HOPS):
+            if src not in self.landed:
+                continue
+            U0, U1 = self.unit(src), self.unit(dst)
+            w = math.acos(max(-1.0, min(1.0, sum(p * q for p, q in zip(U0, U1)))))
+            hop = {"src": src, "dst": dst, "w": w, "lift": min(0.04 + 0.30 * w, 0.24), "U0": U0, "U1": U1}
+            hop["q"] = min(ARC_FLIGHTS, key=lambda q: abs(ARC_FLIGHTS[q] - (1.3 + 1.1 * w)))
+            hop["dur"] = ARC_FLIGHTS[hop["q"]]
+            if src == "dc":
+                t0 = 0.6 + i * 0.62
+            else:  # earliest moment after the source is lit when the whole flight is in view
+                t0 = self.landed[src] + 0.4
+                while t0 + hop["dur"] < self.T_END - 4 and not (self.vis(hop, t0) >= 0.9 and self.vis(hop, t0 + hop["dur"]) >= 0.9):
+                    t0 += 0.25
+                if t0 + hop["dur"] >= self.T_END - 4:
+                    print(f"  (arc {src}->{dst} skipped: never fully in view)")
+                    continue
+            hop["t0"], hop["tl"] = t0, t0 + hop["dur"]
+            self.landed.setdefault(dst, hop["tl"])
+            self.hops.append(hop)
+        self.reach = {}
+        for k, t in self.landed.items():
+            r = "us" if k == "dc" else region(*HUBS[k])
+            self.reach[r] = min(self.reach.get(r, self.P), t)
+        self.reach["us"] = min(self.reach.get("us", 2.0), 2.0)
+
+    def unit(self, key):
+        lat, lon = HUBS[key]
+        p, l = math.radians(lat), math.radians(lon + self.off)
+        return (math.cos(p) * math.sin(l), math.sin(p), math.cos(p) * math.cos(l))
+
+    def turn(self, V, t):
+        al = 2 * math.pi * t / self.P
+        X, Y, Z = V
+        return (X * math.cos(al) + Z * math.sin(al), Y, Z * math.cos(al) - X * math.sin(al))
+
+    def depth(self, V):
+        X, Y, Z = V
+        return Z * math.cos(self.a) + Y * math.sin(self.a)
+
+    def point(self, hop, s):
+        w, U0, U1 = hop["w"], hop["U0"], hop["U1"]
+        V = [(math.sin((1 - s) * w) * p + math.sin(s * w) * q) / math.sin(w) for p, q in zip(U0, U1)]
+        e = 1 + hop["lift"] * math.sin(math.pi * s)
+        return tuple(c * e for c in V)
+
+    def vis(self, hop, t):
+        ground = tuple(c / (1 + hop["lift"]) for c in self.point(hop, 0.5))
+        d = min(self.depth(self.turn(V, t)) for V in (hop["U0"], hop["U1"], ground))
+        return max(0.0, min(1.0, (d - 0.15) / 0.2))
+
+    def fade(self, t):
+        return max(0.0, min(1.0, (self.T_END - 0.5 - t) / 3.0))
+
+    def life(self, hop, t):  # a landed hop glows for a while, then hands the story on
+        return max(0.0, min(1.0, (hop["tl"] + 18 - t) / 3))
+
+    def lights_css(self) -> str:
+        """Land dims at the start of each rotation and each region lights up when the network reaches it."""
+        css = []
+        for r, t in sorted(self.reach.items()):
+            a, b = t / self.P * 100, min(t + 2.5, self.T_END - 4) / self.P * 100
+            lo = ".42" if r != "us" else ".5"
+            css.append(f"@keyframes L{r}{{0%,{f2(a)}%{{stroke-opacity:{lo}}}{f2(b)}%,{f2((self.T_END - 3.5) / self.P * 100)}%{{stroke-opacity:1}}"
+                       f"{f2(self.T_END / self.P * 100)}%,100%{{stroke-opacity:{lo}}}}}.L{r}{{animation:L{r} {self.P}s linear infinite}}")
+        return "".join(css)
+
+
+def globe_arcs(doc: Doc, cx, cy, R, *, plan: ArcPlan, ks=1.0, clip_h=None) -> str:
+    """Render the plan: arcs pinned to the spinning globe, drawn with a comet head, landing pings,
+    a slow flow of traffic once landed, and a fade at the limb and at the end of each rotation.
+
+    Each hop is an elevated great circle, sampled every 10 degrees of rotation into a cubic Bezier
+    through four projected points; SMIL interpolates the `d` between samples. `clip_h` drops hops
+    that never cross the visible card.
+    """
+    P, a = plan.P, plan.a
+
+    def proj(V):
+        X, Y, Z = V
+        return cx + R * X, cy - R * (Y * math.cos(a) - Z * math.sin(a))
+
+    def kt(t):
+        return f"{t / P:.4f}".rstrip("0").rstrip(".")
+
+    def pc(t):
+        return f"{t / P * 100:.2f}%"
+
+    ease = "animation-timing-function:cubic-bezier(.45,0,.2,1)"
+    css = [f".aT,.aH,.aF{{stroke-linecap:round}}.aT{{stroke:{RED};stroke-opacity:.8;stroke-width:{f2(1.4 * ks)};stroke-dasharray:1 1}}"
+           f".aH{{stroke:#fff;stroke-width:{f2(2.8 * ks)};stroke-dasharray:.06 2;opacity:0}}"
+           f".aF{{stroke:#fff;stroke-width:{f2(1.8 * ks)};stroke-dasharray:.035 .3;opacity:0}}"
+           f".aD{{fill:{RED}}}.aP{{stroke:#fff;stroke-width:{f2(1.2 * ks)};opacity:0;transform-box:fill-box;transform-origin:center}}"
+           "@keyframes aF{to{stroke-dashoffset:-.335}}"]
+    for q, D in ARC_FLIGHTS.items():
+        tl = f"{P}s infinite both;animation-delay:var(--d)"
+        css.append(
+            f".aT.{q}{{animation:aT{q} {tl}}}@keyframes aT{q}{{0%{{stroke-dashoffset:1;{ease}}}{pc(D)},100%{{stroke-dashoffset:0}}}}"
+            f".aH.{q}{{animation:aH{q} {tl}}}@keyframes aH{q}{{0%{{stroke-dashoffset:.06;opacity:1;{ease}}}{pc(D)}{{stroke-dashoffset:-1;opacity:1}}{pc(D + 0.1)},100%{{stroke-dashoffset:-1;opacity:0}}}}"
+            f".aD.{q}{{animation:aD{q} {tl}}}@keyframes aD{q}{{0%,{pc(D - 0.02)}{{opacity:0}}{pc(D + 0.15)},100%{{opacity:1}}}}"
+            f".aP.{q}{{animation:aP{q} {tl}}}@keyframes aP{q}{{0%,{pc(D - 0.02)}{{opacity:0;transform:scale(.15)}}{pc(D)}{{opacity:.95;transform:scale(.15)}}{pc(D + 1.4)},100%{{opacity:0;transform:scale(1)}}}}"
+            f".aF.{q}{{animation:aF 3.2s linear infinite,aG{q} {P}s infinite both;animation-delay:0s,var(--d)}}"
+            f"@keyframes aG{q}{{0%,{pc(D + 0.3)}{{opacity:0}}{pc(D + 1.2)},100%{{opacity:.75}}}}")
+    doc.css.append("".join(css))
+    out = []
+    loop = f'dur="{P}s" repeatCount="indefinite"'
+    for hop in plan.hops:
+        t0, tl = hop["t0"], hop["tl"]
+        pts = [plan.point(hop, s) for s in (0, 1 / 3, 2 / 3, 1)]
+        ts, t = [], t0
+        while t <= plan.T_END:
+            ts.append(t)
+            if t > tl and plan.vis(hop, t) * plan.fade(t) * plan.life(hop, t) == 0:
+                break
+            t += P / 36
+        shapes, ops, ends = [], [], []
+        onscreen = False
+        for t in ts:
+            p0, p1, p2, p3 = (proj(plan.turn(V, t)) for V in pts)
+            c1 = [(-5 * p0[k] + 18 * p1[k] - 9 * p2[k] + 2 * p3[k]) / 6 for k in (0, 1)]
+            c2 = [(2 * p0[k] - 9 * p1[k] + 18 * p2[k] - 5 * p3[k]) / 6 for k in (0, 1)]
+            shapes.append(f"M{p0[0]:.0f} {p0[1]:.0f}C{c1[0]:.0f} {c1[1]:.0f} {c2[0]:.0f} {c2[1]:.0f} {p3[0]:.0f} {p3[1]:.0f}")
+            o = plan.vis(hop, t) * plan.fade(t) * plan.life(hop, t)
+            ops.append(f2(o))
+            ends.append(f"{p3[0]:.0f} {p3[1]:.0f}")
+            if o > 0 and (clip_h is None or min(p0[1], p1[1], p2[1], p3[1]) < clip_h - 8):
+                onscreen = True
+        if not onscreen:
+            continue
+        ops[-1] = "0"
+        keys = ";".join(["0", kt(t0 - 0.05)] + [kt(t) for t in ts] + ["1"])
+
+        def seq(vals, first, last):
+            return ";".join([first, first] + vals + [last])
+
+        pid, q = doc.uid("arc"), hop["q"]
+        doc.defs.append(f'<path id="{pid}" pathLength="1" d="{shapes[0]}">'
+                        f'<animate attributeName="d" values="{seq(shapes, shapes[0], shapes[-1])}" keyTimes="{keys}" {loop}/></path>')
+        out.append(
+            f'<g opacity="0" style="--d:{t0:.2f}s"><animate attributeName="opacity" values="{seq(ops, "0", "0")}" keyTimes="{keys}" {loop}/>'
+            f'<use href="#{pid}" class="aT {q}"/><use href="#{pid}" class="aH {q}"/><use href="#{pid}" class="aF {q}"/>'
+            f'<g transform="translate({ends[0]})"><animateTransform attributeName="transform" type="translate" '
+            f'values="{seq(ends, ends[0], ends[-1])}" keyTimes="{keys}" {loop}/>'
+            f'<circle class="aD {q}" r="{f2(2.6 * ks)}"/><circle class="aP {q}" r="{f2(14 * ks)}"/></g></g>')
+    print(f"  ({len(out)} arcs drawn, {len(plan.landed)} hubs lit, regions {', '.join(f'{k}@{v:.0f}s' for k, v in sorted(plan.reach.items(), key=lambda kv: kv[1]))})")
+    return "".join(out)
 
 
 # ─────────────────────────────────────────────────────────────── shared pieces
@@ -580,7 +782,8 @@ def build_hero(m: bool):
     W, H = (720, 980) if m else (1200, 600)
     doc = Doc(W, H, "Alex Leschik — Founder, ZEN AI Co.",
               "Alex Leschik, founder of ZEN AI Co. in Washington, D.C. Building Arsenal, an agentic AI platform, "
-              "and the first youth AI literacy program in U.S. history. A rotating dotted Earth marks Washington, D.C.")
+              "and the first youth AI literacy program in U.S. history. On a rotating dotted Earth, flight arcs launch from "
+              "Washington, D.C., cross the country, then spread around the world, lighting up each region as they arrive.")
     op, cl = frame(doc, W, H, 32 if m else 28)
     gcx, gcy, R = (360, 974, 322) if m else (892, 300, 226)
     doc.add(op,
@@ -588,7 +791,8 @@ def build_hero(m: bool):
             glow(doc, 0, H * 0.55, 560 if m else 480, RED, .05),
             dots_bg(doc, W, H, W * 0.42 if not m else W / 2, 260 if m else 300, 560 if m else 640, op=.11),
             BACKDROP_END)
-    doc.add(globe(doc, gcx, gcy, R, lat_range=(-2, 78) if m else (-56, 78), label_scale=1.5 if m else 1.0))
+    doc.add(globe(doc, gcx, gcy, R, lat_range=(-2, 78) if m else (-56, 78), label_scale=1.5 if m else 1.0,
+                  clip_h=H if m else None))
 
     if not m:
         X, lh = 64, 28
@@ -663,8 +867,18 @@ def build_sections():
                 L = x1 - x0
                 doc.css.append(f"@keyframes dw{{from{{stroke-dashoffset:{f2(L)}}}}}"
                                f".dw{{stroke-dasharray:{f2(L)};animation:dw 1.4s cubic-bezier(.6,0,.2,1) .2s both}}")
+                gid, cid, gw = doc.uid("gl"), doc.uid("gc"), (90 if m else 130)
+                doc.defs.append(
+                    f'<linearGradient id="{gid}"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+                    f'<stop offset=".7" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+                    f'<clipPath id="{cid}"><rect x="{f2(x0)}" y="{f2(cy - 4)}" width="{f2(L)}" height="8"/></clipPath>')
+                run = 'dur="7s" begin="1.8s" repeatCount="indefinite"'
                 doc.add(f'<path class="dw" d="M{f2(x0)} {f2(cy)}H{f2(x1)}" stroke="{LINE2}" stroke-width="1.2"/>'
-                        f'<circle cx="{f2(x1)}" cy="{f2(cy)}" r="{2.5 if m else 2}" fill="{DIM}"/>')
+                        f'<g clip-path="url(#{cid})"><rect x="{f2(x0 - gw)}" y="{f2(cy - 1)}" width="{gw}" height="2" fill="url(#{gid})">'
+                        f'<animate attributeName="x" values="{f2(x0 - gw)};{f2(x1)};{f2(x1)}" keyTimes="0;.4;1" {run}/></rect></g>'
+                        f'<circle cx="{f2(x1)}" cy="{f2(cy)}" r="{2.5 if m else 2}" fill="{DIM}">'
+                        f'<animate attributeName="fill" values="{DIM};{DIM};{RED};{RED};{DIM}" keyTimes="0;.38;.41;.55;1" {run}/>'
+                        f'<animate attributeName="r" values="{2.5 if m else 2};{2.5 if m else 2};{4 if m else 3.2};{2.5 if m else 2}" keyTimes="0;.38;.42;1" {run}/></circle>')
             doc.add(cl)
             doc.save(f"section-{num}{suffix(m)}.svg")
 
@@ -711,9 +925,60 @@ STATS = [  # (label, digits, suffix, desktop caption lines, phone caption lines)
 ]
 
 
+def _stat_viz(doc: Doc, i, x, y, w, m, start, T=16.0) -> str:
+    """Small chart under each number, timed to the odometer loop."""
+    doc.css.append(f"@keyframes lt{{0%{{opacity:.16}}3%,92%{{opacity:1}}97%,100%{{opacity:.16}}}}"
+                   f".lt{{opacity:.16;animation:lt {T}s infinite both}}")
+    s = 1.3 if m else 1.0
+
+    def dl(t):
+        return f'style="animation-delay:{f2(t)}s"'
+
+    out = []
+    if i == 0:  # the origin point everything runs out from
+        gid = doc.uid("og")
+        doc.defs.append(f'<linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="{f2(x)}" x2="{f2(x + w)}">'
+                        f'<stop offset="0" stop-color="{RED}"/><stop offset="1" stop-color="{RED}" stop-opacity="0"/></linearGradient>')
+        doc.css.append(f"@keyframes ln{{0%{{stroke-dashoffset:1;opacity:1}}16%,92%{{stroke-dashoffset:0;opacity:1}}97%,100%{{stroke-dashoffset:0;opacity:0}}}}"
+                       f".ln{{stroke-dasharray:1 1;animation:ln {T}s cubic-bezier(.3,.7,.2,1) infinite both}}")
+        line = f'd="M{f2(x)} {f2(y)}H{f2(x + w)}" stroke-width="{f2(2 * s)}" stroke-linecap="round"'
+        out.append(f'<path {line} stroke="{LINE}"/><path class="ln" {dl(start)} pathLength="1" {line} stroke="url(#{gid})"/>')
+        out.append(f'<circle cx="{f2(x)}" cy="{f2(y)}" r="{f2(4.5 * s)}" stroke="{RED}" stroke-width="{f2(1.4 * s)}" opacity="0">'
+                   f'<animate attributeName="r" values="{f2(4.5 * s)};{f2(17 * s)}" dur="2.4s" repeatCount="indefinite"/>'
+                   f'<animate attributeName="opacity" values=".8;0" dur="2.4s" repeatCount="indefinite"/></circle>'
+                   f'<circle cx="{f2(x)}" cy="{f2(y)}" r="{f2(4.5 * s)}" fill="{RED}"/>')
+    elif i == 1:  # one tick per thousand
+        n = 33
+        step = w / n
+        tw, h = step * 0.42, 14 * s
+        for j in range(n):
+            out.append(f'<rect class="lt" {dl(start + 0.2 + j * 0.04)} x="{f2(x + j * step)}" y="{f2(y - h / 2)}" '
+                       f'width="{f2(tw)}" height="{f2(h)}" rx="{f2(tw / 2)}" fill="{RED if j == n - 1 else WHITE}"/>')
+    elif i == 2:  # 42 of 50 states
+        cols = 25
+        step = w / cols
+        sq, gap = step * 0.6, 3.2 * s
+        for j in range(50):
+            cx_, cy_ = x + (j % cols) * step, y - sq - gap / 2 + (j // cols) * (sq + gap)
+            box = f'x="{f2(cx_)}" y="{f2(cy_)}" width="{f2(sq)}" height="{f2(sq)}" rx="{f2(sq * 0.28)}"'
+            if j < 42:
+                out.append(f'<rect class="lt" {dl(start + 0.2 + j * 0.03)} {box} fill="{RED if j == 41 else WHITE}"/>')
+            else:
+                out.append(f'<rect {box} fill="{LINE2}"/>')
+    else:  # four consecutive years
+        gap, h = 8 * s, 6 * s
+        sw_ = (w - 3 * gap) / 4
+        for j in range(4):
+            sx = x + j * (sw_ + gap)
+            out.append(f'<rect class="lt" {dl(start + 0.3 + j * 0.35)} x="{f2(sx)}" y="{f2(y - h / 2)}" width="{f2(sw_)}" '
+                       f'height="{f2(h)}" rx="{f2(h / 2)}" fill="{RED if j == 3 else WHITE}"/>')
+            out.append(doc.text(sx, y + 20 * s, f"’{24 + j}", "mono", 11 * s, TEXT2 if j == 3 else DIM))
+    return "".join(out)
+
+
 @both
 def build_signal(m: bool):
-    W, H = (720, 660) if m else (1200, 288)
+    W, H = (720, 744) if m else (1200, 318)
     doc = Doc(W, H, "Impact — ZEN AI Co. by the numbers",
               "1st youth AI literacy program in U.S. history · 33,000+ young people reached, ages 11–18 · "
               "42 states · 4th year with Boys & Girls Clubs of Greater Washington in 2027.")
@@ -747,6 +1012,8 @@ def build_signal(m: bool):
             doc.add(doc.text(x + ns * 0.03, sup_y, suf, "disp", ss, MUTED))
         for k, line in enumerate(cap_m if m else cap_d):
             doc.add(doc.text(ix, cy + k * clh, line, "sans", cs, TEXT2))
+        vy, vw = (y0 + 312, cw - 62) if m else (y0 + 242, cw - 58)
+        doc.add(_stat_viz(doc, i, ix, vy, vw, m, 0.3 + i * 0.18))
     doc.add(cl)
     doc.save(f"signal{suffix(m)}.svg")
 
@@ -779,6 +1046,19 @@ def build_ecosystem(m: bool):
         for k, name in enumerate(items):
             ang = math.radians(a0 + k * 360 / len(items))
             nodes.append((ri, name, CX + rx * math.cos(ang), CY + ry * math.sin(ang), ang))
+    # radar sweep: a fading wedge circles the core; every node pings as the beam crosses it
+    k_ = rings[-1][1] / rings[-1][0]
+    Rs = rings[-1][0] + (14 if m else 26)
+    TS = 10.0
+    wg = doc.uid("wg")
+    doc.defs.append(f'<linearGradient id="{wg}" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="{f2(-0.34 * Rs)}">'
+                    f'<stop offset="0" stop-color="#FFFFFF" stop-opacity=".13"/><stop offset=".35" stop-color="#FFFFFF" stop-opacity=".05"/>'
+                    f'<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>')
+    sl = [f'<path d="M0 0H{Rs}A{Rs} {Rs} 0 0 0 0 {-Rs}Z" fill="url(#{wg})"/>',
+          f'<path d="M0 0H{Rs}" stroke="#FFFFFF" stroke-opacity=".4" vector-effect="non-scaling-stroke"/>']
+    doc.add(f'<g transform="translate({CX} {CY}) scale(1 {f4(k_)})"><g>'
+            f'<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="{TS}s" repeatCount="indefinite"/>'
+            f'{"".join(sl)}</g></g>')
     # spokes + packets to the four platforms
     for k, (ri, name, nx, ny, ang) in enumerate([n for n in nodes if n[0] == 0]):
         doc.add(f'<path d="M{CX} {CY}L{f2(nx)} {f2(ny)}" stroke="#FFFFFF" stroke-opacity=".10"/>')
@@ -789,6 +1069,12 @@ def build_ecosystem(m: bool):
                 f'<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.2;.8;1" dur="{dur}s" begin="-{f2(k * 0.85)}s" repeatCount="indefinite"/></circle>')
     halo = f'stroke="{INK}" stroke-width="{6 if m else 5}" stroke-opacity=".92" paint-order="stroke" stroke-linejoin="round"'
     for idx, (ri, name, nx, ny, ang) in enumerate(nodes):
+        th = math.degrees(math.atan2((ny - CY) / k_, nx - CX)) % 360
+        pr = (15, 11, 8)[ri] * (1.35 if m else 1)
+        run = f'dur="{TS}s" begin="{f2(th / 360 * TS)}s" repeatCount="indefinite"'
+        doc.add(f'<circle cx="{f2(nx)}" cy="{f2(ny)}" r="{f2(pr)}" stroke="{RED if ri == 0 else WHITE}" stroke-width="{1.8 if m else 1.4}" opacity="0">'
+                f'<animate attributeName="opacity" values=".85;0;0" keyTimes="0;.16;1" {run}/>'
+                f'<animate attributeName="r" values="{f2(pr * 0.35)};{f2(pr * 1.7)};{f2(pr * 1.7)}" keyTimes="0;.16;1" {run}/></circle>')
         if ri == 0:
             doc.add(f'<circle cx="{f2(nx)}" cy="{f2(ny)}" r="{18 if m else 14}" fill="#FFFFFF" fill-opacity=".05"/>'
                     f'<circle cx="{f2(nx)}" cy="{f2(ny)}" r="{8 if m else 6}" fill="{INK}" stroke="{WHITE}" stroke-width="2"/>'
@@ -834,35 +1120,49 @@ def build_ecosystem(m: bool):
 
 
 # ═══════════════════════════════════════════════════════════════ PRODUCT TILES
-def _glyph(kind, cx, cy) -> str:
+def _glyph(doc: Doc, kind, cx, cy) -> str:
+    loop = 'repeatCount="indefinite"'
     if kind == "arsenal":
-        return static_logo(cx - logo_width(32) / 2, cy - 16, 32, WHITE)
-    if kind == "arena":
-        return (f'<circle cx="{cx - 8}" cy="{cy}" r="15" stroke="{WHITE}" stroke-width="2.2"/>'
-                f'<circle cx="{cx + 8}" cy="{cy}" r="15" stroke="{RED}" stroke-width="2.2"/>')
-    if kind == "qubit":
+        return laser_logo(doc, cx - logo_width(32) / 2, cy - 16, 32, dur=9, draw_frac=0.24)
+    if kind == "arena":  # two models drift together and apart
+        return (f'<circle cx="{cx - 8}" cy="{cy}" r="15" stroke="{WHITE}" stroke-width="2.2">'
+                f'<animate attributeName="cx" values="{cx - 8};{cx - 13};{cx - 8}" dur="3.6s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" {loop}/></circle>'
+                f'<circle cx="{cx + 8}" cy="{cy}" r="15" stroke="{RED}" stroke-width="2.2">'
+                f'<animate attributeName="cx" values="{cx + 8};{cx + 13};{cx + 8}" dur="3.6s" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" {loop}/></circle>')
+    if kind == "qubit":  # the state vector precesses
         return (f'<circle cx="{cx}" cy="{cy}" r="19" stroke="{WHITE}" stroke-width="2"/>'
                 f'<ellipse cx="{cx}" cy="{cy}" rx="19" ry="6.5" stroke="{MUTED}" stroke-width="1.4"/>'
+                f'<g><animateTransform attributeName="transform" type="rotate" from="0 {cx} {cy}" to="360 {cx} {cy}" dur="6s" {loop}/>'
                 f'<path d="M{cx} {cy}L{cx + 10} {cy - 13}" stroke="{RED}" stroke-width="2.2" stroke-linecap="round"/>'
-                f'<circle cx="{cx + 10}" cy="{cy - 13}" r="3.4" fill="{RED}"/><circle cx="{cx}" cy="{cy}" r="2.2" fill="{WHITE}"/>')
-    if kind == "pioneer":
-        return (f'<path d="M{cx - 19} {cy + 14}L{cx - 6} {cy + 1}L{cx + 3} {cy + 8}L{cx + 17} {cy - 10}" stroke="{WHITE}" '
-                f'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>'
-                f'<circle cx="{cx + 17}" cy="{cy - 10}" r="4" fill="{RED}"/>')
-    if kind == "solutions":
+                f'<circle cx="{cx + 10}" cy="{cy - 13}" r="3.4" fill="{RED}"/></g><circle cx="{cx}" cy="{cy}" r="2.2" fill="{WHITE}"/>')
+    if kind == "pioneer":  # the trajectory draws, then the endpoint lands
+        return (f'<path pathLength="1" stroke-dasharray="1 1" d="M{cx - 19} {cy + 14}L{cx - 6} {cy + 1}L{cx + 3} {cy + 8}L{cx + 17} {cy - 10}" '
+                f'stroke="{WHITE}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+                f'<animate attributeName="stroke-dashoffset" values="1;0;0;0" keyTimes="0;.35;.9;1" dur="4s" {loop}/>'
+                f'<animate attributeName="opacity" values="1;1;1;0" keyTimes="0;.35;.9;1" dur="4s" {loop}/></path>'
+                f'<circle cx="{cx + 17}" cy="{cy - 10}" r="4" fill="{RED}" opacity="0">'
+                f'<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.33;.38;.9;1" dur="4s" {loop}/></circle>'
+                f'<circle cx="{cx + 17}" cy="{cy - 10}" r="4" stroke="{RED}" stroke-width="1.5" opacity="0">'
+                f'<animate attributeName="opacity" values="0;0;.9;0;0" keyTimes="0;.36;.38;.6;1" dur="4s" {loop}/>'
+                f'<animate attributeName="r" values="4;4;4;13;13" keyTimes="0;.36;.38;.6;1" dur="4s" {loop}/></circle>')
+    if kind == "solutions":  # layers breathe apart in sequence
         out = []
         for k, col in enumerate((DIM, MUTED, RED)):
             y = cy + 10 - k * 10
-            out.append(f'<path d="M{cx} {y - 9}L{cx + 21} {y}L{cx} {y + 9}L{cx - 21} {y}Z" fill="{INK2}" stroke="{col}" stroke-width="2" stroke-linejoin="round"/>')
+            out.append(f'<path d="M{cx} {y - 9}L{cx + 21} {y}L{cx} {y + 9}L{cx - 21} {y}Z" fill="{INK2}" stroke="{col}" stroke-width="2" stroke-linejoin="round">'
+                       f'<animateTransform attributeName="transform" type="translate" values="0 0;0 {-2 - 2 * k};0 0" dur="3s" begin="{k * 0.25}s" '
+                       f'calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" {loop}/></path>')
         return "".join(out)
-    if kind == "tools":
-        out = []
-        for k in range(4):
-            x, y = cx - 16 + (k % 2) * 18, cy - 16 + (k // 2) * 18
-            if k == 1:
-                out.append(f'<rect x="{x}" y="{y}" width="14" height="14" rx="4" fill="{RED}"/>')
-            else:
-                out.append(f'<rect x="{x + 1}" y="{y + 1}" width="12" height="12" rx="3.5" stroke="{WHITE}" stroke-width="2"/>')
+    if kind == "tools":  # the active tool steps around the grid
+        cells = [(cx - 16 + (k % 2) * 18, cy - 16 + (k // 2) * 18) for k in range(4)]
+        out = [f'<rect x="{x + 1}" y="{y + 1}" width="12" height="12" rx="3.5" stroke="{WHITE}" stroke-width="2"/>' for x, y in cells]
+        order = [1, 3, 2, 0]
+        xs = ";".join(str(cells[k][0]) for k in order + order[:1])
+        ys = ";".join(str(cells[k][1]) for k in order + order[:1])
+        spl = ";".join([".6 0 .2 1"] * 4)
+        out.append(f'<rect x="{cells[1][0]}" y="{cells[1][1]}" width="14" height="14" rx="4" fill="{RED}">'
+                   f'<animate attributeName="x" values="{xs}" dur="4.8s" calcMode="spline" keySplines="{spl}" {loop}/>'
+                   f'<animate attributeName="y" values="{ys}" dur="4.8s" calcMode="spline" keySplines="{spl}" {loop}/></rect>')
         return "".join(out)
     return ""
 
@@ -884,12 +1184,24 @@ def build_tiles():
         op, cl = frame(doc, W, H, 26, bg=INK)
         doc.add(op, glow(doc, 72, 76, 160, RED if kind in ("arsenal", "pioneer") else BLUE, .07), BACKDROP_END)
         doc.add(f'<rect x="26" y="28" width="96" height="96" rx="24" fill="{INK2}" stroke="{LINE2}"/>')
-        doc.add(_glyph(kind, 74, 76))
+        doc.add(_glyph(doc, kind, 74, 76))
         doc.add(doc.text(150, 70, name, "sansS", fit("sansS", name, 36, 320), WHITE))
         doc.add(doc.text(150, 110, desc, "sans", fit("sans", desc, 26, 340), MUTED))
         doc.add(arrow_ne(W - 54, 32, 15, DIM, 2.2))
         doc.add(cl)
         doc.save(f"tile-{kind}.svg")
+
+
+def shimmer(doc: Doc, x0, x1, dur=7.0, delay=1.0) -> str:
+    """Fill for display text: white, with a faint warm light that sweeps across it."""
+    gid, w = doc.uid("sm"), x1 - x0
+    doc.defs.append(
+        f'<linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="{f2(x0)}" x2="{f2(x1)}">'
+        f'<stop offset="0" stop-color="{WHITE}"/><stop offset=".4" stop-color="{WHITE}"/><stop offset=".5" stop-color="#FFB3A9"/>'
+        f'<stop offset=".6" stop-color="{WHITE}"/><stop offset="1" stop-color="{WHITE}"/>'
+        f'<animateTransform attributeName="gradientTransform" type="translate" values="{f2(-w)} 0;{f2(w)} 0;{f2(w)} 0" '
+        f'keyTimes="0;.42;1" dur="{dur}s" begin="{delay}s" repeatCount="indefinite"/></linearGradient>')
+    return f"url(#{gid})"
 
 
 # ═══════════════════════════════════════════════════════════════ AI PIONEER
@@ -919,7 +1231,9 @@ def build_pioneer(m: bool):
         X = 64
         doc.add(doc.text(X, 84, "AI PIONEER PROGRAM  ·  WITH BOYS & GIRLS CLUBS OF GREATER WASHINGTON", "mono", 12, MUTED, ls=2))
         doc.add(doc.text(X - 2, 160, "The first generation", "disp", 56, WHITE))
-        doc.add(doc.runs(X - 2, 226, [("of ", WHITE, "disp", 56), ("AI builders.", WHITE, "serif", 68)]))
+        x_ab = X - 2 + width("disp", "of ", 56)
+        sh = shimmer(doc, x_ab, x_ab + width("serif", "AI builders.", 68))
+        doc.add(doc.runs(X - 2, 226, [("of ", WHITE, "disp", 56), ("AI builders.", sh, "serif", 68)]))
         for k, line in enumerate(wrap("sans", body, 19, 580)):
             doc.add(doc.text(X, 284 + k * 29, line, "sans", 19, TEXT2))
         qx = 760
@@ -952,7 +1266,7 @@ def build_pioneer(m: bool):
                          ls=min(2.4, (608 - FB.width("mono", "WITH BOYS & GIRLS CLUBS OF GREATER WASHINGTON", 18)) / 44)))
         doc.add(doc.text(X - 3, 214, "The first", "disp", 68, WHITE))
         doc.add(doc.text(X - 3, 292, "generation of", "disp", 68, WHITE))
-        doc.add(doc.text(X - 3, 378, "AI builders.", "serif", 84, WHITE))
+        doc.add(doc.text(X - 3, 378, "AI builders.", "serif", 84, shimmer(doc, X - 3, X - 3 + width("serif", "AI builders.", 84))))
         for k, line in enumerate(lines):
             doc.add(doc.text(X, 448 + k * 39, line, "sans", 27, TEXT2))
         doc.add(f'<rect x="{X}" y="{qy}" width="3" height="98" rx="1.5" fill="{RED}"/>')
@@ -1061,16 +1375,26 @@ def build_buttons():
         W, H = 320, 96
         doc = Doc(W, H, title, f"Button: {title}")
         r = H / 2
+        i = [b[0] for b in BUTTONS].index(slug)
         if primary:
             doc.add(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="{r - 1}" fill="{WHITE}" stroke="#D6DBE2" stroke-width="1.5"/>')
             lh = 26
-            doc.add(static_logo(36, r - lh / 2, lh, INK))
+            doc.add(laser_logo(doc, 36, r - lh / 2, lh, fill=INK, trace=INK, dur=8, draw_frac=0.26))
             tx, fg, ac = 36 + logo_width(lh) + 14, INK, INK
         else:
-            doc.add(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="{r - 1}" fill="#0F1115" stroke="{LINE2}" stroke-width="1.5"/>')
+            cid, gid = doc.uid("bc"), doc.uid("bs")
+            doc.defs.append(f'<clipPath id="{cid}"><rect x="2" y="2" width="{W - 4}" height="{H - 4}" rx="{r - 2}"/></clipPath>'
+                            f'<linearGradient id="{gid}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+                            f'<stop offset=".5" stop-color="#fff" stop-opacity=".13"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>')
+            doc.add(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="{r - 1}" fill="#0F1115" stroke="{LINE2}" stroke-width="1.5"/>'
+                    f'<g clip-path="url(#{cid})"><rect x="-150" y="0" width="90" height="{H}" fill="url(#{gid})" transform="skewX(-18)">'
+                    f'<animate attributeName="x" values="-150;{W + 60};{W + 60}" keyTimes="0;.32;1" dur="6s" begin="{f2(0.8 + i * 0.5)}s" repeatCount="indefinite"/></rect></g>')
             tx, fg, ac = 38, WHITE, TEXT2
         doc.add(doc.text(tx, r + 30 * 0.364, label, "sansS", 30, fg))
-        doc.add(arrow_e(W - 62, r, 22, ac, 2.6))
+        doc.css.append("@keyframes aw{0%,62%{transform:translateX(0);opacity:1}74%{transform:translateX(16px);opacity:0}"
+                       "75%{transform:translateX(-16px);opacity:0}88%,100%{transform:translateX(0);opacity:1}}"
+                       ".aw{animation:aw 4.2s cubic-bezier(.5,0,.2,1) infinite}")
+        doc.add(f'<g class="aw" style="animation-delay:{f2(1.2 + i * 0.3)}s">{arrow_e(W - 62, r, 22, ac, 2.6)}</g>')
         doc.save(f"btn-{slug}.svg")
 
 
@@ -1129,7 +1453,12 @@ def build_footer(m: bool):
     op, cl = frame(doc, W, H, 26)
     doc.add(op, glow(doc, W / 2, 0, 420 if m else 360, BLUE, .12), glow(doc, W / 2, H, 380, RED, .06), BACKDROP_END)
     lh = 60 if m else 44
-    doc.add(laser_logo(doc, W / 2 - logo_width(lh) / 2, 54 if m else 40, lh))
+    ly = 54 if m else 40
+    for k in range(3):
+        doc.add(f'<circle cx="{W / 2}" cy="{f2(ly + lh / 2)}" r="{f2(lh * 0.9)}" stroke="#FFFFFF" stroke-width="1" opacity="0">'
+                f'<animate attributeName="r" values="{f2(lh * 0.9)};{f2(lh * 2.8)}" dur="4.5s" begin="{k * 1.5}s" repeatCount="indefinite"/>'
+                f'<animate attributeName="opacity" values=".28;0" dur="4.5s" begin="{k * 1.5}s" repeatCount="indefinite"/></circle>')
+    doc.add(laser_logo(doc, W / 2 - logo_width(lh) / 2, ly, lh))
     if m:
         doc.add(doc.text(W / 2, 176, "ZEN AI Co.", "sansS", 30, WHITE, anchor="middle"))
         doc.add(doc.text(W / 2, 236, "zenai.world  ·  arsenal.world", "mono", 19, MUTED, anchor="middle", ls=1))
