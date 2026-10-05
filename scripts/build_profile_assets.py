@@ -402,7 +402,7 @@ def country_at(countries, lon, lat):
 # ─────────────────────────────────────────────────────────────── globe
 def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period: float = 90,
           step: float = 2.8, face_lon: float = -77.04, lat_range=(-56, 78), label_scale: float = 1.0,
-          arcs: bool = True) -> str:
+          arcs: bool = True, clip_h=None) -> str:
     """A rotating dotted Earth in pure SVG.
 
     Each latitude ring is one path of zero-length round-capped segments on the unit circle, placed
@@ -412,6 +412,7 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
     lit; Washington, D.C. carries a beacon whose label counter-rotates to stay upright.
     """
     countries = load_world()
+    plan = ArcPlan(tilt=tilt, period=period, face_lon=face_lon) if arcs else None
     a = math.radians(tilt)
     offset = -face_lon
     front = []
@@ -436,7 +437,7 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
             lam = math.radians(lon + offset)
             p = f"M{f4(math.sin(lam))} {f4(math.cos(lam))}h.002"
             if c:
-                buckets["us" if c == "840" else "ld"].append(p)
+                buckets["us" if c == "840" else "ld " + region(lat, lon)].append(p)
             elif abs(((lon + 180) % 30) - 15) > 15 - 180 / n:
                 buckets["gd"].append(p)
             elif i % 2 == 0 and k % 2 == 0:
@@ -445,9 +446,10 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
         tv = max(-1.2, t)
         doc.defs.append(f'<clipPath id="{rid}"><rect x="-1.3" y="{f4(tv)}" width="2.6" height="{f4(1.3 - tv)}"/></clipPath>')
         inner = [f'<g><animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="{period}s" repeatCount="indefinite"/>']
-        for kind in ("oc", "gd", "ld", "us"):
+        for kind in sorted(buckets, key=lambda k: ("oc", "gd", "ld", "us").index(k.split()[0])):
             if buckets[kind]:
-                inner.append(f'<path class="{kind}" d="{"".join(buckets[kind])}"/>')
+                cls = kind if not plan else " ".join([kind.split()[0]] + [f"L{r}" for r in kind.split()[1:]] + (["Lus"] if kind == "us" else []))
+                inner.append(f'<path class="{cls}" d="{"".join(buckets[kind])}"/>')
         inner.append("</g>")
         front.append(f'<g transform="translate({f2(cx)} {f2(cy0)}) scale({f4(r)} {f4(b)})" clip-path="url(#{rid})">{"".join(inner)}</g>')
 
@@ -458,6 +460,8 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
         ".ld{stroke:#C4CEDD;stroke-width:2.35;stroke-opacity:.9}"
         f".us{{stroke:{WHITE};stroke-width:2.55}}"
     )
+    if plan:
+        doc.css.append(plan.lights_css())
 
     # Washington, D.C. beacon
     lat = 38.9
@@ -472,7 +476,8 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
     doc.defs.append(f'<clipPath id="{bid}"><rect x="-1.6" y="{f4(t)}" width="3.2" height="{f4(1.6 - t)}"/></clipPath>')
     ks = label_scale
     halo = f'stroke="{INK}" stroke-width="{f2(4 * ks)}" stroke-opacity=".9" paint-order="stroke" stroke-linejoin="round"'
-    lbl = (f'<g transform="scale({f4(1 / r)} {f4(1 / b)})">'
+    lbl = (f'<g transform="scale({f4(1 / r)} {f4(1 / b)})"><animate attributeName="opacity" values="1;1;0;0;1;1" '
+           f'keyTimes="0;.14;.18;.82;.86;1" dur="{period}s" repeatCount="indefinite"/>'
            f'<path d="M0 0L{f2(16 * ks)} {f2(-22 * ks)}H{f2(30 * ks)}" stroke="{WHITE}" stroke-opacity=".55" stroke-width="1"/>'
            + doc.text(36 * ks, -18 * ks, "Washington, D.C.", "sansM", 13 * ks, WHITE, attrs=halo)
            + doc.text(36 * ks, -3 * ks, "38.90° N  77.04° W", "mono", 9.5 * ks, MUTED, attrs=halo)
@@ -509,93 +514,201 @@ def globe(doc: Doc, cx: float, cy: float, R: float, *, tilt: float = 22, period:
             + "".join(front)
             + f'<circle {c} r="{f2(R)}" fill="url(#{gid}l)"/><circle {c} r="{f2(R)}" fill="url(#{gid}s)"/>'
             f'<circle {c} r="{f2(R)}" stroke="url(#{gid}r)" stroke-width="1.2"/>'
-            + (globe_arcs(doc, cx, cy, R, tilt=tilt, period=period, face_lon=face_lon, ks=label_scale) if arcs else "")
+            + (globe_arcs(doc, cx, cy, R, plan=plan, ks=label_scale, clip_h=clip_h) if plan else "")
             + beacon)
 
 
-ARC_CITIES = [(34.05, -118.24), (47.61, -122.33), (37.77, -122.42), (39.74, -104.99), (30.27, -97.74),
-              (41.88, -87.63), (33.75, -84.39), (25.76, -80.19), (42.36, -71.06), (44.98, -93.27)]
+HUBS = {
+    "dc": (38.90, -77.04), "chi": (41.88, -87.63), "atl": (33.75, -84.39), "bos": (42.36, -71.06),
+    "mia": (25.76, -80.19), "tor": (43.65, -79.38), "msp": (44.98, -93.27), "aus": (30.27, -97.74),
+    "den": (39.74, -104.99), "mex": (19.43, -99.13), "la": (34.05, -118.24), "sf": (37.77, -122.42),
+    "sea": (47.61, -122.33), "anc": (61.22, -149.90), "hnl": (21.31, -157.86), "tyo": (35.68, 139.69),
+    "sel": (37.57, 126.98), "sha": (31.23, 121.47), "hkg": (22.32, 114.17), "sin": (1.35, 103.82),
+    "syd": (-33.87, 151.21), "del": (28.61, 77.21), "bom": (19.08, 72.88), "dxb": (25.20, 55.27),
+    "cai": (30.04, 31.24), "ist": (41.01, 28.98), "nbo": (-1.29, 36.82), "jnb": (-26.20, 28.05),
+    "los": (6.52, 3.38), "ber": (52.52, 13.40), "par": (48.86, 2.35), "mad": (40.42, -3.70),
+    "lon": (51.51, -0.13), "gru": (-23.55, -46.63), "bue": (-34.60, -58.38),
+}
+# The network spreads westward in step with the rotation: D.C. lights the country, hops cross the
+# Pacific, run through Asia, the Middle East, Africa and Europe, and London closes the loop on D.C.
+ARC_WAVE_1 = ["chi", "atl", "bos", "mia", "tor", "msp", "aus", "den", "mex", "la", "sf", "sea"]
+ARC_HOPS = [
+    ("sea", "anc"), ("la", "hnl"), ("sf", "hnl"), ("anc", "tyo"), ("hnl", "tyo"), ("hnl", "syd"),
+    ("tyo", "sel"), ("tyo", "sha"), ("sha", "hkg"), ("hkg", "sin"), ("syd", "sin"), ("hkg", "del"),
+    ("sin", "bom"), ("del", "dxb"), ("bom", "dxb"), ("dxb", "cai"), ("dxb", "nbo"), ("cai", "ist"),
+    ("nbo", "jnb"), ("nbo", "los"), ("ist", "ber"), ("ber", "par"), ("par", "lon"), ("par", "mad"),
+    ("los", "gru"), ("gru", "bue"), ("lon", "dc"), ("mad", "mia"),
+]
 
 
-def globe_arcs(doc: Doc, cx, cy, R, *, tilt, period, face_lon, ks=1.0) -> str:
-    """Arcs that launch from Washington, D.C. to cities across the U.S. and ride the rotating globe.
+ARC_FLIGHTS = {"s": 1.6, "m": 2.1, "l": 2.7}  # flight times (s), quantized so arcs share CSS timelines
 
-    Each arc is a quadratic Bezier through the projected endpoints and the projected apex of an
-    elevated great circle. Its `d` is keyframed every 5 degrees of rotation while D.C. faces the
-    viewer, and its opacity follows the endpoints' depth so arcs fade out at the limb. The launch
-    itself (trail draw, comet head, landing ping) is a CSS cycle staggered across the arcs.
-    """
-    a = math.radians(tilt)
-    off = -face_lon
 
-    def unit(lat, lon):
-        p, l = math.radians(lat), math.radians(lon + off)
+def region(lat, lon) -> str:
+    """Coarse continent for a point: which part of the map lights up when the network arrives."""
+    if lon < -25:
+        return "na" if lat > 12 else "sa"
+    if lon >= 110 and lat < -10:
+        return "oc"
+    if lon < 60 and lat >= 36 and not (lon > 26 and lat < 42 and lon > 35):
+        return "eu"
+    if lon < 52 and lat < 36:
+        return "af"
+    return "as"
+
+
+class ArcPlan:
+    """When each hop launches and lands. Pure geometry: depends on tilt, period and facing only."""
+
+    def __init__(self, *, tilt, period, face_lon):
+        self.a, self.P, self.off = math.radians(tilt), float(period), -face_lon
+        self.T_END = self.P - 1.0  # everything has faded by here; D.C. relaunches at t = 0
+        self.hops, self.landed = [], {"dc": 0.0}
+        for i, (src, dst) in enumerate([("dc", k) for k in ARC_WAVE_1] + ARC_HOPS):
+            if src not in self.landed:
+                continue
+            U0, U1 = self.unit(src), self.unit(dst)
+            w = math.acos(max(-1.0, min(1.0, sum(p * q for p, q in zip(U0, U1)))))
+            hop = {"src": src, "dst": dst, "w": w, "lift": min(0.04 + 0.30 * w, 0.24), "U0": U0, "U1": U1}
+            hop["q"] = min(ARC_FLIGHTS, key=lambda q: abs(ARC_FLIGHTS[q] - (1.3 + 1.1 * w)))
+            hop["dur"] = ARC_FLIGHTS[hop["q"]]
+            if src == "dc":
+                t0 = 0.6 + i * 0.62
+            else:  # earliest moment after the source is lit when the whole flight is in view
+                t0 = self.landed[src] + 0.4
+                while t0 + hop["dur"] < self.T_END - 4 and not (self.vis(hop, t0) >= 0.9 and self.vis(hop, t0 + hop["dur"]) >= 0.9):
+                    t0 += 0.25
+                if t0 + hop["dur"] >= self.T_END - 4:
+                    print(f"  (arc {src}->{dst} skipped: never fully in view)")
+                    continue
+            hop["t0"], hop["tl"] = t0, t0 + hop["dur"]
+            self.landed.setdefault(dst, hop["tl"])
+            self.hops.append(hop)
+        self.reach = {}
+        for k, t in self.landed.items():
+            r = "us" if k == "dc" else region(*HUBS[k])
+            self.reach[r] = min(self.reach.get(r, self.P), t)
+        self.reach["us"] = min(self.reach.get("us", 2.0), 2.0)
+
+    def unit(self, key):
+        lat, lon = HUBS[key]
+        p, l = math.radians(lat), math.radians(lon + self.off)
         return (math.cos(p) * math.sin(l), math.sin(p), math.cos(p) * math.cos(l))
 
-    def turn(P, al):
-        X, Y, Z = P
+    def turn(self, V, t):
+        al = 2 * math.pi * t / self.P
+        X, Y, Z = V
         return (X * math.cos(al) + Z * math.sin(al), Y, Z * math.cos(al) - X * math.sin(al))
 
-    def proj(P):
-        X, Y, Z = P
+    def depth(self, V):
+        X, Y, Z = V
+        return Z * math.cos(self.a) + Y * math.sin(self.a)
+
+    def point(self, hop, s):
+        w, U0, U1 = hop["w"], hop["U0"], hop["U1"]
+        V = [(math.sin((1 - s) * w) * p + math.sin(s * w) * q) / math.sin(w) for p, q in zip(U0, U1)]
+        e = 1 + hop["lift"] * math.sin(math.pi * s)
+        return tuple(c * e for c in V)
+
+    def vis(self, hop, t):
+        ground = tuple(c / (1 + hop["lift"]) for c in self.point(hop, 0.5))
+        d = min(self.depth(self.turn(V, t)) for V in (hop["U0"], hop["U1"], ground))
+        return max(0.0, min(1.0, (d - 0.15) / 0.2))
+
+    def fade(self, t):
+        return max(0.0, min(1.0, (self.T_END - 0.5 - t) / 3.0))
+
+    def life(self, hop, t):  # a landed hop glows for a while, then hands the story on
+        return max(0.0, min(1.0, (hop["tl"] + 18 - t) / 3))
+
+    def lights_css(self) -> str:
+        """Land dims at the start of each rotation and each region lights up when the network reaches it."""
+        css = []
+        for r, t in sorted(self.reach.items()):
+            a, b = t / self.P * 100, min(t + 2.5, self.T_END - 4) / self.P * 100
+            lo = ".42" if r != "us" else ".5"
+            css.append(f"@keyframes L{r}{{0%,{f2(a)}%{{stroke-opacity:{lo}}}{f2(b)}%,{f2((self.T_END - 3.5) / self.P * 100)}%{{stroke-opacity:1}}"
+                       f"{f2(self.T_END / self.P * 100)}%,100%{{stroke-opacity:{lo}}}}}.L{r}{{animation:L{r} {self.P}s linear infinite}}")
+        return "".join(css)
+
+
+def globe_arcs(doc: Doc, cx, cy, R, *, plan: ArcPlan, ks=1.0, clip_h=None) -> str:
+    """Render the plan: arcs pinned to the spinning globe, drawn with a comet head, landing pings,
+    a slow flow of traffic once landed, and a fade at the limb and at the end of each rotation.
+
+    Each hop is an elevated great circle, sampled every 10 degrees of rotation into a cubic Bezier
+    through four projected points; SMIL interpolates the `d` between samples. `clip_h` drops hops
+    that never cross the visible card.
+    """
+    P, a = plan.P, plan.a
+
+    def proj(V):
+        X, Y, Z = V
         return cx + R * X, cy - R * (Y * math.cos(a) - Z * math.sin(a))
 
-    def depth(P):
-        X, Y, Z = P
-        return Z * math.cos(a) + Y * math.sin(a)
+    def kt(t):
+        return f"{t / P:.4f}".rstrip("0").rstrip(".")
 
-    fw, bw = list(range(0, 115, 5)), list(range(-110, 0, 5))
-    angs = fw + bw + [0]
-    kts = ";".join(f4(k) for k in [d / 360 for d in fw] + [(360 + d) / 360 for d in bw] + [1.0])
-    T, n = 7.2, len(ARC_CITIES)
-    ease = "cubic-bezier(.45,0,.2,1)"
-    doc.css.append(
-        f".aT{{stroke-dasharray:1 1;stroke-linecap:round;animation:aT {T}s {ease} infinite both}}"
-        "@keyframes aT{0%{stroke-dashoffset:1;opacity:1}24%,62%{stroke-dashoffset:0;opacity:1}82%,100%{stroke-dashoffset:0;opacity:0}}"
-        f".aH{{stroke-dasharray:.06 2;stroke-linecap:round;opacity:0;animation:aH {T}s {ease} infinite both}}"
-        "@keyframes aH{0%{stroke-dashoffset:.06;opacity:1}24%{stroke-dashoffset:-1;opacity:1}26%,100%{stroke-dashoffset:-1;opacity:0}}"
-        f".aP{{opacity:0;transform-box:fill-box;transform-origin:center;animation:aP {T}s ease-out infinite both}}"
-        "@keyframes aP{0%,23%{opacity:0;transform:scale(.15)}26%{opacity:1;transform:scale(.25)}52%,100%{opacity:0;transform:scale(1.7)}}"
-        f".aD{{opacity:0;animation:aD {T}s infinite both}}"
-        "@keyframes aD{0%,23%{opacity:0}26%,62%{opacity:1}82%,100%{opacity:0}}")
-    U0 = unit(38.9, -77.04)
+    def pc(t):
+        return f"{t / P * 100:.2f}%"
+
+    ease = "animation-timing-function:cubic-bezier(.45,0,.2,1)"
+    css = [f".aT,.aH,.aF{{stroke-linecap:round}}.aT{{stroke:{RED};stroke-opacity:.8;stroke-width:{f2(1.4 * ks)};stroke-dasharray:1 1}}"
+           f".aH{{stroke:#fff;stroke-width:{f2(2.8 * ks)};stroke-dasharray:.06 2;opacity:0}}"
+           f".aF{{stroke:#fff;stroke-width:{f2(1.8 * ks)};stroke-dasharray:.035 .3;opacity:0}}"
+           f".aD{{fill:{RED}}}.aP{{stroke:#fff;stroke-width:{f2(1.2 * ks)};opacity:0;transform-box:fill-box;transform-origin:center}}"
+           "@keyframes aF{to{stroke-dashoffset:-.335}}"]
+    for q, D in ARC_FLIGHTS.items():
+        tl = f"{P}s infinite both;animation-delay:var(--d)"
+        css.append(
+            f".aT.{q}{{animation:aT{q} {tl}}}@keyframes aT{q}{{0%{{stroke-dashoffset:1;{ease}}}{pc(D)},100%{{stroke-dashoffset:0}}}}"
+            f".aH.{q}{{animation:aH{q} {tl}}}@keyframes aH{q}{{0%{{stroke-dashoffset:.06;opacity:1;{ease}}}{pc(D)}{{stroke-dashoffset:-1;opacity:1}}{pc(D + 0.1)},100%{{stroke-dashoffset:-1;opacity:0}}}}"
+            f".aD.{q}{{animation:aD{q} {tl}}}@keyframes aD{q}{{0%,{pc(D - 0.02)}{{opacity:0}}{pc(D + 0.15)},100%{{opacity:1}}}}"
+            f".aP.{q}{{animation:aP{q} {tl}}}@keyframes aP{q}{{0%,{pc(D - 0.02)}{{opacity:0;transform:scale(.15)}}{pc(D)}{{opacity:.95;transform:scale(.15)}}{pc(D + 1.4)},100%{{opacity:0;transform:scale(1)}}}}"
+            f".aF.{q}{{animation:aF 3.2s linear infinite,aG{q} {P}s infinite both;animation-delay:0s,var(--d)}}"
+            f"@keyframes aG{q}{{0%,{pc(D + 0.3)}{{opacity:0}}{pc(D + 1.2)},100%{{opacity:.75}}}}")
+    doc.css.append("".join(css))
     out = []
-    for i, (lat, lon) in enumerate(ARC_CITIES):
-        U1 = unit(lat, lon)
-        w = math.acos(max(-1.0, min(1.0, sum(p * q for p, q in zip(U0, U1)))))
-        lift = 0.04 + 0.42 * w
+    loop = f'dur="{P}s" repeatCount="indefinite"'
+    for hop in plan.hops:
+        t0, tl = hop["t0"], hop["tl"]
+        pts = [plan.point(hop, s) for s in (0, 1 / 3, 2 / 3, 1)]
+        ts, t = [], t0
+        while t <= plan.T_END:
+            ts.append(t)
+            if t > tl and plan.vis(hop, t) * plan.fade(t) * plan.life(hop, t) == 0:
+                break
+            t += P / 36
+        shapes, ops, ends = [], [], []
+        onscreen = False
+        for t in ts:
+            p0, p1, p2, p3 = (proj(plan.turn(V, t)) for V in pts)
+            c1 = [(-5 * p0[k] + 18 * p1[k] - 9 * p2[k] + 2 * p3[k]) / 6 for k in (0, 1)]
+            c2 = [(2 * p0[k] - 9 * p1[k] + 18 * p2[k] - 5 * p3[k]) / 6 for k in (0, 1)]
+            shapes.append(f"M{p0[0]:.0f} {p0[1]:.0f}C{c1[0]:.0f} {c1[1]:.0f} {c2[0]:.0f} {c2[1]:.0f} {p3[0]:.0f} {p3[1]:.0f}")
+            o = plan.vis(hop, t) * plan.fade(t) * plan.life(hop, t)
+            ops.append(f2(o))
+            ends.append(f"{p3[0]:.0f} {p3[1]:.0f}")
+            if o > 0 and (clip_h is None or min(p0[1], p1[1], p2[1], p3[1]) < clip_h - 8):
+                onscreen = True
+        if not onscreen:
+            continue
+        ops[-1] = "0"
+        keys = ";".join(["0", kt(t0 - 0.05)] + [kt(t) for t in ts] + ["1"])
 
-        def at(t, w=w, U1=U1, lift=lift):
-            P = [(math.sin((1 - t) * w) * p + math.sin(t * w) * q) / math.sin(w) for p, q in zip(U0, U1)]
-            e = 1 + lift * math.sin(math.pi * t)
-            return tuple(c * e for c in P)
+        def seq(vals, first, last):
+            return ";".join([first, first] + vals + [last])
 
-        A, M, B = at(0), at(0.5), at(1)
-        ds, ops, ends = [], [], []
-        for d in angs:
-            al = math.radians(d)
-            (x0, y0), (xm, ym), (x2, y2) = (proj(turn(P, al)) for P in (A, M, B))
-            ds.append(f"M{x0:.1f} {y0:.1f}Q{2 * xm - (x0 + x2) / 2:.1f} {2 * ym - (y0 + y2) / 2:.1f} {x2:.1f} {y2:.1f}")
-            ops.append(max(0.0, min(1.0, (min(depth(turn(A, al)), depth(turn(B, al))) - 0.08) / 0.22)))
-            ends.append(f"{x2:.1f} {y2:.1f}")
-        ops[len(fw) - 1] = ops[len(fw)] = 0.0
-
-        def anim(attr, vals):
-            return (f'<animate attributeName="{attr}" values="{";".join(vals)}" keyTimes="{kts}" '
-                    f'dur="{period}s" repeatCount="indefinite"/>')
-
-        pid = doc.uid("arc")
-        dl = f'style="animation-delay:{f2(i * T / n)}s"'
-        doc.defs.append(f'<path id="{pid}" pathLength="1" d="{ds[0]}">{anim("d", ds)}</path>')
+        pid, q = doc.uid("arc"), hop["q"]
+        doc.defs.append(f'<path id="{pid}" pathLength="1" d="{shapes[0]}">'
+                        f'<animate attributeName="d" values="{seq(shapes, shapes[0], shapes[-1])}" keyTimes="{keys}" {loop}/></path>')
         out.append(
-            f'<g opacity="{f2(ops[0])}">{anim("opacity", [f2(o) for o in ops])}'
-            f'<use href="#{pid}" class="aT" {dl} stroke="{RED}" stroke-opacity=".85" stroke-width="{f2(1.5 * ks)}"/>'
-            f'<use href="#{pid}" class="aH" {dl} stroke="#FFFFFF" stroke-width="{f2(2.8 * ks)}"/>'
+            f'<g opacity="0" style="--d:{t0:.2f}s"><animate attributeName="opacity" values="{seq(ops, "0", "0")}" keyTimes="{keys}" {loop}/>'
+            f'<use href="#{pid}" class="aT {q}"/><use href="#{pid}" class="aH {q}"/><use href="#{pid}" class="aF {q}"/>'
             f'<g transform="translate({ends[0]})"><animateTransform attributeName="transform" type="translate" '
-            f'values="{";".join(ends)}" keyTimes="{kts}" dur="{period}s" repeatCount="indefinite"/>'
-            f'<circle class="aP" {dl} r="{f2(9 * ks)}" stroke="#FFFFFF" stroke-width="{f2(1.2 * ks)}"/>'
-            f'<circle class="aD" {dl} r="{f2(2.4 * ks)}" fill="{RED}"/></g>'
-            "</g>")
+            f'values="{seq(ends, ends[0], ends[-1])}" keyTimes="{keys}" {loop}/>'
+            f'<circle class="aD {q}" r="{f2(2.6 * ks)}"/><circle class="aP {q}" r="{f2(14 * ks)}"/></g></g>')
+    print(f"  ({len(out)} arcs drawn, {len(plan.landed)} hubs lit, regions {', '.join(f'{k}@{v:.0f}s' for k, v in sorted(plan.reach.items(), key=lambda kv: kv[1]))})")
     return "".join(out)
 
 
@@ -669,7 +782,8 @@ def build_hero(m: bool):
     W, H = (720, 980) if m else (1200, 600)
     doc = Doc(W, H, "Alex Leschik — Founder, ZEN AI Co.",
               "Alex Leschik, founder of ZEN AI Co. in Washington, D.C. Building Arsenal, an agentic AI platform, "
-              "and the first youth AI literacy program in U.S. history. A rotating dotted Earth marks Washington, D.C.")
+              "and the first youth AI literacy program in U.S. history. On a rotating dotted Earth, flight arcs launch from "
+              "Washington, D.C., cross the country, then spread around the world, lighting up each region as they arrive.")
     op, cl = frame(doc, W, H, 32 if m else 28)
     gcx, gcy, R = (360, 974, 322) if m else (892, 300, 226)
     doc.add(op,
@@ -677,7 +791,8 @@ def build_hero(m: bool):
             glow(doc, 0, H * 0.55, 560 if m else 480, RED, .05),
             dots_bg(doc, W, H, W * 0.42 if not m else W / 2, 260 if m else 300, 560 if m else 640, op=.11),
             BACKDROP_END)
-    doc.add(globe(doc, gcx, gcy, R, lat_range=(-2, 78) if m else (-56, 78), label_scale=1.5 if m else 1.0))
+    doc.add(globe(doc, gcx, gcy, R, lat_range=(-2, 78) if m else (-56, 78), label_scale=1.5 if m else 1.0,
+                  clip_h=H if m else None))
 
     if not m:
         X, lh = 64, 28
